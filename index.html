@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consterna Cloud | Servidores de Videojuegos Optimizados y Sin Lag para LATAM</title>
+    <meta name="description" content="Hosting gestionado y soporte técnico experto de servidores de videojuegos para Latinoamérica. AMD Ryzen 9 9950X, NVMe, ping ~70-85ms, backups diarios. Jugabilidad extrema, 0 complicaciones.">
+    <meta name="keywords" content="servidor minecraft, servidor zomboid, hosting gaming, servidor videojuegos latinoamerica, game server hosting">
+    <meta property="og:title" content="Consterna Cloud | Servidores Gaming LATAM">
+    <meta property="og:description" content="Servidores de videojuegos listos para jugar, optimizados y sin lag. AMD Ryzen 9 9950X, soporte técnico real.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#09090b',
+                            800: '#0f172a',
+                            card: 'rgba(24, 24, 27, 0.6)',
+                        },
+                        brand: {
+                            cyan: '#06b6d4',
+                            violet: '#8b5cf6',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'blob-delay-2': 'blob 7s infinite 2s',
+                        'blob-delay-4': 'blob 7s infinite 4s',
+                        'fade-in': 'fadeIn 0.8s ease-out both',
+                        'slide-up': 'slideUp 0.7s ease-out both',
+                        'slide-up-delay-1': 'slideUp 0.7s ease-out 0.1s both',
+                        'slide-up-delay-2': 'slideUp 0.7s ease-out 0.2s both',
+                        'slide-up-delay-3': 'slideUp 0.7s ease-out 0.3s both',
+                        'pulse-dot': 'pulseDot 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulseDot: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0.7)' },
+                            '50%': { boxShadow: '0 0 0 6px rgba(34,197,94,0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #09090b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        }
+        .bg-gradient-brand {
+            background-image: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        }
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(39, 39, 42, 0.6);
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(39, 39, 42, 0.8);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .glass-card-interactive:hover {
+            background: rgba(24, 24, 27, 0.85);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
+        }
+        .plan-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(39, 39, 42, 0.8);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .plan-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 30px -8px rgba(139, 92, 246, 0.15);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.35s ease, padding-bottom 0.35s ease;
+            opacity: 0;
+        }
+        .faq-answer.open {
+            opacity: 1;
+        }
+        .glow-cyan-btn {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+            transition: all 0.3s ease;
+        }
+        .glow-cyan-btn:hover {
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.55);
+            transform: translateY(-2px);
+        }
+        .glow-cyan-strong {
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.35), 0 0 80px rgba(6, 182, 212, 0.1);
+        }
+        /* Scroll offset for fixed navbar */
+        section[id] {
+            scroll-margin-top: 5.5rem;
+        }
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Floating WhatsApp CTA mobile */
+        .floating-wa {
+            position: fixed;
+            bottom: 1.25rem;
+            right: 1.25rem;
+            z-index: 40;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+        }
+        @media (min-width: 768px) {
+            .floating-wa { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-cyan selection:text-white">
+
+<!-- Floating WhatsApp CTA (mobile only) -->
+<a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Navbar -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 transition-all duration-300" id="nav-inner">
+            <!-- Logo -->
+            <a href="#" class="flex-shrink-0 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center shadow-lg shadow-brand-cyan/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                </div>
+                <span class="font-bold text-xl tracking-tight">Consterna <span class="text-brand-cyan">Cloud</span></span>
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#beneficios" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Beneficios</a>
+                <a href="#planes" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Planes por RAM</a>
+                <a href="#pagos" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Métodos de Pago</a>
+                <a href="#faq" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Preguntas Frecuentes</a>
+            </div>
+            <!-- CTAs -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-zinc-800 hover:bg-[#5865F2] text-zinc-400 hover:text-white border border-zinc-700 hover:border-[#5865F2] transition-all" title="Únete a nuestro Discord">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                </a>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-full text-white bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-all hover:border-brand-cyan/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan focus:ring-offset-dark-900">
+                    <svg class="w-4 h-4 mr-2 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp Soporte
+                </a>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-zinc-400 hover:text-white focus:outline-none p-2" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800/50">
+        <div class="px-4 pt-3 pb-5 space-y-2">
+            <a href="#beneficios" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Beneficios</a>
+            <a href="#planes" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Planes por RAM</a>
+            <a href="#pagos" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Métodos de Pago</a>
+            <a href="#faq" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Preguntas Frecuentes</a>
+            <div class="pt-3 border-t border-zinc-800/50 space-y-3">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-[#5865F2]/10 border border-[#5865F2]/30 hover:bg-[#5865F2]/20 transition-colors">
+                    <svg class="w-5 h-5 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                    Únete a Discord
+                </a>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 transition-colors">
+                    <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp Soporte
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <!-- Ambient Lights -->
+    <div class="absolute top-1/4 left-1/4 w-[28rem] h-[28rem] bg-brand-cyan/15 rounded-full mix-blend-screen filter blur-[120px] animate-blob pointer-events-none"></div>
+    <div class="absolute top-1/3 right-1/4 w-[28rem] h-[28rem] bg-brand-violet/15 rounded-full mix-blend-screen filter blur-[120px] animate-blob-delay-2 pointer-events-none"></div>
+    <div class="absolute bottom-1/4 left-1/2 w-[24rem] h-[24rem] bg-brand-cyan/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob-delay-4 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <!-- Pill Badge -->
+        <div class="animate-fade-in inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-card mb-10">
+            <span class="flex h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse-dot"></span>
+            <span class="text-xs sm:text-sm font-medium text-zinc-300">⚡ AMD Ryzen 9 9950X (5.7 GHz) &nbsp;•&nbsp; 🌎 Ping ~70-85ms LATAM &nbsp;•&nbsp; 💾 Backups Diarios</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="animate-slide-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+            Servidores de Videojuegos<br>
+            Listos para Jugar,<br class="hidden sm:block">
+            <span class="text-gradient">Optimizados y Sin Lag</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="animate-slide-up-delay-1 mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed">
+            Olvídate de configurar puertos, pelear con mods incompatibles o sufrir por caídas de TPS. Nosotros preparamos tu servidor, optimizamos el mundo y te damos soporte técnico directo para que tú y tus amigos solo entren a disfrutar.
+        </p>
+
+        <!-- CTAs -->
+        <div class="animate-slide-up-delay-2 mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#planes" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white bg-brand-cyan hover:bg-cyan-400 glow-cyan-btn">
+                Ver Planes por RAM
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+            <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20montar%20un%20servidor." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-brand-violet/50 transition-all backdrop-blur-sm">
+                <svg class="w-5 h-5 mr-2 text-brand-violet" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hablar con un Asesor
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TRUST BAR ==================== -->
+<section class="border-y border-zinc-800/80 bg-zinc-900/40 backdrop-blur-sm py-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 text-center">
+            <div class="px-4">
+                <div class="flex justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-1">Nodo Miami / Florida</h3>
+                <p class="text-xs text-zinc-500 leading-relaxed">Enlace directo por cable submarino a Colombia y LATAM.</p>
+            </div>
+            <div class="px-4">
+                <div class="flex justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-violet/10 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-1">Ryzen 9 9950X</h3>
+                <p class="text-xs text-zinc-500 leading-relaxed">Rendimiento mononúcleo líder para evitar lag de entidades.</p>
+            </div>
+            <div class="px-4">
+                <div class="flex justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-1">Almacenamiento NVMe PCIe</h3>
+                <p class="text-xs text-zinc-500 leading-relaxed">Carga de chunks y guardado de mundos en milisegundos.</p>
+            </div>
+            <div class="px-4">
+                <div class="flex justify-center mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-violet/10 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                </div>
+                <h3 class="text-sm font-bold text-white mb-1">Soporte Sysadmin Real</h3>
+                <p class="text-xs text-zinc-500 leading-relaxed">Diagnóstico directo de archivos de logs y consola.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== BENEFITS SECTION ==================== -->
+<section id="beneficios" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-3">Ventajas Técnicas</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">¿Por qué elegir <span class="text-gradient">Consterna</span>?</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-lg">Nuestra infraestructura está pensada para jugadores exigentes que no quieren perder tiempo en configuraciones complejas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Benefit 1 -->
+            <div class="glass-card glass-card-interactive p-8 rounded-2xl relative overflow-hidden group reveal">
+                <div class="absolute top-0 right-0 p-6 opacity-[0.04] transform group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-28 h-28 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 border border-zinc-700 group-hover:border-brand-cyan/40 transition-colors">
+                    <svg class="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Latencia Ultra Estable (~70-85ms)</h3>
+                <p class="text-zinc-400 leading-relaxed text-sm">Servidores ubicados estratégicamente en Florida, optimizados para tráfico hacia Colombia, Perú, Chile, México y Argentina sin saltos raros de conexión.</p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="glass-card glass-card-interactive p-8 rounded-2xl relative overflow-hidden group reveal">
+                <div class="absolute top-0 right-0 p-6 opacity-[0.04] transform group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-28 h-28 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 border border-zinc-700 group-hover:border-brand-violet/40 transition-colors">
+                    <svg class="w-6 h-6 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Mundos Pre-generados (Cero Tirones)</h3>
+                <p class="text-zinc-400 leading-relaxed text-sm">Pre-cargamos el mapa antes de entregártelo usando Chunky. Explora a pie, en vehículos de Zomboid o volando sin congelamientos de pantalla.</p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="glass-card glass-card-interactive p-8 rounded-2xl relative overflow-hidden group reveal">
+                <div class="absolute top-0 right-0 p-6 opacity-[0.04] transform group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-28 h-28 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 border border-zinc-700 group-hover:border-brand-cyan/40 transition-colors">
+                    <svg class="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Diagnóstico Experto de Crash Logs</h3>
+                <p class="text-zinc-400 leading-relaxed text-sm">¿Tu servidor crasheó por un mod de Fabric, Forge o Steam Workshop? Leemos y analizamos los reportes de error para arreglarlo por ti sin costo extra.</p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="glass-card glass-card-interactive p-8 rounded-2xl relative overflow-hidden group reveal">
+                <div class="absolute top-0 right-0 p-6 opacity-[0.04] transform group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-28 h-28 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                </div>
+                <div class="w-12 h-12 bg-zinc-800 rounded-xl flex items-center justify-center mb-6 border border-zinc-700 group-hover:border-brand-violet/40 transition-colors">
+                    <svg class="w-6 h-6 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Backups Diarios Automáticos</h3>
+                <p class="text-zinc-400 leading-relaxed text-sm">Copias de seguridad automáticas en la nube para asegurar que construcciones, bases y progresos nunca se pierdan por un archivo corrupto.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PLANES SECTION ==================== -->
+<section id="planes" class="py-24 bg-zinc-900/40 border-y border-zinc-800/80 relative z-10">
+    <!-- Subtle background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-brand-violet/5 rounded-full filter blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16 reveal">
+            <p class="text-brand-violet text-sm font-semibold uppercase tracking-widest mb-3">Precios Transparentes</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Planes por <span class="text-gradient">Memoria RAM</span></h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-lg">Rendimiento garantizado ajustado a tus necesidades. Sin sobreventa de recursos.</p>
+        </div>
+
+        <!-- First Row (3 cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start mb-8">
+            <!-- Plan 1: 4GB -->
+            <div class="plan-card rounded-3xl p-8 flex flex-col h-full reveal">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Tier 4 GB</h3>
+                    <p class="text-sm text-zinc-400 min-h-[2.5rem]">Servidores base para grupos pequeños sin carga de mods pesados.</p>
+                </div>
+                <div class="mb-6 pb-6 border-b border-zinc-800">
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-extrabold text-white">$7.50</span>
+                        <span class="text-lg text-zinc-500 ml-2">USD / mes</span>
+                    </div>
+                    <p class="text-sm text-brand-cyan mt-1 font-medium">~$30.000 COP</p>
+                </div>
+                <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-300">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>2 Cores Ryzen 9 9950X</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>NVMe ultrarrápido</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Backups diarios & Soporte técnico</span></li>
+                </ul>
+                <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Minecraft Vanilla/Paper (3-8 amigos), Terraria, Core Keeper, Valheim básico.</p>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%204%20GB%20($7.50%20USD%20/%20$30.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Contratar Plan
+                </a>
+            </div>
+
+            <!-- Plan 2: 6GB -->
+            <div class="plan-card rounded-3xl p-8 flex flex-col h-full reveal">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Tier 6 GB</h3>
+                    <p class="text-sm text-zinc-400 min-h-[2.5rem]">El balance ideal para aventuras cooperativas con mods de calidad de vida.</p>
+                </div>
+                <div class="mb-6 pb-6 border-b border-zinc-800">
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-extrabold text-white">$9.50</span>
+                        <span class="text-lg text-zinc-500 ml-2">USD / mes</span>
+                    </div>
+                    <p class="text-sm text-brand-cyan mt-1 font-medium">~$38.000 COP</p>
+                </div>
+                <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-300">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>3 Cores Ryzen 9 9950X</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Pre-generación de terreno incluida</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Soporte de mods</span></li>
+                </ul>
+                <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Minecraft Fabric con Voice Chat y mods visuales (20-40 mods), Project Zomboid cooperativo estándar.</p>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%206%20GB%20($9.50%20USD%20/%20$38.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Contratar Plan
+                </a>
+            </div>
+
+            <!-- Plan 3: 8GB DESTACADO -->
+            <div class="relative bg-zinc-900 rounded-3xl p-8 flex flex-col h-full border-2 border-brand-cyan glow-cyan-strong reveal md:col-span-2 lg:col-span-1">
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
+                    <span class="bg-brand-cyan text-zinc-950 text-xs font-bold uppercase tracking-widest py-1.5 px-5 rounded-full shadow-lg shadow-brand-cyan/50 whitespace-nowrap">⭐ Más Popular</span>
+                </div>
+                <div class="mb-4 mt-3">
+                    <h3 class="text-xl font-bold text-white mb-2">Tier 8 GB</h3>
+                    <p class="text-sm text-zinc-300 min-h-[2.5rem]">La opción favorita de la comunidad. Potencia suficiente para mods pesados y partidas demandantes.</p>
+                </div>
+                <div class="mb-6 pb-6 border-b border-zinc-700">
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-extrabold text-white">$12.50</span>
+                        <span class="text-lg text-zinc-400 ml-2">USD / mes</span>
+                    </div>
+                    <p class="text-sm text-brand-cyan mt-1 font-semibold">~$50.000 COP</p>
+                </div>
+                <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-200">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="font-medium">4 Cores Ryzen 9 9950X</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="font-medium">Optimización avanzada de memoria</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="font-medium">Pre-generación Chunky</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="font-medium">Soporte prioritario</span></li>
+                </ul>
+                <p class="text-xs text-zinc-400 mb-5 pb-0 border-t border-zinc-700 pt-4 flex items-start gap-2"><svg class="w-4 h-4 text-zinc-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Project Zomboid con mods (vehículos, armas, mapas), Palworld co-op, modpacks medianos de Minecraft (60-100 mods).</p>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%208%20GB%20($12.50%20USD%20/%20$50.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-4 rounded-xl font-bold text-center bg-brand-cyan hover:bg-cyan-400 text-zinc-950 transition-colors shadow-lg shadow-brand-cyan/40 flex justify-center items-center gap-2 text-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Contratar Tier 8 GB
+                </a>
+            </div>
+        </div>
+
+        <!-- Second Row (2 cards) centered -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <!-- Plan 4: 12GB -->
+            <div class="plan-card rounded-3xl p-8 flex flex-col h-full reveal">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Tier 12 GB</h3>
+                    <p class="text-sm text-zinc-400 min-h-[2.5rem]">Para proyectos exigentes, servidores técnicos y comunidades activas.</p>
+                </div>
+                <div class="mb-6 pb-6 border-b border-zinc-800">
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-extrabold text-white">$18.50</span>
+                        <span class="text-lg text-zinc-500 ml-2">USD / mes</span>
+                    </div>
+                    <p class="text-sm text-brand-cyan mt-1 font-medium">~$74.000 COP</p>
+                </div>
+                <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-300">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>5 Cores Ryzen 9 9950X</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Configuración de flags Java Aikar optimizadas</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Backups continuos</span></li>
+                </ul>
+                <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Modpacks masivos (All The Mods, Create, Mekanism), servidores de Zomboid de 15-25 personas, comunidades de supervivencia.</p>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%2012%20GB%20($18.50%20USD%20/%20$74.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Contratar Plan
+                </a>
+            </div>
+
+            <!-- Plan 5: 16GB Dedicado -->
+            <div class="plan-card rounded-3xl p-8 flex flex-col h-full border-brand-violet/30 reveal">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">Tier 16 GB <span class="text-brand-violet text-sm font-bold uppercase tracking-wide ml-1">Dedicado</span></h3>
+                    <p class="text-sm text-zinc-400 min-h-[2.5rem]">Rendimiento absoluto para creadores de contenido, series de streamers y torneos.</p>
+                </div>
+                <div class="mb-6 pb-6 border-b border-zinc-800">
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-extrabold text-white">$24.50</span>
+                        <span class="text-lg text-zinc-500 ml-2">USD / mes</span>
+                    </div>
+                    <p class="text-sm text-brand-cyan mt-1 font-medium">~$98.000 COP</p>
+                </div>
+                <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-300">
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-violet flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="font-medium text-white">6 Cores DEDICADOS Ryzen 9 9950X</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-violet flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Máxima prioridad de red</span></li>
+                    <li class="flex items-start gap-3"><svg class="w-5 h-5 text-brand-violet flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Soporte técnico en tiempo real durante eventos</span></li>
+                </ul>
+                <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Servidores de Rust, eventos multitudinarios, series con decenas de jugadores en simultáneo.</p>
+                <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%2016%20GB%20Dedicado%20($24.50%20USD%20/%20$98.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-brand-violet/50 bg-brand-violet/10 hover:bg-brand-violet/20 text-white transition-colors flex justify-center items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Contratar Plan Dedicado
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ADVISORY BANNER ==================== -->
+<section class="py-16 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/80 border border-brand-cyan/25 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden reveal">
+            <div class="absolute top-0 right-0 w-72 h-72 bg-brand-violet/15 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-cyan/15 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">💬 ¿No estás seguro de cuánta RAM necesita tu servidor?</h3>
+                    <p class="text-zinc-300 text-base md:text-lg leading-relaxed">No malgastes dinero pagando memoria de más ni te arriesgues a que el servidor crashee en medio de una partida. Mándanos tu lista de mods o cuéntanos qué quieren jugar y te calculamos el plan justo.</p>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-auto">
+                    <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20No%20s%C3%A9%20cu%C3%A1nta%20RAM%20necesito.%20Quiero%20jugar%20a:%20[juego]%20con%20[n%C3%BAmero]%20amigos%20y%20esta%20lista%20de%20mods:%20" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-zinc-900 bg-white hover:bg-zinc-100 shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all transform hover:scale-[1.03] gap-2">
+                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Calcular mi plan exacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PAYMENT METHODS ==================== -->
+<section id="pagos" class="py-24 relative z-10 border-t border-zinc-800/80 bg-zinc-900/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-3">Formas de Pago</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Cero Complicaciones • Transparencia Total</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-lg">Paga con facilidad desde cualquier país de Latinoamérica o dentro de Colombia.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Bloque Internacional -->
+            <div class="glass-card glass-card-interactive p-8 rounded-3xl reveal">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center border border-blue-500/20 flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">🌎 Internacional</h3>
+                        <p class="text-sm text-zinc-400 mt-1">(México, Perú, Chile, Argentina, etc.)</p>
+                    </div>
+                </div>
+                <p class="text-zinc-300 leading-relaxed text-sm">Pagos rápidos y seguros mediante <strong class="text-white">PayPal</strong> en dólares americanos (USD). Acepta saldo PayPal, tarjeta de crédito o tarjeta débito internacional.</p>
+            </div>
+
+            <!-- Bloque Colombia -->
+            <div class="glass-card glass-card-interactive p-8 rounded-3xl border-brand-cyan/20 reveal" style="background: rgba(6, 182, 212, 0.03);">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-12 h-12 bg-brand-cyan/10 rounded-xl flex items-center justify-center border border-brand-cyan/20 flex-shrink-0">
+                        <svg class="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">🇨🇴 Colombia</h3>
+                        <p class="text-sm text-brand-cyan mt-1">(Transferencias Inmediatas a Cero Comisión)</p>
+                    </div>
+                </div>
+                <p class="text-zinc-300 leading-relaxed text-sm">Transferencias directas en pesos colombianos (COP) mediante <strong class="text-white">Nequi</strong> y cuenta <strong class="text-white">Nu Colombia</strong> a través del sistema interoperable Bre-B (usando llave / número celular). Confirmación al instante sin recargos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FAQ SECTION ==================== -->
+<section id="faq" class="py-24 relative z-10 border-t border-zinc-800/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+            <p class="text-brand-violet text-sm font-semibold uppercase tracking-widest mb-3">Dudas Resueltas</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Preguntas Frecuentes</h2>
+            <p class="text-zinc-400 text-lg">Resolvemos tus dudas antes de que contrates.</p>
+        </div>
+
+        <div class="space-y-4 reveal">
+            <!-- FAQ 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:ring-inset cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+                    <span class="text-left font-semibold text-white pr-4">¿Cómo y cuándo me entregan el servidor?</span>
+                    <svg class="w-5 h-5 text-zinc-400 transform transition-transform duration-300 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6 text-zinc-400 text-sm leading-relaxed" role="region">
+                    <p class="pb-6">Una vez confirmado tu pago, preparamos la instalación, pre-generamos el mapa y te entregamos la IP directa lista para conectarte en cuestión de minutos. Si deseas acceso al panel SFTP/archivos, también te lo proporcionamos.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:ring-inset cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+                    <span class="text-left font-semibold text-white pr-4">¿Qué pasa si el servidor se apaga o un mod da error?</span>
+                    <svg class="w-5 h-5 text-zinc-400 transform transition-transform duration-300 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6 text-zinc-400 text-sm leading-relaxed" role="region">
+                    <p class="pb-6">No te dejamos solo. Nos escribes por WhatsApp, abrimos los archivos de logs de la consola, identificamos la incompatibilidad del mod y lo corregimos por ti.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:ring-inset cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+                    <span class="text-left font-semibold text-white pr-4">¿Puedo cambiar de juego o ampliar la RAM después?</span>
+                    <svg class="w-5 h-5 text-zinc-400 transform transition-transform duration-300 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6 text-zinc-400 text-sm leading-relaxed" role="region">
+                    <p class="pb-6">Claro que sí. Puedes subir de plan en cualquier momento pagando solo la diferencia del mes, o pedirnos cambiar de juego sin perder los archivos de tu servidor anterior.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button class="w-full px-6 py-5 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:ring-inset cursor-pointer" onclick="toggleFaq(this)" aria-expanded="false">
+                    <span class="text-left font-semibold text-white pr-4">¿Cómo funcionan las renovaciones? ¿Hay cobros automáticos a mi tarjeta?</span>
+                    <svg class="w-5 h-5 text-zinc-400 transform transition-transform duration-300 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer px-6 text-zinc-400 text-sm leading-relaxed" role="region">
+                    <p class="pb-6">Cero cobros sorpresa. Las renovaciones se gestionan mes a mes de forma transparente por WhatsApp. Unos días antes de que termine tu periodo te avisamos para renovar únicamente si deseas seguir jugando.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="py-20 relative z-10 border-t border-zinc-800/80">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">¿Listo para jugar sin lag?</h2>
+        <p class="text-zinc-400 text-lg mb-8">Tu servidor puede estar listo en minutos. Escríbenos y empezamos.</p>
+        <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-4 text-lg font-bold rounded-full text-white bg-brand-cyan hover:bg-cyan-400 glow-cyan-btn gap-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Comenzar Ahora por WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="border-t border-zinc-800 bg-zinc-950 py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="#" class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            </div>
+            <span class="font-bold text-lg text-white tracking-tight">Consterna <span class="text-brand-cyan">Cloud</span></span>
+        </a>
+
+        <div class="text-center md:text-left">
+            <p class="text-sm text-zinc-500 mb-1">© 2026 Consterna Cloud. Infraestructura y gestión especializada de servidores de videojuegos.</p>
+            <p class="text-xs text-zinc-600">Servicio independiente de optimización y soporte técnico. No afiliado con Mojang, Valve ni The Indie Stone.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-zinc-900 text-zinc-400 hover:text-white hover:bg-[#5865F2] transition-all border border-zinc-800 hover:border-[#5865F2]" title="Únete a nuestro Discord">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+            </a>
+            <a href="https://wa.me/573214118506" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-zinc-900 text-zinc-400 hover:text-white hover:bg-[#25D366] transition-all border border-zinc-800 hover:border-[#25D366]" title="Soporte WhatsApp">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ========== Mobile Menu Toggle ==========
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', !isOpen);
+    });
+
+    // Close mobile menu on nav link click
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // ========== Navbar Shrink on Scroll ==========
+    const nav = document.getElementById('main-nav');
+    const navInner = document.getElementById('nav-inner');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            navInner.classList.remove('h-20');
+            navInner.classList.add('h-16');
+            nav.style.borderBottomColor = 'rgba(39, 39, 42, 0.8)';
+        } else {
+            navInner.classList.remove('h-16');
+            navInner.classList.add('h-20');
+            nav.style.borderBottomColor = 'rgba(39, 39, 42, 0.6)';
+        }
+    }, { passive: true });
+
+    // ========== FAQ Accordion ==========
+    function toggleFaq(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = answer.classList.contains('open');
+
+        // Close all FAQs
+        document.querySelectorAll('.faq-answer').forEach(el => {
+            el.style.maxHeight = null;
+            el.classList.remove('open');
+        });
+        document.querySelectorAll('.faq-icon').forEach(el => {
+            el.classList.remove('rotate-180');
+        });
+        document.querySelectorAll('[onclick="toggleFaq(this)"]').forEach(btn => {
+            btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+            answer.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.classList.add('rotate-180');
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    // ========== Intersection Observer: Reveal on Scroll ==========
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
