@@ -129,9 +129,8 @@
         .glow-cyan-strong {
             box-shadow: 0 0 40px rgba(6, 182, 212, 0.35), 0 0 80px rgba(6, 182, 212, 0.1);
         }
-        /* Scroll offset for fixed navbar */
         section[id] {
-            scroll-margin-top: 5.5rem;
+            scroll-margin-top: var(--nav-h, 5.5rem);
         }
         /* Reveal on scroll */
         .reveal {
@@ -187,7 +186,7 @@
                 <span class="font-bold text-xl tracking-tight">Consterna <span class="text-brand-cyan">Cloud</span></span>
             </a>
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden md:flex items-center space-x-6">
                 <a href="#beneficios" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Beneficios</a>
                 <a href="#planes" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Planes por RAM</a>
                 <a href="#pagos" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Métodos de Pago</a>
@@ -724,7 +723,8 @@
     const navInner = document.getElementById('nav-inner');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) {
+        const scrolled = window.scrollY > 80;
+        if (scrolled) {
             navInner.classList.remove('h-20');
             navInner.classList.add('h-16');
             nav.style.borderBottomColor = 'rgba(39, 39, 42, 0.8)';
@@ -733,6 +733,8 @@
             navInner.classList.add('h-20');
             nav.style.borderBottomColor = 'rgba(39, 39, 42, 0.6)';
         }
+        // Update scroll offset to match navbar height
+        document.documentElement.style.setProperty('--nav-h', scrolled ? '4.5rem' : '5.5rem');
     }, { passive: true });
 
     // ========== FAQ Accordion ==========
