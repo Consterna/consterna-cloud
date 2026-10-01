@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.consterna-cloud.workers.dev/sitemap.xml
+Sitemap: https://consterna-cloud.pages.dev/sitemap.xml
