@@ -1,35 +1,28 @@
-# ☁️ Consterna Cloud
+# ☁️ Consterna Cloud - Game Server Hosting
 
-Un **almacenamiento en la nube personal** diseñado con un enfoque minimalista y moderno. 
-Actualmente el proyecto se encuentra en la **Fase 1**, enfocada exclusivamente en el desarrollo de una interfaz de usuario interactiva y fluida utilizando tecnologías web estándar.
+Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio de hosting de servidores de videojuegos enfocado en LATAM, operado como servicio boutique/concierge.
 
----
+## 🚀 Archivos del Proyecto
 
-## 🎨 Características Actuales (Fase 1: Frontend)
+- `index.html`: La landing page principal (HTML5, Tailwind CSS, animaciones custom).
+- `banner_whatsapp.jpg`: Imagen OG (Open Graph) para las previsualizaciones de WhatsApp, Discord y Facebook.
+- `robots.txt` & `sitemap.xml`: Archivos de configuración SEO para motores de búsqueda (Google, Bing).
+- `Control_Clientes_Consterna_V1.xlsx`: Archivo "CRM" Excel automatizado para el seguimiento de renovaciones y pagos.
 
-- **Diseño Moderno y Limpio:** Interfaz intuitiva para gestionar archivos con una curva de aprendizaje nula.
-- **Responsive Design:** Adaptable para su correcta visualización tanto en escritorio como en dispositivos móviles.
-- **Ultraligero:** Construido sin frameworks pesados, utilizando puro HTML, CSS y JavaScript Vanilla para garantizar el máximo rendimiento.
+## 🔧 Detalles Técnicos (index.html)
 
-## 🚀 Tecnologías
+- **Framework CSS:** Tailwind CSS (vía CDN dinámico).
+- **Fuente:** Plus Jakarta Sans (Google Fonts) cargada con `preconnect` y `preload`.
+- **Accesibilidad (a11y):**
+  - Implementación estricta de `aria-controls`, `aria-expanded` y `aria-hidden`.
+  - Soporte para preferencias del usuario (`prefers-reduced-motion: reduce`).
+- **Rendimiento:**
+  - Uso de `content-visibility: auto` para diferir el renderizado de secciones fuera de pantalla.
+  - Aceleración por GPU para animaciones (`will-change: transform`).
+  - Scroll horizontal estrictamente bloqueado para dispositivos móviles (`max-width: 100vw; overflow-x: hidden`).
 
-- **HTML5:** Estructura semántica.
-- **CSS3:** Estilos, variables CSS y animaciones fluidas.
-- **JavaScript (Vanilla):** Lógica de interacciones en el navegador.
+## 📞 Enlaces de Contacto Dinámicos
+Los planes apuntan automáticamente a WhatsApp con parámetros pre-llenados (`?text=...`) codificados en URI para una mejor conversión de ventas.
 
-## 🛠️ Estado y Visión del Proyecto (Roadmap)
-
-Este repositorio es la semilla de un proyecto Full-Stack mucho más ambicioso:
-
-- [x] **Fase 1:** Maquetación e interacciones del Frontend.
-- [ ] **Fase 2:** Creación de un Backend robusto (se planea utilizar **Python** con **FastAPI** o **Flask**).
-- [ ] **Fase 3:** Implementación de Base de Datos para gestión de usuarios, roles y permisos de archivos.
-- [ ] **Fase 4:** Funcionalidades avanzadas (generación de enlaces para compartir, visualizador multimedia integrado, etc.)
-- [ ] **Fase 5:** Despliegue (Dockerización).
-
-## 🏃‍♂️ Cómo ejecutar localmente
-
-Al ser puro HTML/CSS/JS por el momento, no requieres instalar Node.js ni ningún servidor complejo:
-1. Clona este repositorio: `git clone https://github.com/Consterna/consterna-cloud.git`
-2. Abre la carpeta del proyecto.
-3. Haz doble clic en el archivo `index.html` o ábrelo con la extensión *Live Server* en tu editor de código preferido.
+## ☁️ Despliegue (Deploy)
+Pensado para ser subido directamente a **Cloudflare Pages / Workers**. Solo arrastra los archivos HTML, TXT, XML y JPG al dashboard.
