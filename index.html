@@ -10,12 +10,16 @@
     <meta property="og:description" content="Servidores de videojuegos listos para jugar, optimizados y sin lag. AMD Ryzen 9 9950X, soporte técnico real.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.consterna-cloud.workers.dev/banner_whatsapp.jpg">
+    <meta property="og:url" content="https://www.consterna-cloud.workers.dev/">
+    <meta name="theme-color" content="#09090b">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
     
+    <!-- Fonts: preconnect + preload for faster first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -174,6 +178,25 @@
         @media (min-width: 768px) {
             .floating-wa { display: none; }
         }
+        /* GPU acceleration for animated blobs */
+        .animate-blob, .animate-blob-delay-2, .animate-blob-delay-4 {
+            will-change: transform;
+        }
+        /* Skip rendering offscreen sections until user scrolls near them */
+        .content-defer {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 600px;
+        }
+        /* Respect user accessibility preference: disable all animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-cyan selection:text-white">
@@ -329,7 +352,7 @@
 </section>
 
 <!-- ==================== BENEFITS SECTION ==================== -->
-<section id="beneficios" class="py-24 relative z-10">
+<section id="beneficios" class="py-24 relative z-10 content-defer">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal">
             <p class="text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-3">Ventajas Técnicas</p>
@@ -603,7 +626,7 @@
 </section>
 
 <!-- ==================== FAQ SECTION ==================== -->
-<section id="faq" class="py-24 relative z-10 border-t border-zinc-800/80">
+<section id="faq" class="py-24 relative z-10 border-t border-zinc-800/80 content-defer">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal">
             <p class="text-brand-violet text-sm font-semibold uppercase tracking-widest mb-3">Dudas Resueltas</p>
@@ -660,7 +683,7 @@
 </section>
 
 <!-- ==================== COMMUNITY / DISCORD CTA ==================== -->
-<section id="comunidad" class="py-20 relative z-10 border-t border-zinc-800/80">
+<section id="comunidad" class="py-20 relative z-10 border-t border-zinc-800/80 content-defer">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <p class="text-[#5865F2] text-sm font-semibold uppercase tracking-widest mb-3">Comunidad</p>
         <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Únete a la comunidad de <span class="text-gradient">Consterna</span></h2>
