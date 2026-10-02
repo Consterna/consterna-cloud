@@ -4,8 +4,16 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import col, func, select
 
-from app.api.deps import CurrentUser, SessionDep, get_current_active_superuser
-from app.models import Server, ServerCreate, ServerPublic, ServersPublic, ServerUpdate, Message, Client
+from app.api.deps import SessionDep, get_current_active_superuser
+from app.models import (
+    Client,
+    Message,
+    Server,
+    ServerCreate,
+    ServerPublic,
+    ServersPublic,
+    ServerUpdate,
+)
 
 router = APIRouter(prefix="/servers", tags=["servers"])
 

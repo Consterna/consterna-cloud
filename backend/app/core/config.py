@@ -4,9 +4,7 @@ from typing import Literal, Self
 from pydantic import (
     EmailStr,
     HttpUrl,
-    PostgresDsn,
     computed_field,
-    field_validator,
     model_validator,
 )
 from pydantic_settings import BaseSettings, SettingsConfigDict

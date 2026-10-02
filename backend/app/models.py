@@ -96,7 +96,7 @@ class Client(ClientBase, table=True):
         default_factory=get_datetime_utc,
         sa_type=DateTime(timezone=True),  # type: ignore
     )
-    servers: list["Server"] = Relationship(back_populates="owner", cascade_delete=True)
+    servers: list[Server] = Relationship(back_populates="owner", cascade_delete=True)
 
 
 class ClientPublic(ClientBase):

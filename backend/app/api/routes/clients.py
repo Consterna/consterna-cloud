@@ -4,8 +4,15 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import col, func, select
 
-from app.api.deps import CurrentUser, SessionDep, get_current_active_superuser
-from app.models import Client, ClientCreate, ClientPublic, ClientsPublic, ClientUpdate, Message
+from app.api.deps import SessionDep, get_current_active_superuser
+from app.models import (
+    Client,
+    ClientCreate,
+    ClientPublic,
+    ClientsPublic,
+    ClientUpdate,
+    Message,
+)
 
 router = APIRouter(prefix="/clients", tags=["clients"])
 
@@ -33,7 +40,7 @@ def create_client(*, session: SessionDep, client_in: ClientCreate) -> Any:
     existing = session.exec(select(Client).where(Client.email == client_in.email)).first()
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered for a client")
-        
+
     client = Client.model_validate(client_in)
     session.add(client)
     session.commit()
