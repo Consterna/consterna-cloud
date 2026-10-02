@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -22,32 +22,31 @@
     <meta name="twitter:image" content="https://consterna-cloud.pages.dev/banner_whatsapp.jpg">
     <meta name="theme-color" content="#09090b">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+    <!-- Favicon (Base64-encoded to completely prevent HTML parser bugs on mobile) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7im4HvuI88L3RleHQ+PC9zdmc+">
     
     <!-- Fonts: preconnect + preload for faster first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Fallback style to prevent FOUC while Tailwind CDN loads -->
+    <style>
+        html { visibility: hidden; opacity: 0; }
+        html.tw-ready { visibility: visible; opacity: 1; transition: opacity 0.25s ease; }
+    </style>
+    
+    <!-- Tailwind CSS CDN (Restored for easy editing without build steps) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
                     colors: {
-                        dark: {
-                            900: '#09090b',
-                            800: '#0f172a',
-                            card: 'rgba(24, 24, 27, 0.6)',
-                        },
-                        brand: {
-                            cyan: '#06b6d4',
-                            violet: '#8b5cf6',
-                        }
+                        dark: { 900: '#09090b', 800: '#0f172a', card: 'rgba(24, 24, 27, 0.6)' },
+                        brand: { cyan: '#06b6d4', violet: '#8b5cf6' }
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
@@ -82,6 +81,24 @@
                 }
             }
         }
+    </script>
+    <script>
+        // Reveal content once Tailwind has injected its styles to prevent FOUC
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new MutationObserver(() => {
+                if (document.getElementById('tailwind-play')) {
+                    document.documentElement.classList.add('tw-ready');
+                    observer.disconnect();
+                }
+            });
+            if (document.getElementById('tailwind-play')) {
+                document.documentElement.classList.add('tw-ready');
+            } else {
+                observer.observe(document.head, { childList: true });
+                // Fallback timeout to ensure page becomes visible
+                setTimeout(() => document.documentElement.classList.add('tw-ready'), 3000);
+            }
+        });
     </script>
     <style>
         html, body {
