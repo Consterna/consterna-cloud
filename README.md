@@ -1,6 +1,6 @@
 # ☁️ Consterna Cloud - Game Server Hosting
 
-Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio de hosting de servidores de videojuegos enfocado en LATAM, operado como servicio boutique/concierge.
+Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio de hosting gestionado (Managed Service / Reseller) de servidores de videojuegos. Ofrecemos infraestructura de hardware de partners líderes con nodos globales (Norteamérica, Europa, Asia/Oceanía) y rutas optimizadas para LATAM (incluyendo Argentina y el Cono Sur), operado como un servicio boutique/concierge.
 
 ## 🚀 Archivos del Proyecto
 
