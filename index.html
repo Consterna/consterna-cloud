@@ -85,22 +85,24 @@
     </script>
     <script>
         // Fallback timeout to ensure page becomes visible
-        setTimeout(() => document.documentElement.classList.add('tw-ready'), 3000);
+        setTimeout(function() { document.documentElement.classList.add('tw-ready'); }, 3000);
 
         // Reveal content once Tailwind has injected its styles to prevent FOUC
-        document.addEventListener("DOMContentLoaded", () => {
-            let observer = null;
+        document.addEventListener("DOMContentLoaded", function() {
+            var observer = null;
             if (typeof window.MutationObserver !== 'undefined') {
-                observer = new MutationObserver((mutations) => {
-                    for (const mutation of mutations) {
-                        for (const node of mutation.addedNodes) {
-                            if (node.tagName === 'STYLE' && (node.textContent.includes('--tw-') || node.id === 'tailwind-play')) {
+                observer = new MutationObserver(function(mutations) {
+                    for (var i = 0; i < mutations.length; i++) {
+                        var mutation = mutations[i];
+                        for (var j = 0; j < mutation.addedNodes.length; j++) {
+                            var node = mutation.addedNodes[j];
+                            if (node.tagName === 'STYLE' && ((node.textContent && node.textContent.indexOf('--tw-') !== -1) || node.id === 'tailwind-play')) {
                                 document.documentElement.classList.add('tw-ready');
                                 observer.disconnect();
                                 return;
                             }
                         }
-                        if (mutation.target.tagName === 'STYLE' && (mutation.target.textContent.includes('--tw-') || mutation.target.id === 'tailwind-play')) {
+                        if (mutation.target.tagName === 'STYLE' && ((mutation.target.textContent && mutation.target.textContent.indexOf('--tw-') !== -1) || mutation.target.id === 'tailwind-play')) {
                             document.documentElement.classList.add('tw-ready');
                             observer.disconnect();
                             return;
@@ -109,7 +111,16 @@
                 });
             }
             
-            const hasTailwind = Array.from(document.querySelectorAll('style')).some(s => s.textContent.includes('--tw-') || s.id === 'tailwind-play');
+            var hasTailwind = false;
+            var styles = document.getElementsByTagName('style');
+            for (var k = 0; k < styles.length; k++) {
+                var s = styles[k];
+                if ((s.textContent && s.textContent.indexOf('--tw-') !== -1) || s.id === 'tailwind-play') {
+                    hasTailwind = true;
+                    break;
+                }
+            }
+            
             if (hasTailwind) {
                 document.documentElement.classList.add('tw-ready');
             } else if (observer) {
