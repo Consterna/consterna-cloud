@@ -2,6 +2,13 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.2.1] - Extreme QA & Accessibility Audit
+### Cambios y Reparaciones
+- **Reparación de Enlaces:** Se reemplazaron enlaces ancla muertos (`href="#"` -> `href="/"`) en la cabecera y el footer.
+- **SEO Enterprise:** Inyección de etiqueta canónica `<link rel="canonical" href="https://consterna-cloud.pages.dev/">`.
+- **Accesibilidad (A11y):** Resolución de falla de contraste de color en el botón principal del Hero (`text-white` a `text-zinc-950`).
+- **Jerarquía Semántica:** Ajuste estructural cambiando varios `<h3>` a `<h2>` en la sección "Trust Bar" para cumplir estrictamente con los estándares W3C.
+
 ## [1.2.0] - Global Expansion & Managed Service Pivot
 ### Cambios y Añadidos
 - **Copywriting estratégico:** Se ajustaron los textos del sitio para reflejar que somos un Managed Service/Reseller utilizando infraestructura de hardware de partners líderes.
