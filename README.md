@@ -17,9 +17,10 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio d
 
 - **Framework CSS:** Tailwind CSS (vía CDN dinámico).
 - **Fuente:** Plus Jakarta Sans (Google Fonts) cargada con `preconnect` y `preload`.
-- **Accesibilidad (a11y):**
+- **Accesibilidad (a11y) y Compatibilidad:**
   - Implementación estricta de `aria-controls`, `aria-expanded` y `aria-hidden`.
   - Soporte para preferencias del usuario (`prefers-reduced-motion: reduce`).
+  - Soporte total para navegadores legacy (incluyendo Opera clásico) gracias a scripts anti-FOUC en ES5 estricto.
 - **Rendimiento:**
   - Uso de `content-visibility: auto` para diferir el renderizado de secciones fuera de pantalla.
   - Aceleración por GPU para animaciones (`will-change: transform`).
