@@ -5,9 +5,10 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio d
 ## 🚀 Archivos del Proyecto
 
 - `index.html`: La landing page principal (HTML5, Tailwind CSS, animaciones custom).
+- `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, manejando validación estricta de UUID y codificación de emails.
 - `banner_whatsapp.jpg`: Imagen OG (Open Graph) para las previsualizaciones de WhatsApp, Discord y Facebook.
 - `robots.txt` & `sitemap.xml`: Archivos de configuración SEO para motores de búsqueda (Google, Bing).
-- `Control_Clientes_Consterna_V1.xlsx`: Archivo "CRM" Excel automatizado para el seguimiento de renovaciones y pagos.
+- `Control_Clientes_Consterna_V7_ENTERPRISE.xlsx`: Archivo automatizado para el seguimiento de renovaciones y pagos (actualizado a V7 Enterprise).
 
 ## 🔧 Detalles Técnicos (index.html)
 
