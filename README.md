@@ -26,3 +26,6 @@ Los planes apuntan automáticamente a WhatsApp con parámetros pre-llenados (`?t
 
 ## ☁️ Despliegue (Deploy)
 Pensado para ser subido directamente a **Cloudflare Pages / Workers**. Solo arrastra los archivos HTML, TXT, XML y JPG al dashboard.
+
+## Registro de Versiones
+El historial de actualizaciones y parches de seguridad/rendimiento se encuentra en el archivo [CHANGELOG.md](./CHANGELOG.md).
