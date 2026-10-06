@@ -2,6 +2,13 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.4.0] - SEO, Conversion & SVG Legacy Support
+### Cambios y Mejoras
+- **Iconos SVG y Legacy:** Se optimizaron los iconos SVG creando un Sprite y se agregó compatibilidad legacy estricta (`xlink:href`) para dispositivos móviles antiguos.
+- **SEO & Rich Snippets:** Inyección de JSON-LD Schema (con `AggregateRating` y enfoque de Servicio) para mejorar la visibilidad de Rich Snippets en Google. Adicionalmente se optimizó la etiqueta H1 y la `<meta name="description">`.
+- **Conversiones (Trust Badges):** Se añadió un bloque de insignias de confianza (Trust Badges: Setup Instantáneo, Protección DDoS, Soporte 24/7) debajo del Call-To-Action principal para maximizar la tasa de conversión.
+- **Sistema Anti-FOUC:** Corrección de fallos en la implementación previa del script.
+
 ## [1.3.0] - Cross-Browser Resilience & UI Symmetry
 ### Cambios y Mejoras Técnicas
 - **Soporte Legacy y Anti-FOUC:** Refactorización a ES5 estricto del script Anti-FOUC para prevenir errores de sintaxis en navegadores ultra-legacy (ej. Opera) que causaban pantalla blanca infinita.
@@ -19,13 +26,13 @@ Todas las modificaciones importantes de este proyecto serán documentadas en est
 ## [1.2.0] - Global Expansion & Managed Service Pivot
 ### Cambios y Añadidos
 - **Copywriting estratégico:** Se ajustaron los textos del sitio para reflejar que somos un Managed Service/Reseller utilizando infraestructura de hardware de partners líderes.
-- **Expansión de Nodos Globales:** Se actualizó la lista de regiones soportadas (Norteamérica, Europa, Asia/Oceanía), incluyendo soporte explícito y rutas optimizadas para Argentina y el Cono Sur.
+- **Expansión de Nodos Globales:** Se actualizó la lista de regiones soportadas (Norteamérica, Europa, Asia/Oceanía), incluyendo soporte explícito y rutas optimizóadas para Argentina y el Cono Sur.
 
 ## [1.1.1] - Backend & SEO Enhancements
 ### Cambios y Añadidos
 - **Backend FastAPI (Fase 2):** Implementación de backend con FastAPI, migraciones de base de datos con Alembic, validación estricta de UUID y codificación de emails.
 - **A11y:** Se agregó la etiqueta semántica `<main>` para mejor indexación y compatibilidad con lectores de pantalla.
-- **Social Cards:** Se añadieron meta etiquetas de Twitter Card y dimensiones a imágenes para optimizar las previsualizaciones en Discord y WhatsApp.
+- **Social Cards:** Se añadieron meta etiquetas de Twitter Card y dimensiones a imágenes para optimizóar las previsualizaciones en Discord y WhatsApp.
 - **SEO y Cloudflare Pages:** Se actualizaron las URLs SEO y OG para ajustarse a la nueva infraestructura en Cloudflare Pages.
 - **Correcciones Varias:** Arreglo de codificación en `.gitignore` para excluir archivos Excel.
 

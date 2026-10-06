@@ -25,6 +25,10 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio d
   - Uso de `content-visibility: auto` para diferir el renderizado de secciones fuera de pantalla.
   - Aceleración por GPU para animaciones (`will-change: transform`).
   - Scroll horizontal estrictamente bloqueado para dispositivos móviles (`max-width: 100vw; overflow-x: hidden`).
+- **SEO y Conversiones:**
+  - Inyección de JSON-LD Schema (`AggregateRating`) para la generación de Rich Snippets en Google.
+  - Insignias de confianza (Trust Badges) integradas estratégicamente para maximizar conversiones.
+  - Uso de SVG Sprites optimizados con retrocompatibilidad para dispositivos móviles antiguos (`xlink:href`).
 
 ## 📞 Enlaces de Contacto Dinámicos
 Los planes apuntan automáticamente a WhatsApp con parámetros pre-llenados (`?text=...`) codificados en URI para una mejor conversión de ventas.
