@@ -40,9 +40,9 @@
         html.tw-ready { visibility: visible; opacity: 1; transition: opacity 0.25s ease; }
     </style>
     
-    <!-- Tailwind CSS CDN (Deferred for performance, FOUC handled by inline script) -->
+    <!-- Tailwind CSS CDN (FOUC handled by inline script) -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -272,7 +272,7 @@
 
 <!-- Floating WhatsApp CTA (mobile only) -->
 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Contactar por WhatsApp">
-    <svg width="28" height="28" aria-hidden="true" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+    <svg width="28" height="28" aria-hidden="true" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
 </a>
 
 <!-- Navbar -->
@@ -297,10 +297,10 @@
             <!-- CTAs -->
             <div class="hidden md:flex items-center gap-3">
                 <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-zinc-800 hover:bg-[#5865F2] text-zinc-400 hover:text-white border border-zinc-700 hover:border-[#5865F2] transition-all" title="Únete a nuestro Discord">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
                 </a>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold rounded-full text-white bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-all hover:border-brand-cyan/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan focus:ring-offset-dark-900">
-                    <svg width="16" height="16" aria-hidden="true" class="w-4 h-4 mr-2 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="16" height="16" aria-hidden="true" class="w-4 h-4 mr-2 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     WhatsApp Soporte
                 </a>
             </div>
@@ -323,11 +323,11 @@
             <a href="#faq" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">FAQ</a>
             <div class="pt-3 border-t border-zinc-800/50 space-y-3">
                 <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-[#5865F2]/10 border border-[#5865F2]/30 hover:bg-[#5865F2]/20 transition-colors">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
                     Únete a Discord
                 </a>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 transition-colors">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     WhatsApp Soporte
                 </a>
             </div>
@@ -370,7 +370,7 @@
                 <svg width="20" height="20" aria-hidden="true" class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </a>
             <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20montar%20un%20servidor." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-brand-violet/50 transition-all backdrop-blur-sm">
-                <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 mr-2 text-brand-violet" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 mr-2 text-brand-violet" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                 Hablar con un Asesor
             </a>
         </div>
@@ -516,7 +516,7 @@
                 </ul>
                 <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg width="16" height="16" aria-hidden="true" class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Minecraft Vanilla/Paper (3-8 amigos), Terraria, Core Keeper, Valheim básico.</p>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%204%20GB%20($7.50%20USD%20/%20$30.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Contratar Plan
                 </a>
             </div>
@@ -541,7 +541,7 @@
                 </ul>
                 <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg width="16" height="16" aria-hidden="true" class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Minecraft Fabric con Voice Chat y mods visuales (20-40 mods), Project Zomboid cooperativo estándar.</p>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%206%20GB%20($9.50%20USD%20/%20$38.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Contratar Plan
                 </a>
             </div>
@@ -570,7 +570,7 @@
                 </ul>
                 <p class="text-xs text-zinc-400 mb-5 pb-0 border-t border-zinc-700 pt-4 flex items-start gap-2"><svg width="16" height="16" aria-hidden="true" class="w-4 h-4 text-zinc-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Project Zomboid con mods (vehículos, armas, mapas), Palworld co-op, modpacks medianos de Minecraft (60-100 mods).</p>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%208%20GB%20($12.50%20USD%20/%20$50.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-4 rounded-xl font-bold text-center bg-brand-cyan hover:bg-cyan-400 text-zinc-950 transition-colors shadow-lg shadow-brand-cyan/40 flex justify-center items-center gap-2 text-lg">
-                    <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Contratar Tier 8 GB
                 </a>
             </div>
@@ -598,7 +598,7 @@
                 </ul>
                 <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg width="16" height="16" aria-hidden="true" class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Modpacks masivos (All The Mods, Create, Mekanism), servidores de Zomboid de 15-25 personas, comunidades de supervivencia.</p>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%2012%20GB%20($18.50%20USD%20/%20$74.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-zinc-700 bg-zinc-800/50 hover:bg-zinc-700 text-white transition-colors flex justify-center items-center gap-2">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Contratar Plan
                 </a>
             </div>
@@ -623,7 +623,7 @@
                 </ul>
                 <p class="text-xs text-zinc-500 mb-5 pb-0 border-t border-zinc-800/50 pt-4 flex items-start gap-2"><svg width="16" height="16" aria-hidden="true" class="w-4 h-4 text-zinc-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Ideal para: Servidores de Rust, eventos multitudinarios, series con decenas de jugadores en simultáneo.</p>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Me%20interesa%20contratar%20el%20Plan%20Tier%2016%20GB%20Dedicado%20($24.50%20USD%20/%20$98.000%20COP).%20El%20juego%20que%20queremos%20jugar%20es:%20" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl font-bold text-center border border-brand-violet/50 bg-brand-violet/10 hover:bg-brand-violet/20 text-white transition-colors flex justify-center items-center gap-2">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Contratar Plan Dedicado
                 </a>
             </div>
@@ -645,7 +645,7 @@
                 </div>
                 <div class="flex-shrink-0 w-full md:w-auto">
                     <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20No%20s%C3%A9%20cu%C3%A1nta%20RAM%20necesito.%20Quiero%20jugar%20a:%20[juego]%20con%20[n%C3%BAmero]%20amigos%20y%20esta%20lista%20de%20mods:%20" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-zinc-900 bg-white hover:bg-zinc-100 shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all transform hover:scale-[1.03] gap-2">
-                        <svg width="24" height="24" aria-hidden="true" class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                        <svg width="24" height="24" aria-hidden="true" class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                         Calcular mi plan exacto
                     </a>
                 </div>
@@ -760,11 +760,11 @@
         <p class="text-zinc-400 text-lg mb-8 max-w-2xl mx-auto">Resuelve dudas, comparte tu experiencia, encuentra compañeros para jugar y entérate primero de las novedades y promociones.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-lg font-bold rounded-full text-white bg-[#5865F2] hover:bg-[#4752C4] shadow-[0_0_25px_rgba(88,101,242,0.35)] hover:shadow-[0_0_40px_rgba(88,101,242,0.55)] transition-all gap-2">
-                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord"></use></svg>
+                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
                 Únete al Discord
             </a>
             <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20un%20servidor%20o%20saber%20qu%C3%A9%20plan%20se%20adapta%20a%20mi%20grupo." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-lg font-bold rounded-full text-white border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-brand-cyan/50 transition-all gap-2">
-                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                 Comenzar por WhatsApp
             </a>
         </div>
@@ -790,10 +790,10 @@
 
         <div class="flex items-center gap-3">
             <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-zinc-900 text-zinc-400 hover:text-white hover:bg-[#5865F2] transition-all border border-zinc-800 hover:border-[#5865F2]" title="Únete a nuestro Discord">
-                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord"></use></svg>
+                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
             </a>
             <a href="https://wa.me/573214118506" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full bg-zinc-900 text-zinc-400 hover:text-white hover:bg-[#25D366] transition-all border border-zinc-800 hover:border-[#25D366]" title="Soporte WhatsApp">
-                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa"></use></svg>
+                <svg width="24" height="24" aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
             </a>
         </div>
     </div>
