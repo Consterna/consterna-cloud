@@ -556,7 +556,7 @@
                         <span class="text-4xl font-extrabold text-white">$7.50</span>
                         <span class="text-lg text-zinc-500 ml-2">USD / mes</span>
                     </div>
-                    <p class="text-sm text-brand-cyan mt-1 font-medium">~$30.000 COP</p>
+                    <p id="price-cop" class="text-sm text-brand-cyan mt-1 font-medium">~ Calculando COP...</p>
                 </div>
                 <ul class="space-y-3.5 mb-8 flex-1 text-sm text-zinc-300">
                     <li class="flex items-start gap-3"><svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>2 Cores Ryzen 9 9950X</span></li>
@@ -931,6 +931,89 @@
     }, observerOptions);
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+    (function() {
+        var basePriceUSD = 7.50;
+        var margin = 1.05;
+        var fallbackPrice = 32000;
+        var cacheKey = 'consterna_cop_price';
+        var cacheTimeKey = 'consterna_cop_time';
+        var cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
+
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function updatePriceDOM(price) {
+            var el = document.getElementById('price-cop');
+            if (el) {
+                el.textContent = '~$' + formatPrice(price) + ' COP';
+            }
+        }
+
+        function calculateAndSave(trm) {
+            var rawPrice = basePriceUSD * trm * margin;
+            var finalPrice = Math.round(rawPrice / 1000) * 1000;
+            try {
+                localStorage.setItem(cacheKey, finalPrice.toString());
+                localStorage.setItem(cacheTimeKey, new Date().getTime().toString());
+            } catch(e) {}
+            return finalPrice;
+        }
+
+        function loadPrice() {
+            var cachedPrice = null;
+            var cachedTime = null;
+            var now = new Date().getTime();
+
+            try {
+                cachedPrice = localStorage.getItem(cacheKey);
+                cachedTime = localStorage.getItem(cacheTimeKey);
+            } catch(e) {
+                // Ignore localStorage errors (e.g. strict Incognito mode)
+            }
+
+            if (cachedPrice && cachedTime && (now - parseInt(cachedTime, 10) < cacheExpiry)) {
+                updatePriceDOM(parseInt(cachedPrice, 10));
+                return;
+            }
+
+            try {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://open.er-api.com/v6/latest/USD', true);
+                xhr.onload = function() {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            if (data && data.rates && data.rates.COP) {
+                                var price = calculateAndSave(data.rates.COP);
+                                updatePriceDOM(price);
+                            } else {
+                                updatePriceDOM(fallbackPrice);
+                            }
+                        } catch(e) {
+                            updatePriceDOM(fallbackPrice);
+                        }
+                    } else {
+                        updatePriceDOM(fallbackPrice);
+                    }
+                };
+                xhr.onerror = function() {
+                    updatePriceDOM(fallbackPrice);
+                };
+                xhr.send();
+            } catch(e) {
+                updatePriceDOM(fallbackPrice);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadPrice);
+        } else {
+            loadPrice();
+        }
+    })();
 </script>
 </body>
 </html>
