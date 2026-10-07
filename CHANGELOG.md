@@ -2,6 +2,10 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.5.0] - Dynamic Pricing Automation
+### Cambios y Mejoras
+- **Script Cambiario Automático:** Se implementó un script en index.html que consulta la API de tasas de cambio para calcular automáticamente el precio en COP del plan base según la TRM actual, protegiendo los márgenes de ganancia. Cuenta con caché de 24h vía localStorage y mecanismo de fallback seguro.
+
 ## [1.4.0] - SEO, Conversion & SVG Legacy Support
 ### Cambios y Mejoras
 - **Iconos SVG y Legacy:** Se optimizaron los iconos SVG creando un Sprite y se agregó compatibilidad legacy estricta (`xlink:href`) para dispositivos móviles antiguos.
@@ -26,13 +30,13 @@ Todas las modificaciones importantes de este proyecto serán documentadas en est
 ## [1.2.0] - Global Expansion & Managed Service Pivot
 ### Cambios y Añadidos
 - **Copywriting estratégico:** Se ajustaron los textos del sitio para reflejar que somos un Managed Service/Reseller utilizando infraestructura de hardware de partners líderes.
-- **Expansión de Nodos Globales:** Se actualizó la lista de regiones soportadas (Norteamérica, Europa, Asia/Oceanía), incluyendo soporte explícito y rutas optimizóadas para Argentina y el Cono Sur.
+- **Expansión de Nodos Globales:** Se actualizó la lista de regiones soportadas (Norteamérica, Europa, Asia/Oceanía), incluyendo soporte explícito y rutas optimizadas para Argentina y el Cono Sur.
 
 ## [1.1.1] - Backend & SEO Enhancements
 ### Cambios y Añadidos
 - **Backend FastAPI (Fase 2):** Implementación de backend con FastAPI, migraciones de base de datos con Alembic, validación estricta de UUID y codificación de emails.
 - **A11y:** Se agregó la etiqueta semántica `<main>` para mejor indexación y compatibilidad con lectores de pantalla.
-- **Social Cards:** Se añadieron meta etiquetas de Twitter Card y dimensiones a imágenes para optimizóar las previsualizaciones en Discord y WhatsApp.
+- **Social Cards:** Se añadieron meta etiquetas de Twitter Card y dimensiones a imágenes para optimizar las previsualizaciones en Discord y WhatsApp.
 - **SEO y Cloudflare Pages:** Se actualizaron las URLs SEO y OG para ajustarse a la nueva infraestructura en Cloudflare Pages.
 - **Correcciones Varias:** Arreglo de codificación en `.gitignore` para excluir archivos Excel.
 

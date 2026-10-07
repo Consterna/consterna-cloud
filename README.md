@@ -29,6 +29,7 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, un servicio d
   - Inyección de JSON-LD Schema (`AggregateRating`) para la generación de Rich Snippets en Google.
   - Insignias de confianza (Trust Badges) integradas estratégicamente para maximizar conversiones.
   - Uso de SVG Sprites optimizados con retrocompatibilidad para dispositivos móviles antiguos (`xlink:href`).
+  - **Automatización de Precios:** Script de conversión de divisas (USD a COP) en tiempo real basado en API externa con fallback seguro y caché local de 24 horas.
 
 ## 📞 Enlaces de Contacto Dinámicos
 Los planes apuntan automáticamente a WhatsApp con parámetros pre-llenados (`?text=...`) codificados en URI para una mejor conversión de ventas.
