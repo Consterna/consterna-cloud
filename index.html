@@ -934,7 +934,7 @@
 </script>
 <script>
     (function() {
-        var margin = 1.10;
+        var margin = 1.00;
         var cacheKey = 'consterna_cop_trm';
         var cacheTimeKey = 'consterna_cop_time';
         var cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
@@ -958,7 +958,7 @@
                     var finalPrice;
                     if (trm) {
                         var rawPrice = tiers[i].usd * trm * margin;
-                        var calculatedPrice = Math.ceil(rawPrice / 1000) * 1000;
+                        var calculatedPrice = Math.ceil(rawPrice / 100) * 100;
                         finalPrice = Math.max(calculatedPrice, tiers[i].fallback);
                     } else {
                         finalPrice = tiers[i].fallback;
