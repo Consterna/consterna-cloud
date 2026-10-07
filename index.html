@@ -934,7 +934,7 @@
 </script>
 <script>
     (function() {
-        var margin = 1.05;
+        var margin = 1.10;
         var cacheKey = 'consterna_cop_trm';
         var cacheTimeKey = 'consterna_cop_time';
         var cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
@@ -955,12 +955,20 @@
             for (var i = 0; i < tiers.length; i++) {
                 var el = document.getElementById(tiers[i].id);
                 if (el) {
+                    var finalPrice;
                     if (trm) {
                         var rawPrice = tiers[i].usd * trm * margin;
-                        var finalPrice = Math.round(rawPrice / 1000) * 1000;
-                        el.textContent = '~$' + formatPrice(finalPrice) + ' COP';
+                        var calculatedPrice = Math.ceil(rawPrice / 1000) * 1000;
+                        finalPrice = Math.max(calculatedPrice, tiers[i].fallback);
                     } else {
-                        el.textContent = '~$' + formatPrice(tiers[i].fallback) + ' COP';
+                        finalPrice = tiers[i].fallback;
+                    }
+                    el.textContent = '~$' + formatPrice(finalPrice) + ' COP';
+                    
+                    var container = el.closest('.plan-card, .rounded-3xl');
+                    var waBtn = container ? container.querySelector('a[href*="wa.me"]') : null;
+                    if (waBtn) {
+                        waBtn.href = waBtn.href.replace(/\$[\d\.]+(?:%20|\s)COP/, '$' + formatPrice(finalPrice) + '%20COP');
                     }
                 }
             }
