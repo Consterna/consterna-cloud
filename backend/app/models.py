@@ -71,6 +71,7 @@ class UsersPublic(SQLModel):
 
 # --- CONSTERNA CLOUD BUSINESS MODELS ---
 
+
 # Shared properties
 class ClientBase(SQLModel):
     full_name: str = Field(max_length=255)
@@ -114,7 +115,9 @@ class ServerBase(SQLModel):
     ip_address: str | None = Field(default=None, max_length=255)
     plan_name: str = Field(max_length=255)
     status: str = Field(default="pending", max_length=50)  # pending, active, suspended
-    expiration_date: datetime | None = Field(default=None, sa_type=DateTime(timezone=True))  # type: ignore
+    expiration_date: datetime | None = Field(
+        default=None, sa_type=DateTime(timezone=True)
+    )  # type: ignore
 
 
 class ServerCreate(ServerBase):
@@ -134,7 +137,9 @@ class Server(ServerBase, table=True):
         default_factory=get_datetime_utc,
         sa_type=DateTime(timezone=True),  # type: ignore
     )
-    owner_id: uuid.UUID = Field(foreign_key="client.id", nullable=False, ondelete="CASCADE")
+    owner_id: uuid.UUID = Field(
+        foreign_key="client.id", nullable=False, ondelete="CASCADE"
+    )
     owner: Client | None = Relationship(back_populates="servers")
 
 

@@ -1,4 +1,5 @@
 import warnings
+from pathlib import Path
 from typing import Literal, Self
 
 from pydantic import (
@@ -9,11 +10,14 @@ from pydantic import (
 )
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+_BACKEND_DIR = Path(__file__).resolve().parents[2]
+_ROOT_ENV_FILE = _BACKEND_DIR.parent / ".env"
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         # Use top level .env file (one level above ./backend/)
-        env_file="../.env",
+        env_file=str(_ROOT_ENV_FILE),
         env_ignore_empty=True,
         extra="ignore",
     )
@@ -36,6 +40,15 @@ class Settings(BaseSettings):
     SMTP_PASSWORD: str | None = None
     EMAILS_FROM_EMAIL: EmailStr | None = None
     EMAILS_FROM_NAME: str | None = None
+
+    @model_validator(mode="after")
+    def _resolve_sqlite_relative_path(self) -> Self:
+        prefix = "sqlite:///./"
+        if self.DATABASE_URL.startswith(prefix):
+            rel_path = self.DATABASE_URL[len(prefix) :]
+            abs_db_path = (_BACKEND_DIR / rel_path).resolve().as_posix()
+            self.DATABASE_URL = f"sqlite:///{abs_db_path}"
+        return self
 
     @model_validator(mode="after")
     def _set_default_emails_from(self) -> Self:

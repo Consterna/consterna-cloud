@@ -4,13 +4,49 @@
 
 Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor independiente de servidores de videojuegos de alto rendimiento listos para jugar ("Llave en Mano") y servicios adicionales a medida (Add-ons). Impulsado por hardware AMD Ryzen 9 9950X y almacenamiento NVMe PCIe mediante partners Tier-1, con alojamiento estratégico en EE.UU. (Miami) para lograr latencia ultra estable (~70-85ms) hacia Colombia y LATAM, más cobertura adicional en Norteamérica y Europa.
 
-## 🚀 Archivos del Proyecto
+## 📂 Estructura Profesional del Proyecto
+
+```text
+consterna-cloud/
+├── index.html                        # Landing page principal en producción (Cloudflare Pages)
+├── banner_whatsapp.jpg               # Imagen Open Graph / Twitter Card en raíz para previsualizaciones
+├── robots.txt                        # Directivas SEO de rastreo para motores de búsqueda
+├── sitemap.xml                       # Mapa XML del sitio para indexación en Google y Bing
+├── compose.yml                       # Orquestación Docker Compose (Traefik, PostgreSQL, Adminer, Backend)
+├── .env.example                      # Plantilla segura de variables de entorno
+├── README.md                         # Documentación general del ecosistema
+├── CHANGELOG.md                      # Historial detallado de versiones y auditorías
+├── assets/
+│   └── brand/
+│       └── consterna-discord-icon.jpg # Activo oficial de marca / ícono para Discord y comunidad
+├── backend/                          # API Backend en FastAPI + SQLModel + Alembic
+│   ├── app/                          # Núcleo de la aplicación (modelos, rutas REST, seguridad, Alembic)
+│   ├── scripts/                      # Scripts de operación, calidad y migración (import_data.py, fix_emails.py)
+│   ├── tests/                        # Suite de 47 pruebas automatizadas (Pytest)
+│   ├── Dockerfile                    # Imagen de producción multi-stage con uv
+│   ├── alembic.ini                   # Configuración de migraciones de base de datos
+│   ├── pyproject.toml                # Dependencias y configuración estricta de Ruff, Mypy y Pytest
+│   └── README.md                     # Documentación técnica del Backend
+└── plantillas_kinetic/               # Kit de 13 plantillas maestras para despliegues en Kinetic Panel
+    ├── README.md                     # Índice rápido de navegación del kit de plantillas
+    ├── GUIA_RAPIDA_KINETIC_SOP.md    # Manual Operativo Maestro (SOP) paso a paso
+    ├── paquetes_zip/                 # 📦 Archivos .zip listos para subir ("Unarchive") en Kinetic Panel
+    │   ├── minecraft/                # 7 paquetes .zip (Paper 1.21, Paper 1.20.1, Legacy, Purpur, Fabric, Forge/NeoForge, Velocity)
+    │   └── otros_juegos/             # 6 paquetes .zip (Project Zomboid, Palworld, Rust, Valheim, Terraria, Core Keeper)
+    ├── codigo_fuente/                # 🛠️ Carpetas fuente editables y catálogos de Mods/Plugins recomendados
+    │   ├── minecraft/                # 7 carpetas fuente de Minecraft
+    │   └── otros_juegos/             # 6 carpetas fuente de los demás juegos del catálogo
+    └── scripts/
+        └── empaquetar_plantillas.py  # Script automatizado para empaquetar y verificar los 13 archivos .zip
+```
+
+## 🚀 Componentes Principales
 
 - `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, Hub de Consultas/Tickets en Discord, animaciones custom y cotizador dinámico USD/COP).
-- `plantillas_kinetic/`: Kit completo de **13 plantillas maestras pre-optimizadas** (Octubre 2026), manual operativo (`GUIA_RAPIDA_KINETIC_SOP.md`) y catálogos de **Mods y Plugins Recomendados** (`MODS_RECOMENDADOS_*.txt` / `PLUGINS_RECOMENDADOS_*.txt`) en cada carpeta y archivo `.zip` para despliegues "Llave en Mano" en **Kinetic Panel**, cubriendo todos los motores, versiones y proxies de **Minecraft** (`Paper 1.21+`, `Paper 1.20.1`, `Paper Legacy 1.16.5–1.18.2`, `Purpur / Pufferfish 1.20.1/1.21+`, `Fabric/Quilt 1.16.5–1.21+`, `Forge 1.16.5–1.20.1 / NeoForge 1.21+ / Sponge` y `Velocity Proxy 3.3+`) y el resto de los **7 juegos principales** del catálogo (`Project Zomboid`, `Palworld`, `Rust`, `Valheim`, `Terraria / TShock / tModLoader` y `Core Keeper`), verificadas contra la documentación y código fuente oficial de cada motor.
-- `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, manejando validación estricta de UUID y codificación de emails.
-- `banner_whatsapp.jpg`: Imagen OG (Open Graph) para las previsualizaciones de WhatsApp, Discord y redes sociales.
-- `robots.txt` & `sitemap.xml`: Archivos de configuración SEO para motores de búsqueda (Google, Bing).
+- `plantillas_kinetic/`: Kit completo de **13 plantillas maestras pre-optimizadas** (Octubre 2026), organizadas limpiamente en **`paquetes_zip/`** (listas para subir con `Unarchive` en Kinetic Panel, separadas en `minecraft/` y `otros_juegos/`), **`codigo_fuente/`** (carpetas editables con sus guías `MODS_RECOMENDADOS_*.txt` / `PLUGINS_RECOMENDADOS_*.txt`), **`scripts/empaquetar_plantillas.py`** y el manual operativo **`GUIA_RAPIDA_KINETIC_SOP.md`**.
+- `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, validación estricta de UUID/EmailStr, scripts centralizados en `backend/scripts/` y 47 pruebas unitarias en `backend/tests/`.
+- `banner_whatsapp.jpg`, `robots.txt` & `sitemap.xml`: Activos estáticos de raíz requeridos por **Cloudflare Pages** para SEO y previsualizaciones Open Graph en WhatsApp y Discord.
+- `assets/brand/consterna-discord-icon.jpg`: Activo gráfico oficial de marca para el servidor de Discord y canales de comunidad.
 - `Control_Clientes_Consterna_V7_ENTERPRISE.xlsx`: Archivo local automatizado para el seguimiento de renovaciones y pagos (excluido del repositorio público vía `.gitignore`).
 
 ## 🔧 Detalles Técnicos (`index.html`)

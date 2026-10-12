@@ -1,7 +1,85 @@
-﻿‣慆瑳偁⁉牐橯捥⁴‭慂正湥൤ഊ⌊‣敒畱物浥湥獴਍਍‪䑛捯敫嵲栨瑴獰⼺眯睷搮捯敫⹲潣⽭⸩਍‪畛嵶栨瑴獰⼺搯捯⹳獡牴污献⽨癵⤯映牯倠瑹潨⁮慰正条⁥湡⁤湥楶潲浮湥⁴慭慮敧敭瑮മഊ⌊‣潌慣⁬敄敶潬浰湥൴ഊ刊湵琠敨戠捡敫摮氠捯污祬愠摮挠湯敮瑣椠⁴潴倠獯杴敲兓⁌湩䐠捯敫⁲潃灭獯⹥਍਍牆浯琠敨瀠潲敪瑣爠潯ⱴ猠慴瑲倠獯杴敲兓⁌湡⁤慍汩楰㩴਍਍恠捠湯潳敬਍․潤正牥挠浯潰敳甠⁰搭搠⁢慭汩楰൴怊恠਍਍桔湥‬牦浯怠⼮慢正湥⽤Ⱡ椠獮慴汬琠敨搠灥湥敤据敩ⱳ瀠敲慰敲琠敨搠瑡扡獡ⱥ愠摮猠慴瑲琠敨搠癥汥灯敭瑮猠牥敶㩲਍਍恠捠湯潳敬਍․癵猠湹ൣ␊甠⁶畲⁮慢桳猠牣灩獴瀯敲瑳牡⹴桳਍․癵爠湵映獡慴楰搠癥਍恠ൠഊ吊敨䄠䥐椠⁳癡楡慬汢⁥瑡怠瑨灴⼺氯捯污潨瑳㠺〰怰‬楷桴愠瑵浯瑡捩椠瑮牥捡楴敶搠捯⁳瑡怠瑨灴⼺氯捯污潨瑳㠺〰⼰潤獣⹠਍਍⌣䜠湥牥污圠牯晫潬൷ഊ刊湵戠捡敫摮挠浯慭摮⁳牦浯怠⼮慢正湥⽤⁠楷桴怠癵爠湵⹠䴠歡⁥畳敲礠畯⁲摥瑩牯甠敳⁳桴⁥祐桴湯椠瑮牥牰瑥牥愠⁴⹠敶癮戯湩瀯瑹潨恮椠⁮桴⁥牰橯捥⁴潲瑯മഊ䴊摯晩⁹牯愠摤匠䱑潍敤⁬潭敤獬映牯搠瑡⁡湡⁤兓⁌慴汢獥椠⁮⹠戯捡敫摮愯灰洯摯汥⹳祰Ⱡ䄠䥐攠摮潰湩獴椠⁮⹠戯捡敫摮愯灰愯楰怯‬剃䑕⠠牃慥整‬敒摡‬灕慤整‬敄敬整 瑵汩⁳湩怠⼮慢正湥⽤灡⽰牣摵瀮恹മഊ⌊‣卖䌠摯൥ഊ吊敨敲愠敲愠牬慥祤挠湯楦畧慲楴湯⁳湩瀠慬散琠⁯畲⁮桴⁥慢正湥⁤桴潲杵⁨桴⁥卖䌠摯⁥敤畢杧牥‬潳琠慨⁴潹⁵慣⁮獵⁥牢慥火楯瑮ⱳ瀠畡敳愠摮攠灸潬敲瘠牡慩汢獥‬瑥⹣਍਍桔⁥敳畴⁰獩愠獬⁯污敲摡⁹潣普杩牵摥猠⁯潹⁵慣⁮畲⁮桴⁥整瑳⁳桴潲杵⁨桴⁥卖䌠摯⁥祐桴湯琠獥獴琠扡മഊ⌊‣畆汬匠慴正眠瑩⁨潄正牥䌠浯潰敳਍਍潔爠湵琠敨戠捡敫摮愠摮戠極瑬映潲瑮湥⁤湩䐠捯敫⁲潃灭獯㩥਍਍恠捠湯潳敬਍․潤正牥挠浯潰敳爠湵ⴠ爭⁭慢正湥⁤慢桳猠牣灩獴瀯敲瑳牡⹴桳਍․潤正牥挠浯潰敳眠瑡档਍恠ൠഊ吊敨愠灰楬慣楴湯椠⁳癡楡慬汢⁥瑡怠瑨灴⼺氯捯污潨瑳㠺〰怰മഊ⌊⌣䐠捯敫⁲潃灭獯⁥癏牥楲敤਍਍桔⁥捠浯潰敳漮敶牲摩⹥浹恬映汩⁥潣瑮楡獮氠捯污猠瑥楴杮⁳潦⁲異汢獩敨⁤潰瑲ⱳ猠畯捲⁥祳据牨湯穩瑡潩Ɱ愠瑵浯瑡捩椠慭敧爠扥極摬ⱳ愠摮戠捡敫摮爠汥慯獤‮潄正牥䌠浯潰敳愠灰楬獥椠⁴畡潴慭楴慣汬⁹桷湥礠畯爠湵怠潤正牥挠浯潰敳⁠楷桴畯⁴湡攠灸楬楣⁴楦敬氠獩⹴਍਍潔漠数⁮⁡桳汥⁬湩琠敨戠捡敫摮挠湯慴湩牥ഺഊ怊恠潣獮汯൥␊搠捯敫⁲潣灭獯⁥硥捥戠捡敫摮戠獡൨怊恠਍਍⌣䈠捡敫摮吠獥獴਍਍潔琠獥⁴桴⁥慢正湥⁤牦浯琠敨怠慢正湥恤搠物捥潴祲‬畲㩮਍਍恠捠湯潳敬਍․癵爠湵戠獡⁨捳楲瑰⽳整瑳献൨怊恠਍਍桔⁥整瑳⁳畲⁮楷桴倠瑹獥⹴䴠摯晩⁹硥獩楴杮琠獥獴漠⁲摡⁤敮⁷湯獥椠⁮⹠戯捡敫摮琯獥獴怯മഊ䤊⁦潹⁵獵⁥楇䡴扵䄠瑣潩獮‬桴⁥整瑳⁳楷汬爠湵愠瑵浯瑡捩污祬മഊ⌊⌣吠獥⁴⁡畒湮湩⁧瑓捡൫ഊ䤊⁦潹牵猠慴正椠⁳污敲摡⁹灵愠摮礠畯樠獵⁴慷瑮琠⁯畲⁮桴⁥整瑳ⱳ礠畯挠湡甠敳ഺഊ怊恠慢桳਍潤正牥挠浯潰敳攠數⁣慢正湥⁤慢桳猠牣灩獴琯獥獴猭慴瑲献൨怊恠਍਍桔⁥⽠灡⽰慢正湥⽤捳楲瑰⽳整瑳⵳瑳牡⹴桳⁠捳楲瑰挠污獬怠祰整瑳⹠䤠⁦潹⁵敮摥琠⁯慰獳攠瑸慲愠杲浵湥獴琠⁯灠瑹獥恴‬潹⁵慣⁮慰獳琠敨⁭潴琠慨⁴潣浭湡⁤湡⁤桴祥眠汩⁬敢映牯慷摲摥മഊ䘊牯攠慸灭敬‬潴猠潴⁰湯映物瑳攠牲牯ഺഊ怊恠慢桳਍潤正牥挠浯潰敳攠數⁣慢正湥⁤慢桳猠牣灩獴琯獥獴猭慴瑲献⁨砭਍恠ൠഊ⌊⌣吠獥⁴潃敶慲敧਍਍桗湥琠敨琠獥獴爠湵‬桴祥朠湥牥瑡⁥桠浴捬癯椯摮硥栮浴恬‮灏湥椠⁴湩礠畯⁲牢睯敳⁲潴椠獮数瑣琠敨琠獥⁴潣敶慲敧മഊ⌊‣楍牧瑡潩獮਍਍慍敫猠牵⁥潹⁵牣慥整愠爠癥獩潩⁮景礠畯⁲潭敤獬愠摮甠杰慲敤琠敨搠瑡扡獡⁥楷桴琠慨⁴敲楶楳湯攠敶祲琠浩⁥潹⁵档湡敧琠敨⹭䘠潲⁭桴⁥扠捡敫摮⁠楤敲瑣牯ⱹ甠敳怠癵⁠潴爠湵䄠敬扭捩愠慧湩瑳琠敨倠獯杴敲兓⁌潣瑮楡敮㩲਍਍‪汁浥楢⁣獩愠牬慥祤挠湯楦畧敲⁤潴椠灭牯⁴潹牵匠䱑潍敤⁬潭敤獬映潲⁭⹠戯捡敫摮愯灰洯摯汥⹳祰⹠਍਍‪晁整⁲档湡楧杮愠洠摯汥⠠潦⁲硥浡汰ⱥ愠摤湩⁧⁡潣畬湭Ⱙ挠敲瑡⁥⁡敲楶楳湯ഺഊ怊恠潣獮汯൥␊甠⁶畲⁮污浥楢⁣敲楶楳湯ⴠ愭瑵杯湥牥瑡⁥洭∠摁⁤潣畬湭氠獡彴慮敭琠⁯獕牥洠摯汥ഢ怊恠਍਍‪潃浭瑩琠⁯桴⁥楧⁴敲潰楳潴祲琠敨映汩獥朠湥牥瑡摥椠⁮桴⁥污浥楢⁣楤敲瑣牯⹹਍਍‪晁整⁲牣慥楴杮琠敨爠癥獩潩Ɱ爠湵琠敨洠杩慲楴湯椠⁮桴⁥慤慴慢敳⠠桴獩椠⁳桷瑡眠汩⁬捡畴污祬挠慨杮⁥桴⁥慤慴慢敳㨩਍਍恠捠湯潳敬਍․癵爠湵愠敬扭捩甠杰慲敤栠慥൤怊恠਍਍晉礠畯搠湯琧眠湡⁴潴甠敳洠杩慲楴湯⁳瑡愠汬‬湵潣浭湥⁴桴⁥楬敮⁳湩琠敨映汩⁥瑡怠⼮慢正湥⽤灡⽰潣敲搯⹢祰⁠桴瑡攠摮椠㩮਍਍恠灠瑹潨൮匊䱑潍敤⹬敭慴慤慴挮敲瑡彥污⡬湥楧敮ഩ怊恠਍਍湡⁤潣浭湥⁴桴⁥楬敮椠⁮桴⁥楦敬怠捳楲瑰⽳牰獥慴瑲献恨琠慨⁴潣瑮楡獮ഺഊ怊恠潣獮汯൥␊愠敬扭捩甠杰慲敤栠慥൤怊恠਍਍晉礠畯搠湯琧眠湡⁴潴猠慴瑲眠瑩⁨桴⁥敤慦汵⁴潭敤獬愠摮眠湡⁴潴爠浥癯⁥桴浥⼠洠摯晩⁹桴浥‬牦浯琠敨戠来湩楮杮‬楷桴畯⁴慨楶杮愠祮瀠敲楶畯⁳敲楶楳湯‬潹⁵慣⁮敲潭敶琠敨爠癥獩潩⁮楦敬⁳怨瀮恹倠瑹潨⁮楦敬⥳甠摮牥怠⼮慢正湥⽤灡⽰污浥楢⽣敶獲潩獮怯‮湁⁤桴湥挠敲瑡⁥⁡楦獲⁴業牧瑡潩⁮獡搠獥牣扩摥愠潢敶മഊ⌊‣浅楡⁬敔灭慬整൳ഊ吊敨攠慭汩琠浥汰瑡獥愠敲眠楲瑴湥眠瑩⁨剛慥瑣䔠慭汩⡝瑨灴㩳⼯敲捡⹴浥楡⥬椠⁮⹠瀯捡慫敧⽳敲捡⵴浥楡⽬⹠吠敨怠浥楡獬⁠楤敲瑣牯⁹潨摬⁳湯⁥潣灭湯湥⁴数⁲浥楡⁬湡⁤桴⁥畠恩搠物捥潴祲栠汯獤琠敨猠慨敲⁤潣灭湯湥獴⠠慬潹瑵‬敨摡湩Ⱨ戠瑵潴Ɱ氠湩Ⱬ挠污潬瑵⸩਍਍桔⁥敲摮牥摥䠠䵔⁌湩怠⼮慢正湥⽤灡⽰浥楡⵬整灭慬整⽳⁠獩朠湥牥瑡摥映潲⁭桴獯⁥潣灭湯湥獴‮瑉椠⁳桷瑡琠敨愠灰楬慣楴湯猠湥獤愠摮猠潨汵⁤潮⁴敢攠楤整⁤祢栠湡⹤਍਍潔瀠敲楶睥琠敨攠慭汩⁳桷汩⁥摥瑩湩⁧桴浥‬瑳牡⁴桴⁥敤⁶敳癲牥映潲⁭桴⁥潲瑯漠⁦桴⁥牰橯捥㩴਍਍恠捠湯潳敬਍․畢⁮畲⁮浥楡㩬敤൶怊恠਍਍慖畬獥挠浯湩⁧牦浯琠敨戠捡敫摮愠敲搠捥慬敲⁤獡䨠湩慪瀠慬散潨摬牥⁳湩琠敨挠浯潰敮瑮瀠潲獰‬潦⁲硥浡汰⁥畠敳湲浡⁥‽笢⁻獵牥慮敭素≽⹠吠敨挠湯整瑸映牯攠捡⁨浥楡⁬獩戠極瑬椠⁮杠湥牥瑡彥弪浥楡⡬怩椠⁮⹠戯捡敫摮愯灰甯楴獬瀮恹‬潳愠渠睥瀠慬散潨摬牥渠敥獤琠⁯敢愠摤摥琠敨敲琠潯മഊ伊据⁥潹⁵牡⁥潤敮‬敲敧敮慲整琠敨琠浥汰瑡獥甠敳⁤祢琠敨愠灰楬慣楴湯ഺഊ怊恠潣獮汯൥␊戠湵爠湵攠慭汩攺灸牯൴怊恠਍
-## Avances Backend (Octubre 2026)
+# ☁️ Consterna Cloud - Backend API (FastAPI + SQLModel + Alembic)
+
+API Backend para la gestión de clientes, servidores, planes y autenticación de **Consterna Cloud**, construida con **FastAPI**, **SQLModel**, **Pydantic v2** y **Alembic**.
+
+---
+
+## 📋 Requisitos
+
+* [Python 3.14+](https://www.python.org/) (o entorno virtual local en `./venv`)
+* [uv](https://docs.astral.sh/uv/) o `pip` para gestión de paquetes y entorno virtual
+* [Docker](https://www.docker.com/) (opcional, para despliegue con PostgreSQL y Traefik vía `compose.yml`)
+
+---
+
+## 🚀 Desarrollo Local (Windows / PowerShell)
+
+Desde el directorio `./backend/`, activa o utiliza el entorno virtual local:
+
+```powershell
+# Ejecutar migraciones de base de datos (Alembic)
+.\venv\Scripts\python -m alembic upgrade head
+
+# Levantar el servidor de desarrollo en http://127.0.0.1:8000
+.\venv\Scripts\python -m uvicorn app.main:app --port 8000 --host 127.0.0.1 --reload
+```
+
+La API estará disponible en `http://localhost:8000`, con documentación interactiva automática:
+* **Swagger UI:** `http://localhost:8000/docs`
+* **ReDoc:** `http://localhost:8000/redoc`
+
+---
+
+## 🏗️ Estructura del Backend (`./backend/`)
+
+* `app/main.py`: Punto de entrada de la aplicación FastAPI y configuración CORS/Rutas.
+* `app/models.py`: Modelos de datos y tablas `SQLModel` (`User`, `Client`, `Server`) con validación estricta y borrado en cascada (`cascade_delete=True`).
+* `app/crud.py`: Operaciones CRUD reutilizables sobre la base de datos.
+* `app/api/routes/`: Endpoints REST (`/api/v1/login`, `/api/v1/users`, `/api/v1/clients`, `/api/v1/servers`, `/api/v1/utils`, `/api/v1/private`).
+* `app/core/`: Configuración central (`config.py` leyendo `../.env`), conexión a base de datos (`db.py`) y seguridad JWT/Argon2 (`security.py`).
+* `app/alembic/`: Entorno y versiones de migraciones de esquema de base de datos (`versions/0794bc9fbf9f_initial_schema.py`).
+* `scripts/`: Scripts de utilidad para pre-arranque, pruebas, formateo (`ruff`), tipado (`mypy`) y migración/saneamiento de datos (`import_data.py`, `fix_emails.py`).
+* `tests/`: Suite de 47 pruebas automatizadas con `pytest` (`api/`, `crud/`, `scripts/`, `utils/`).
+
+---
+
+## 🧪 Calidad de Código y Pruebas (`Pytest`, `Ruff`, `Mypy`)
+
+Desde el directorio `./backend/`:
+
+```powershell
+# 1. Linter y formato (Ruff)
+.\venv\Scripts\ruff check . --fix
+
+# 2. Verificación estricta de tipos (Mypy)
+.\venv\Scripts\mypy .
+
+# 3. Suite completa de pruebas unitarias e integración (47 tests)
+.\venv\Scripts\pytest
+```
+
+---
+
+## 🗄️ Migraciones de Base de Datos (Alembic)
+
+El entorno de desarrollo utiliza **SQLite** (`consterna.db`, ignorado en Git) y está preparado para **PostgreSQL** en producción.
+
+1. Tras modificar modelos en `app/models.py`, genera una nueva revisión desde `./backend/`:
+   ```powershell
+   .\venv\Scripts\python -m alembic revision --autogenerate -m "Descripción del cambio"
+   ```
+2. Aplica la migración a la base de datos:
+   ```powershell
+   .\venv\Scripts\python -m alembic upgrade head
+   ```
+
+---
+
+## 📈 Avances Backend (Octubre 2026)
+
 - Base de datos conectada con SQLite (listo para PostgreSQL).
-- Validadores estrictos (Pydantic EmailStr) corregidos.
-- Entorno Alembic iniciado (0794bc9fbf9f_initial_schema.py).
-- Pruebas E2E exitosas (CRUD Clientes/Servidores).
+- Validadores estrictos (`Pydantic EmailStr` y `UUID`) corregidos.
+- Entorno Alembic iniciado (`0794bc9fbf9f_initial_schema.py`).
+- Pruebas E2E y unitarias exitosas (47/47 pasando — CRUD Usuarios/Clientes/Servidores).
 - Siguiente paso: Panel Administrativo Frontend.
+

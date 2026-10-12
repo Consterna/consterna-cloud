@@ -1,15 +1,28 @@
+# Local operational data (never commit client spreadsheets)
 *.xlsx
+
+# Archives (ignore arbitrary zips, but allow Kinetic Panel template packages at any depth)
 *.zip
 !plantillas_kinetic/*.zip
+!plantillas_kinetic/**/*.zip
+
+# Temporary diff/scratch files
 *_diff*.txt
+
+# Environment variables
+.env
+!.env.example
 
 # Python / Backend
 backend/venv/
-backend/__pycache__/
-backend/.pytest_cache/
-backend/.ruff_cache/
-backend/*.db
+backend/.venv/
+venv/
+.venv/
 __pycache__/
+*.pyc
 .pytest_cache/
-.env
-
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+*.db

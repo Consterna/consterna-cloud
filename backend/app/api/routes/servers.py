@@ -17,16 +17,30 @@ from app.models import (
 
 router = APIRouter(prefix="/servers", tags=["servers"])
 
-@router.get("/", dependencies=[Depends(get_current_active_superuser)], response_model=ServersPublic)
+
+@router.get(
+    "/",
+    dependencies=[Depends(get_current_active_superuser)],
+    response_model=ServersPublic,
+)
 def read_servers(session: SessionDep, skip: int = 0, limit: int = 100) -> Any:
     """Retrieve servers."""
     count_statement = select(func.count()).select_from(Server)
     count = session.exec(count_statement).one()
-    statement = select(Server).order_by(col(Server.created_at).desc()).offset(skip).limit(limit)
+    statement = (
+        select(Server).order_by(col(Server.created_at).desc()).offset(skip).limit(limit)
+    )
     servers = session.exec(statement).all()
-    return ServersPublic(data=[ServerPublic.model_validate(s) for s in servers], count=count)
+    return ServersPublic(
+        data=[ServerPublic.model_validate(s) for s in servers], count=count
+    )
 
-@router.get("/{id}", dependencies=[Depends(get_current_active_superuser)], response_model=ServerPublic)
+
+@router.get(
+    "/{id}",
+    dependencies=[Depends(get_current_active_superuser)],
+    response_model=ServerPublic,
+)
 def read_server(session: SessionDep, id: uuid.UUID) -> Any:
     """Get server by ID."""
     server = session.get(Server, id)
@@ -34,7 +48,12 @@ def read_server(session: SessionDep, id: uuid.UUID) -> Any:
         raise HTTPException(status_code=404, detail="Server not found")
     return server
 
-@router.post("/", dependencies=[Depends(get_current_active_superuser)], response_model=ServerPublic)
+
+@router.post(
+    "/",
+    dependencies=[Depends(get_current_active_superuser)],
+    response_model=ServerPublic,
+)
 def create_server(*, session: SessionDep, server_in: ServerCreate) -> Any:
     """Create new server."""
     client = session.get(Client, server_in.owner_id)
@@ -46,8 +65,15 @@ def create_server(*, session: SessionDep, server_in: ServerCreate) -> Any:
     session.refresh(server)
     return server
 
-@router.put("/{id}", dependencies=[Depends(get_current_active_superuser)], response_model=ServerPublic)
-def update_server(*, session: SessionDep, id: uuid.UUID, server_in: ServerUpdate) -> Any:
+
+@router.put(
+    "/{id}",
+    dependencies=[Depends(get_current_active_superuser)],
+    response_model=ServerPublic,
+)
+def update_server(
+    *, session: SessionDep, id: uuid.UUID, server_in: ServerUpdate
+) -> Any:
     """Update a server."""
     server = session.get(Server, id)
     if not server:
@@ -58,6 +84,7 @@ def update_server(*, session: SessionDep, id: uuid.UUID, server_in: ServerUpdate
     session.commit()
     session.refresh(server)
     return server
+
 
 @router.delete("/{id}", dependencies=[Depends(get_current_active_superuser)])
 def delete_server(session: SessionDep, id: uuid.UUID) -> Message:

@@ -35,7 +35,12 @@ build-backend = "hatchling.build"
 
 [tool.mypy]
 strict = true
+warn_unused_ignores = false
 exclude = ["venv", ".venv", "alembic"]
+
+[[tool.mypy.overrides]]
+module = ["pandas", "pandas.*"]
+ignore_missing_imports = true
 
 [tool.ruff]
 target-version = "py314"
@@ -60,9 +65,16 @@ ignore = [
     "B904",  # Allow raising exceptions without from e, for HTTPException
 ]
 
+[tool.ruff.lint.isort]
+known-first-party = ["app", "scripts", "tests"]
+
 [tool.ruff.lint.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.
 keep-runtime-typing = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["app"]

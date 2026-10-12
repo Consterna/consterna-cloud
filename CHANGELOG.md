@@ -2,6 +2,24 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.8.2] - 2026-10-12 - Professional Repository, Templates & Backend Directory Organization
+### Cambios y Mejoras
+- **Reorganización Profesional de `plantillas_kinetic/`:**
+  - Se separaron los paquetes listos para producción de las carpetas fuente editables y se clasificaron por ecosistema para eliminar la mezcla de 27 elementos en un mismo nivel:
+    - **`paquetes_zip/minecraft/`**: Los 7 archivos `.zip` de Minecraft (`Paper 1.21`, `Paper 1.20.1`, `Paper Legacy 1.16.5-1.18.2`, `Purpur`, `Fabric`, `Forge/NeoForge`, `Velocity Proxy`) listos para subir con `Unarchive` en Kinetic Panel.
+    - **`paquetes_zip/otros_juegos/`**: Los 6 archivos `.zip` del resto del catálogo (`Project Zomboid`, `Palworld`, `Rust`, `Valheim`, `Terraria`, `Core Keeper`).
+    - **`codigo_fuente/minecraft/` y `codigo_fuente/otros_juegos/`**: Las 13 carpetas fuente desempaquetadas con sus configuraciones y catálogos `MODS_RECOMENDADOS_*.txt` / `PLUGINS_RECOMENDADOS_*.txt`.
+    - **`scripts/empaquetar_plantillas.py`**: Script automatizado con `logging` UTF-8 que empaqueta y verifica la integridad de los 13 archivos `.zip`, garantizando rutas POSIX (`/`) en la raíz del contenedor `/home/container` y normalización/validación estricta de saltos de línea `LF` en scripts `.sh`.
+    - **`plantillas_kinetic/README.md` y `GUIA_RAPIDA_KINETIC_SOP.md`**: Índice de navegación rápida y actualización de rutas en el Manual Operativo Maestro.
+- **Estandarización y Limpieza de `backend/`:**
+  - **Restauración UTF-8 de `backend/README.md`:** Se reparó la corrupción de caracteres UTF-16 (mojibake) en el archivo `backend/README.md`, documentando en español la arquitectura, comandos de desarrollo en Windows, migraciones Alembic y suite de pruebas.
+  - **Centralización en `backend/scripts/`:** Se trasladaron los scripts operativos sueltos (`import_data.py` y `fix_emails.py`) desde la raíz de `backend/` hacia `backend/scripts/`, refactorizándolos con tipado estricto (`mypy`), `logging` estándar con salida UTF-8 (cumpliendo la regla `T201` de `ruff`) y resolución dinámica de rutas (`pathlib.Path`).
+  - **Resolución Robusta de `.env` y SQLite (`backend/app/core/config.py` y `backend/pyproject.toml`):** Se actualizó `Settings` para resolver tanto `.env` como las rutas relativas de SQLite (`sqlite:///./consterna.db`) respecto al directorio `backend/`, evitando la creación de bases de datos huérfanas al ejecutar comandos desde otros directorios (`C:\dev`), y se configuró `[tool.ruff.lint.isort]` (`known-first-party`) y `[tool.pytest.ini_options]`, pasando `ruff check`, `ruff format --check` y `mypy` en los 36 archivos Python del repositorio.
+  - **Saltos de Línea LF en Scripts y Docker (`Dockerfile`, `compose.yml`, `backend/scripts/*.sh`):** Se normalizaron los saltos de línea a formato Unix (`LF`) conforme a `AGENTS.md`.
+- **Organización de la Raíz del Proyecto (`consterna-cloud/`):**
+  - Se trasladó y renombró el activo gráfico suelto `consterna_discord_icon_1790741212921.jpg` hacia **`assets/brand/consterna-discord-icon.jpg`**, preservando intactos en la raíz los activos requeridos por **Cloudflare Pages** (`index.html`, `banner_whatsapp.jpg`, `robots.txt`, `sitemap.xml`).
+  - Se añadió la plantilla segura **`.env.example`** documentando las variables de entorno del proyecto y se actualizó **`.gitignore`** con soporte recursivo `!plantillas_kinetic/**/*.zip` y exclusión global de `*.db` y `*.pyc`.
+
 ## [1.8.0] - 2026-10-12 - Complete 13-Template Kinetic Catalog (All Minecraft Loaders/Versions/Proxies + All 7 Flagship Games)
 ### Cambios y Mejoras
 - **Análisis Técnico y Documentación de `pause-when-empty-seconds` (`Minecraft 1.21.2+`):**
