@@ -1,0 +1,65 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLANTILLA Y GUÍA DE OPTIMIZACIÓN VALHEIM (Octubre 2026)
+================================================================================
+Archivos incluidos:
+- `adminlist.txt` (Lista de administradores por SteamID64 / PlayFab ID)
+- `permittedlist.txt` (Whitelist opcional)
+- `bannedlist.txt` (Lista de baneados)
+- `start_server_consterna.sh` (Script de referencia con flags de guardado/backup)
+
+*(Ubicación en Kinetic Panel: Si el Egg usa `-savedir "/home/container/saves"`,
+sube `adminlist.txt`, `permittedlist.txt` y `bannedlist.txt` dentro de `/saves`
+o en la raíz según indique el Egg).*
+
+--------------------------------------------------------------------------------
+⚡ 1. EL SECRETO DE LATENCIA EN VALHEIM PARA LATAM (`-crossplay` vs Direct UDP)
+--------------------------------------------------------------------------------
+Valheim tiene dos modos de red en servidores dedicados:
+* **SIN `-crossplay` (Steamworks Direct UDP - RECOMENDADO SI TODOS JUEGAN EN STEAM):**
+  Los jugadores se conectan directamente por IP:Puerto a nuestro nodo de Miami
+  con **~70-85ms estables**, reduciendo drásticamente el *desync* de barcos,
+  cofres y jefes.
+* **CON `-crossplay` (Microsoft PlayFab Relay):**
+  Obligatorio **SOLO** si en el grupo hay jugadores de **Xbox / PC Game Pass**.
+  PlayFab enruta el tráfico por servidores relay de Microsoft, lo cual puede
+  añadir latencia extra. Pregunta siempre al cliente si todos juegan en Steam;
+  si todos usan Steam, deja `Crossplay` **desactivado** en `Startup`.
+
+--------------------------------------------------------------------------------
+💾 2. PARÁMETROS ÓPTIMOS DE GUARDADO Y BACKUPS (`Settings -> Startup`)
+--------------------------------------------------------------------------------
+Configura estos valores en `Settings -> Startup` de Kinetic Panel:
+* `-saveinterval 1200`: Guarda el mundo cada 20 minutos (1200s) en lugar de 30m.
+* `-backups 4`: Mantiene 4 copias de seguridad automáticas rotativas.
+* `-backupshort 7200`: Primer backup corto cada 2 horas (7200s).
+* `-backuplong 43200`: Backups largos cada 12 horas (43200s).
+
+--------------------------------------------------------------------------------
+🌍 3. MODIFICADORES OFICIALES DEL MUNDO (`-preset` y `-modifier`)
+--------------------------------------------------------------------------------
+Desde la actualización *Hildir's Request / Ashlands*, Valheim soporta
+modificadores nativos sin necesidad de mods añadiéndolos en los argumentos de
+arranque (`Startup`):
+
+* **Presets (`-preset <valor>`):**
+  `normal`, `casual`, `easy`, `hard`, `hardcore`, `immersive`, `hammer`
+* **Modificadores individuales (`-modifier <clave> <valor>`):**
+  - `-modifier combat <veryeasy|easy|default|hard|veryhard>`
+  - `-modifier deathpenalty <casual|veryeasy|easy|default|hard|hardcore>`
+  - `-modifier resources <muchless|less|default|more|muchmore|most>`
+    *(Ej. `-modifier resources more` = x1.5 recursos, muy pedido por grupos).*
+  - `-modifier raids <none|muchless|less|default|more|muchmore>`
+  - `-modifier portals <default|casual|veryhard>`
+    *(Ej. `-modifier portals casual` permite teletransportar metales/minerales).*
+
+--------------------------------------------------------------------------------
+🧩 4. SERVIDORES CON MODS (BEPINEX + SERVERSYNC + BETTERNETWORKING)
+--------------------------------------------------------------------------------
+Si el cliente contrata Valheim con Mods (Thunderstore / r2modman):
+1. Activa **BepInEx** desde el instalador de Kinetic Panel.
+2. Sube los `.dll` de los mods dentro de `/BepInEx/plugins/`.
+3. **Mod de Red Recomendado:** Instala **BetterNetworking** (de *CW_Jesse*) en
+   `/BepInEx/plugins/`. Aumenta los límites de ancho de banda y compresión Zstd
+   de Valheim (que por defecto están limitados a ~60 KB/s), eliminando el lag
+   cuando hay más de 4 vikingos en la misma zona o base grande.
+================================================================================

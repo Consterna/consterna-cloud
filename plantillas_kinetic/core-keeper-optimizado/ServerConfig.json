@@ -1,0 +1,11 @@
+{
+  "gameId": "",
+  "world": 0,
+  "worldName": "Consterna Cloud Server",
+  "worldSeed": 0,
+  "maxNumberPlayers": 8,
+  "maxNumberPacketsSentPerFrame": 2,
+  "networkSendRate": 30,
+  "worldMode": 0,
+  "seasonOverride": -1
+}

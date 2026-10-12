@@ -1,17 +1,40 @@
 ================================================================================
-☁️ CONSTERNACLOUD - STACK SERVER-SIDE PARA FORGE 1.20.1 Y NEOFORGE 1.21.1+
+☁️ CONSTERNACLOUD - STACK SERVER-SIDE PARA FORGE Y NEOFORGE (POR VERSIÓN)
 ================================================================================
 Esta plantilla (`forge-neoforge-optimizado`) incluye los archivos de configuración
-exactos tanto para **Forge 1.20.1** (la versión más popular de modpacks como All
-The Mods 9, Create, RLCraft Dregora, Better MC Forge) como para **NeoForge 1.21.1+**
-(All The Mods 10, Cobblemon 1.6+, modpacks modernos).
+exactos para todo el ecosistema **Forge** (`1.16.5`, `1.18.2`, `1.19.2`, `1.20.1`)
+y **NeoForge** (`1.20.4`, `1.21.1+`), donde corren los modpacks más pesados del
+mercado (*All The Mods 9/10*, *Create*, *RLCraft / Dregora*, *Prominence II*,
+*Better MC Forge*, *Dawncraft*, etc.).
 
-¿Por qué una sola plantilla sirve para ambos?
-- FerriteCore en Forge 1.20.1 y NeoForge 1.21.1 lee `config/ferritecore-mixin.toml`.
-- ModernFix en ambos lee `config/modernfix-mixins.properties`.
-- En Forge 1.20.1, Canary lee `config/canary.properties` (y NeoForge lo ignora).
-- En NeoForge 1.21.1, Lithium oficial lee `config/lithium.properties` (y Forge lo ignora).
-- Simple Voice Chat lee `config/voicechat/voicechat-server.properties` en ambos.
+¿Por qué una sola plantilla sirve para Forge y NeoForge en todas las versiones?
+- FerriteCore en Forge y NeoForge lee `config/ferritecore-mixin.toml`.
+- ModernFix en TODOS los loaders (Fabric, Forge y NeoForge) lee SIEMPRE
+  `config/modernfix-mixins.properties` (porque la fase de MixinPlugin ocurre
+  antes de que Forge inicialice su lector TOML `ForgeConfigSpec`).
+- En Forge 1.18.2 / 1.19.2 / 1.20.1, Canary lee `config/canary.properties`
+  (con `mixin.ai.poi=false` para evitar conflictos con Create y Valkyrien Skies).
+- En NeoForge 1.21.1+, Lithium oficial lee `config/lithium.properties`.
+- Simple Voice Chat lee `config/voicechat/voicechat-server.properties` en todos.
+
+--------------------------------------------------------------------------------
+📊 MATRIZ DE MODS SERVER-SIDE POR VERSIÓN (FORGE & NEOFORGE)
+--------------------------------------------------------------------------------
+| Categoría | NeoForge 1.21.1+ | Forge 1.20.1 | Forge 1.18.2 / 1.19.2 | Forge 1.16.5 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Físicas / Ticks (CPU)** | **Lithium** *(Oficial)* | **Canary** o **Radium Reforged** | **Canary** o **Radium Reforged** | **RoadRunner** |
+| **Memoria RAM** | **FerriteCore** | **FerriteCore** | **FerriteCore** | **FerriteCore** |
+| **Carga / Dynamic RAM** | **ModernFix** | **ModernFix** | **ModernFix** | **ModernFix** |
+| **Motor de Luz** | *(Nativo de Mojang 1.20+)* | *(Nativo de Mojang 1.20+)* | **Starlight** *(Obligatorio)* | **Starlight** *(Obligatorio)* |
+| **Arranque DFU** | *(Nativo de Mojang 1.19.4+)* | *(Nativo de Mojang 1.19.4+)* | **LazyDFU** *(Obligatorio)* | **LazyDFU** *(Obligatorio)* |
+| **Mobcaps / Mundos** | **ServerCore** + **Noisium** | **ServerCore** + **Noisium** | **Saturn** + **AI Improvements** | **AI Improvements** |
+| **Pre-Generador / Voz** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** |
+
+*Nota sobre **Embeddium / Oculus / Sodium**:* Recuerda que *Embeddium* y *Oculus*
+son mods de **renderizado gráfico (100% Cliente)**. Si subes un modpack al
+servidor, asegúrate de no forzar mods exclusivamente gráficos en `/mods` del
+servidor (aunque *Embeddium* se desactiva solo en servidor dedicado, *Oculus* o
+mods de menú custom como *FancyMenu* client-only pueden causar crash al arrancar).
 
 --------------------------------------------------------------------------------
 1. RENDIMIENTO DE CPU Y TICKS (TPS 20.0 Estables)
@@ -20,13 +43,17 @@ The Mods 9, Create, RLCraft Dregora, Better MC Forge) como para **NeoForge 1.21.
   - Preconfigurado en: `config/lithium.properties`
   https://modrinth.com/mod/lithium
 
-* En Forge 1.20.1 -> Instalar **Canary** o **Radium Reforged** (Ports de Lithium)
+* En Forge 1.20.1 / 1.19.2 / 1.18.2 -> Instalar **Canary** o **Radium Reforged**
   - Preconfigurado en: `config/canary.properties` (con `mixin.ai.poi=false` para
-    total compatibilidad con Create y Valkyrien Skies)
+    total compatibilidad con Create, Immersive Engineering y Valkyrien Skies)
   https://modrinth.com/mod/canary
 
-* ServerCore (Disponible para Forge 1.20.1 y NeoForge 1.21.1)
+* En Forge 1.16.5 -> Instalar **RoadRunner** (Port oficial de Lithium para 1.16.5)
+  https://modrinth.com/mod/roadrunner
+
+* ServerCore y Noisium (Disponibles para Forge 1.20.1 y NeoForge 1.21.1+)
   https://modrinth.com/mod/servercore
+  https://modrinth.com/mod/noisium
 
 --------------------------------------------------------------------------------
 2. OPTIMIZACIÓN DE MEMORIA RAM (Indispensable en Modpacks de 6GB a 16GB)
@@ -35,18 +62,26 @@ The Mods 9, Create, RLCraft Dregora, Better MC Forge) como para **NeoForge 1.21.
   - Preconfigurado en: `config/ferritecore-mixin.toml`
   https://modrinth.com/mod/ferrite-core
 
-* ModernFix (Activa `dynamic_resources=true` ahorrando 1.5GB–3GB de RAM y
-  reduciendo a la mitad el tiempo de encendido del servidor)
+* ModernFix (Activa `mixin.perf.dynamic_resources=true` ahorrando 1.5GB–3GB de
+  RAM y reduciendo a la mitad el tiempo de encendido del servidor)
   - Preconfigurado en: `config/modernfix-mixins.properties`
   https://modrinth.com/mod/modernfix
+
+* En versiones antiguas (Forge 1.16.5 / 1.18.2 / 1.19.2):
+  - Starlight (Reescribe el motor de luz; ya no se necesita en 1.20.1 ni 1.21.1
+    porque Mojang optimizó el motor de iluminación nativo en 1.20)
+    https://modrinth.com/mod/starlight
+  - LazyDFU (Evita el congelamiento de CPU al iniciar servidores <= 1.19.2)
+    https://modrinth.com/mod/lazydfu
 
 --------------------------------------------------------------------------------
 3. PRE-GENERACIÓN DE MAPA, DIAGNÓSTICO Y VOZ
 --------------------------------------------------------------------------------
-* Chunky (Pre-generador de mundos para Forge 1.20.1 y NeoForge 1.21.1)
+* Chunky (Pre-generador de mundos para Forge 1.16.5–1.20.1 y NeoForge 1.21.1+)
   https://modrinth.com/mod/chunky
 
-* Spark (Profiler de rendimiento — en Forge 1.20.1 y NeoForge 1.21.1)
+* Spark (Profiler de rendimiento — incluido nativamente en NeoForge 1.21+ o
+  instalable como mod en Forge 1.16.5–1.20.1)
   https://modrinth.com/mod/spark
 
 * Simple Voice Chat (Chat de voz por proximidad para Forge y NeoForge)

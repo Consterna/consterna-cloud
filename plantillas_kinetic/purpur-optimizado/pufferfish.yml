@@ -1,0 +1,39 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA OPTIMIZADA PUFFERFISH & PURPUR (Octubre 2026)
+# Archivo: pufferfish.yml (Usado nativamente por Pufferfish y Purpur en la raíz)
+# Fuente oficial: pufferfish-gg/Pufferfish (PufferfishConfig.java)
+# Enfoque:
+#   - `enable-async-mob-spawning: true` -> Calcula spawns en hilo separado.
+#   - `enable-suffocation-optimization: true` -> Optimiza chequeos de asfixia.
+#   - `dab.enabled: true` (Dynamic Activation of Brain) con `minecraft:villager`,
+#     `minecraft:iron_golem` y `minecraft:zombified_piglin` en `blacklisted-entities`
+#     para no romper granjas de hierro ni granjas de oro técnicas.
+# ==============================================================================
+
+info:
+  version: '1.0'
+
+enable-books: true
+enable-suffocation-optimization: true
+enable-async-mob-spawning: true
+
+projectile:
+  max-loads-per-tick: 10
+  max-loads-per-projectile: 8
+
+dab:
+  enabled: true
+  start-distance: 12
+  max-tick-freq: 20
+  activation-dist-mod: 8
+  blacklisted-entities:
+    - minecraft:villager
+    - minecraft:iron_golem
+    - minecraft:zombified_piglin
+
+inactive-goal-selector-throttle: true
+allow-end-crystal-respawn: true
+tps-catchup: true
+
+misc:
+  disable-method-profiler: true

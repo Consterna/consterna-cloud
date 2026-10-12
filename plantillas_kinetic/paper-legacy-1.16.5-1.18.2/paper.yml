@@ -1,0 +1,200 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA PAPER LEGACY 1.16.5 / 1.17.1 / 1.18.2 (Octubre 2026)
+# Archivo: paper.yml (Formato monolítico pre-1.19 en la raíz del servidor)
+# Enfoque: Chunks asíncronos, Eigencraft Redstone, Per-Player Mob Spawns y Anti-Xray.
+# Nota: config-version: 20 es la base de 1.16.5; Paper 1.17.1 y 1.18.2 migran
+#       automáticamente este archivo a versión 24/25 al iniciar el servidor.
+# ==============================================================================
+
+verbose: false
+config-version: 20
+
+settings:
+  max-joins-per-tick: 5
+  bungee-online-mode: true
+  velocity-support:
+    enabled: false
+    online-mode: true
+    secret: ''
+  player-auto-save-rate: -1
+  max-player-auto-save-per-tick: -1
+  save-empty-scoreboard-teams: false
+  use-alternative-luck-formula: false
+  region-file-cache-size: 256
+  incoming-packet-spam-threshold: 300
+  use-display-name-in-quit-message: false
+  load-permissions-yml-before-plugins: true
+  enable-player-collisions: true
+  suggest-player-names-when-null-tab-completions: true
+  track-plugin-scoreboards: false
+  fix-entity-position-desync: true
+  console-has-all-permissions: false
+  chunk-tasks-per-tick: 1000
+  async-chunks:
+    threads: -1
+  book-size:
+    page-max: 2560
+    total-multiplier: 0.98
+  watchdog:
+    early-warning-every: 5000
+    early-warning-delay: 10000
+  spam-limiter:
+    tab-spam-increment: 1
+    tab-spam-limit: 500
+    recipe-spam-increment: 1
+    recipe-spam-limit: 20
+  unsupported-settings:
+    allow-permanent-block-break-exploits: false
+    allow-piston-duplication: false
+    allow-headless-pistons: false
+    allow-permanent-block-break-exploits-readme: This setting controls if players should be able to break bedrock, end portals and other intended to be permanent blocks.
+    allow-piston-duplication-readme: This setting controls if player should be able to use TNT duplication, but this also allows duplicating carpet, rails and potentially other items
+    allow-headless-pistons-readme: This setting controls if players should be able to create headless pistons.
+
+messages:
+  no-permission: '§cNo tienes permisos para ejecutar este comando.'
+  kick:
+    authentication-servers-down: ''
+    connection-throttle: '¡Por favor espera unos segundos antes de reconectarte!'
+    flying-player: 'El vuelo no está habilitado en este servidor'
+    flying-vehicle: 'El vuelo en vehículos no está habilitado en este servidor'
+
+timings:
+  enabled: true
+  verbose: true
+  server-name-privacy: false
+  hidden-config-entries:
+    - database
+    - settings.bungeecord-addresses
+    - settings.velocity-support.secret
+  history-interval: 300
+  history-length: 3600
+  server-name: 'Consterna Cloud Server'
+
+world-settings:
+  default:
+    max-auto-save-chunks-per-tick: 8
+    delay-chunk-unloads-by: 10s
+    per-player-mob-spawns: true
+    optimize-explosions: true
+    use-faster-eigencraft-redstone: true
+    redstone-implementation: eigencraft
+    disable-teleportation-suffocation-check: false
+    fixed-chunk-inhabited-time: -1
+    remove-corrupt-tile-entities: true
+    experience-merge-max-value: -1
+    prevent-moving-into-unloaded-chunks: true
+    count-all-mobs-for-spawning: false
+    max-entity-collisions: 2
+    disable-creeper-lingering-effect: false
+    duplicate-uuid-resolver: saferegen
+    duplicate-uuid-saferegen-delete-range: 32
+    filter-nbt-data-from-spawn-eggs-and-related: true
+    update-pathfinding-on-block-update: false
+    disable-explosion-knockback: false
+    armor-stands-do-collision-entity-lookups: false
+    armor-stands-tick: false
+    water-over-lava-flow-speed: 5
+    grass-spread-tick-rate: 4
+    use-vanilla-world-scoreboard-name-coloring: false
+    prevent-tnt-from-moving-in-water: false
+    iron-golems-can-spawn-in-air: false
+    non-player-arrow-despawn-rate: 60
+    creative-arrow-despawn-rate: 60
+    spawner-nerfed-mobs-should-jump: false
+    entities-target-with-follow-range: false
+    zombies-target-turtle-eggs: true
+    zombie-villager-infection-chance: -1.0
+    all-chunks-are-slime-chunks: false
+    mob-spawner-tick-rate: 2
+    enable-treasure-maps: true
+    treasure-maps-return-already-discovered: false
+    light-queue-size: 20
+    auto-save-interval: -1
+    nether-ceiling-void-damage-height: 0
+    allow-non-player-entities-on-scoreboards: false
+    parrots-are-unaffected-by-player-movement: false
+    disable-thunder: false
+    skeleton-horse-thunder-spawn-chance: 0.01
+    disable-ice-and-snow: false
+    keep-spawn-loaded-range: 8
+    keep-spawn-loaded: true
+    falling-block-height-nerf: 0
+    tnt-entity-height-nerf: 0
+    nerf-pigmen-from-nether-portals: false
+    portal-search-radius: 128
+    portal-create-radius: 16
+    portal-search-vanilla-dimension-scaling: true
+    container-update-tick-rate: 1
+    baby-zombie-movement-modifier: 0.5
+    fix-climbing-bypassing-cramming-rule: true
+    disable-chest-cat-detection: true
+    disable-unloaded-chunk-enderpearl-exploit: true
+    anti-xray:
+      enabled: true
+      engine-mode: 1
+      max-chunk-section-index: 3
+      max-block-height: 64
+      update-radius: 2
+      lava-obscures: false
+      use-permission: false
+      hidden-blocks:
+        - gold_ore
+        - iron_ore
+        - coal_ore
+        - lapis_ore
+        - mossy_cobblestone
+        - obsidian
+        - chest
+        - diamond_ore
+        - redstone_ore
+        - clay
+        - emerald_ore
+        - ender_chest
+        - ancient_debris
+      replacement-blocks:
+        - stone
+        - oak_planks
+    despawn-ranges:
+      soft: 32
+      hard: 96
+    frosted-ice:
+      enabled: true
+      delay:
+        min: 20
+        max: 40
+    lootables:
+      auto-replenish: false
+      restrict-player-reloot: true
+      reset-seed-on-fill: true
+      max-refills: -1
+      refresh-min: 12h
+      refresh-max: 2d
+    max-growth-height:
+      cactus: 3
+      reeds: 3
+      bamboo:
+        max: 16
+        min: 11
+    fishing-time-range:
+      MinimumTicks: 100
+      MaximumTicks: 600
+    hopper:
+      cooldown-when-full: true
+      disable-move-event: false
+    alt-item-despawn-rate:
+      enabled: true
+      items:
+        COBBLESTONE: 300
+        NETHERRACK: 300
+        SAND: 300
+        RED_SAND: 300
+        GRAVEL: 300
+        DIRT: 300
+        KELP: 300
+        BAMBOO: 300
+    entity-per-chunk-save-limit:
+      experience_orb: 16
+      snowball: 8
+      ender_pearl: 8
+      arrow: 16

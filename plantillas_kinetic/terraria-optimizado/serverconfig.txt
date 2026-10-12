@@ -1,0 +1,55 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA OPTIMIZADA TERRARIA & TMODLOADER (Octubre 2026)
+# Archivo: serverconfig.txt (Ubicación: /home/container/serverconfig.txt)
+# Enfoque: Sincronización fluida de NPCs/Jefes (npcstream=60) para LATAM.
+# ==============================================================================
+
+# Ruta del archivo de mundo (.wld)
+world=/home/container/saves/Worlds/world.wld
+
+# Tamaño del mundo si se crea automáticamente: 1 (Pequeño), 2 (Mediano), 3 (Grande)
+autocreate=2
+
+# Semilla del mundo (dejar vacío para aleatoria)
+seed=
+
+# Nombre del mundo al generarse
+worldname=Consterna_Cloud
+
+# Dificultad del mundo: 0 (Clásico/Normal), 1 (Experto), 2 (Maestro), 3 (Viaje/Journey)
+difficulty=1
+
+# Límite máximo de jugadores simultáneos
+maxplayers=16
+
+# Puerto principal del servidor (Reemplazar en Startup de Kinetic Panel si aplica)
+port=7777
+
+# Contraseña del servidor (dejar vacío para acceso libre)
+password=
+
+# Mensaje de bienvenida al entrar al servidor
+motd=Consterna Cloud » Servidor Terraria Optimizado (Ryzen 9 9950X | Baja Latencia LATAM)
+
+# Carpeta donde se guardan los archivos .wld
+worldpath=/home/container/saves/Worlds
+
+# Archivo de usuarios baneados
+banlist=banlist.txt
+
+# Activar protección adicional anti-cheats nativa de Terraria (1 = Activo)
+secure=1
+
+# Idioma del servidor: es-ES (Español), en-US (Inglés)
+language=es-ES
+
+# Desactivar UPnP en servidores dedicados de centro de datos (0 = Desactivado)
+upnp=0
+
+# Reducción de salto/teletransporte de enemigos y jefes por red (60 = Óptimo para LATAM;
+# menor número envía más paquetes por segundo; en Calamity Mod con jefes masivos puedes
+# usar 30 o 15 si el grupo tiene buena conexión de fibra).
+npcstream=60
+
+# Prioridad de proceso del sistema: 0:Realtime, 1:High, 2:AboveNormal, 3:Normal
+priority=1

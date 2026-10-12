@@ -1,0 +1,66 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA PALWORLD DEDICATED SERVER (Oct 2026)
+================================================================================
+Archivos incluidos (Con ruta lista para `Unarchive` desde `/home/container`):
+1. `Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`
+2. `Pal/Saved/Config/LinuxServer/Engine.ini`
+
+--------------------------------------------------------------------------------
+⚠️ REGLAS DE ORO DE PALWORLD (MUY IMPORTANTE)
+--------------------------------------------------------------------------------
+1. **APAGA EL SERVIDOR ANTES DE SUBIR O EDITAR:**
+   Si subes o editas `PalWorldSettings.ini` con el servidor encendido, Palworld
+   sobrescribirá el archivo con los valores antiguos en memoria cuando lo apagues.
+   Siempre haz: `Stop` -> Subir/Unarchive `.zip` -> `Start`.
+
+2. **REGLA DE UNA SOLA LÍNEA (`PalWorldSettings.ini`):**
+   El archivo `PalWorldSettings.ini` DEBE tener **exactamente 2 líneas**:
+   - Línea 1: `[/Script/Pal.PalGameWorldSettings]`
+   - Línea 2: `OptionSettings=(Difficulty=None,...)`
+   NUNCA agregues saltos de línea ni comentarios dentro de `PalWorldSettings.ini`,
+   o el motor Unreal Engine ignorará toda la configuración y volverá a Default.
+
+3. **VERIFICAR STARTUP EN KINETIC PANEL:**
+   En Kinetic Panel, revisa `Settings -> Startup`. Si el Egg de Kinetic tiene
+   activado un interruptor de "Auto-Overwrite Config" para `ServerName`,
+   `ServerPassword` o `PublicPort`, cámbialos directamente en las casillas de
+   `Startup` además del `.ini`.
+
+--------------------------------------------------------------------------------
+🚀 QUÉ OPTIMIZA ESTA PLANTILLA AUTOMÁTICAMENTE
+--------------------------------------------------------------------------------
+* `NetServerMaxTickRate=60` (en `Engine.ini`):
+  Sube el tickrate de red del motor Unreal a 60 Hz, reduciendo el *rubberbanding*
+  al esquivar ataques, montar Pals voladores o usar el gancho desde LATAM.
+* `BuildObjectDeteriorationDamageRate=0.000000`:
+  Desactiva el deterioro de estructuras construidas fuera del círculo de la
+  Palbox (evita que las bases decorativas de los jugadores se destruyan solas
+  mientras duermen).
+* `bEnableNonLoginPenalty=False`:
+  Evita que los Pals de la base enfermen o mueran de depresión/hambre cuando los
+  jugadores pasan más de 24 horas sin conectarse.
+* `DropItemMaxNum=1500` y `bActiveUNKO=False` (`DropItemMaxNum_UNKO=0`):
+  Reduce a la mitad el límite de objetos tirados en el suelo (de 3000 a 1500) y
+  desactiva las físicas innecesarias de desechos, ahorrando RAM y MSPT en bases
+  grandes de minería/tala.
+* `AutoSaveSpan=60.000000`:
+  Guarda el mundo cada 60 segundos en lugar de 30s para evitar micro-tirones de
+  disco sin arriesgar el progreso.
+* `PalEggDefaultHatchingTime=2.000000`:
+  Reduce el tiempo de incubación de huevos enormes de 72 horas reales a 2 horas
+  (estándar ideal para servidores multijugador cooperativos).
+* `CrossplayPlatforms=(Steam,Xbox,PS5,Mac)`:
+  Habilita el juego cruzado oficial de Palworld.
+* `ServerReplicatePawnCullDistance=12000.000000`:
+  Ajusta la distancia de replicación de entidades en red (de 15000 a 12000 cm),
+  reduciendo la sobrecarga de paquetes y CPU cuando varios jugadores exploran
+  zonas distintas del mapa en simultáneo.
+
+--------------------------------------------------------------------------------
+🔄 TAREA PROGRAMADA RECOMENDADA EN `SCHEDULES` (KINETIC PANEL)
+--------------------------------------------------------------------------------
+Palworld (Unreal Engine 5) acumula memoria RAM progresivamente a medida que los
+jugadores exploran el mapa. Programa siempre en `Management -> Schedules` un
+**Restart automático diario a las 04:30 AM** (o cada 12 horas en servidores de
+más de 10 jugadores) para mantener el consumo de RAM limpio.
+================================================================================

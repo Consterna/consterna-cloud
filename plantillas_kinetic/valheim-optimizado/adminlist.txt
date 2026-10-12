@@ -1,0 +1,2 @@
+// List admin players ID ONE per line (SteamID64 o PlayFab ID visto con F2 in-game)
+// Ejemplo: 76561198000000000

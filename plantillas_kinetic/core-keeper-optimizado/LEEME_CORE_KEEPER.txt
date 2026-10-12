@@ -1,0 +1,51 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA CORE KEEPER DEDICATED SERVER (Oct 2026)
+================================================================================
+Archivo incluido:
+- `ServerConfig.json`
+
+*(Ubicación en Kinetic Panel: Según el Egg instalado, se encuentra en la raíz
+`/home/container/ServerConfig.json` o en
+`/.config/unity3d/Pugstorm/Core Keeper/DedicatedServer/ServerConfig.json`.
+Recuerda apagar el servidor antes de editarlo).*
+
+--------------------------------------------------------------------------------
+🚀 QUÉ OPTIMIZA ESTA PLANTILLA AUTOMÁTICAMENTE
+--------------------------------------------------------------------------------
+1. `networkSendRate: 30` y `maxNumberPacketsSentPerFrame: 2`:
+   Optimiza el envío de paquetes por fotograma para que, cuando varios jugadores
+   exploren biomas distintos en simultáneo o combatan contra jefes (Ghorm,
+   Malugaz, Azeos), no ocurra retraso al romper paredes ni abrir cofres desde
+   Colombia y LATAM.
+
+2. `maxNumberPlayers: 8`:
+   Configurado en el tope oficial cooperativo estable de Core Keeper 1.0+ (8
+   jugadores simultáneos).
+
+3. `gameId: ""`:
+   Al dejarse vacío en el primer arranque, Core Keeper genera automáticamente un
+   **Game ID único de 28 caracteres** y lo guarda también en el archivo
+   `GameID.txt` (además de mostrarlo en la consola de Kinetic Panel).
+   - **Importante al entregar al cliente:** En Core Keeper NO se entra por
+     IP:Puerto, sino copiando el código de **`GameID.txt`** y pegándolo dentro
+     del juego en `Join Game -> Enter Game ID`.
+
+--------------------------------------------------------------------------------
+🌍 TABLA DE VALORES OFICIALES (`worldMode` y `seasonOverride`)
+--------------------------------------------------------------------------------
+* **`worldMode` (Dificultad / Modo del Mundo):**
+  - `0` = Normal / Estándar (Por defecto)
+  - `1` = Difícil (Hard)
+  - `2` = Creativo (Creative)
+  - `4` = Casual
+
+* **`seasonOverride` (Eventos Estacionales):**
+  - `-1` = Automático según la fecha real del calendario (Por defecto)
+  - `0` = Ninguno (Desactivado)
+  - `1` = Pascua (Easter)
+  - `2` = Halloween (Samhain)
+  - `3` = Navidad (Christmas)
+  - `4` = San Valentín (Valentine)
+  - `5` = Aniversario (Anniversary)
+  - `6` = Cerezos en Flor (Cherry Blossom)
+================================================================================

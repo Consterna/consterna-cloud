@@ -1,0 +1,77 @@
+================================================================================
+☁️ CONSTERNACLOUD - GUÍA PASO A PASO: VINCULAR VELOCITY CON PAPER, PURPUR Y FABRIC
+================================================================================
+Cuando un cliente contrata una Network (ej. Lobby + Survival + Evento) o un
+Proxy Velocity para mitigación y balanceo, sigue estos 3 pasos exactos:
+
+--------------------------------------------------------------------------------
+PASO 1: CONFIGURAR EL PROXY VELOCITY
+--------------------------------------------------------------------------------
+1. Inicia el servidor Velocity una vez para que genere el archivo `forwarding.secret`
+   y luego apágalo (`Stop`).
+2. Sube `velocity.toml` de esta plantilla a la raíz del Proxy.
+3. En `velocity.toml`:
+   - Cambia `bind = "0.0.0.0:25577"` por el puerto principal asignado al Proxy
+     en Kinetic Panel (`Network -> Ports`).
+   - En la sección `[servers]`, coloca las IPs y puertos de tus servidores
+     backend (ej. `lobby = "IP:PUERTO"`, `survival = "IP:PUERTO"`).
+4. Abre el archivo `forwarding.secret` en el File Manager del Proxy y **copia**
+   el texto secreto que contiene adentro.
+
+--------------------------------------------------------------------------------
+PASO 2: CONFIGURAR SERVIDORES BACKEND PAPER / PURPUR (1.19+ / 1.20.1 / 1.21+)
+--------------------------------------------------------------------------------
+En cada servidor backend (Lobby, Survival, etc.) que esté detrás de Velocity:
+
+1. Abre `server.properties` del servidor backend y cambia estas 2 líneas:
+   ```properties
+   online-mode=false
+   network-compression-threshold=-1
+   ```
+   *(¿Por qué? Porque Velocity ya autentica a los jugadores y ya comprime los
+   paquetes con `compression-threshold = 256`. Poner `-1` en el backend evita la
+   doble compresión y ahorra hasta un 15% de CPU).*
+
+2. Abre `config/paper-global.yml` del servidor backend, busca la sección
+   `proxies:` -> `velocity:` y configúrala así:
+   ```yaml
+   proxies:
+     bungee-online-mode: true
+     proxy-protocol: false
+     velocity:
+       enabled: true
+       online-mode: true
+       secret: "PEGA_AQUI_EL_CONTENIDO_DE_FORWARDING_SECRET"
+   ```
+   *(Nota: Si el Proxy Velocity está en `online-mode = false` para jugadores
+   No-Premium con AuthMeVelocity / LibreLogin, pon `online-mode: false` también
+   dentro de `proxies.velocity` en `paper-global.yml`).*
+
+   *(Si el backend es Paper Legacy 1.16.5 - 1.18.2, edita `settings.velocity-support`
+   dentro de `paper.yml` en la raíz con `enabled: true` y `secret: '...'`).*
+
+--------------------------------------------------------------------------------
+PASO 3: CONFIGURAR SERVIDORES BACKEND FABRIC (1.20.1 / 1.21+)
+--------------------------------------------------------------------------------
+Fabric Vanilla no entiende el protocolo `modern` de Velocity por sí solo. Para
+conectarlo de forma segura:
+
+1. Instala el mod **FabricProxy-Lite** en la carpeta `/mods` del servidor Fabric:
+   https://modrinth.com/mod/fabricproxy-lite
+   (Y asegúrate de tener también **CrossStitch** si usas argumentos de comandos
+   de mods que no existen en Vanilla: https://modrinth.com/mod/crossstitch).
+2. En `server.properties` del servidor Fabric, pon:
+   ```properties
+   online-mode=false
+   network-compression-threshold=-1
+   ```
+3. Inicia el servidor Fabric una vez para que genere `config/FabricProxy-Lite.toml`.
+4. Abre `config/FabricProxy-Lite.toml` y pega el mismo `secret` del Proxy:
+   ```toml
+   hackOnlineMode = false
+   hackEarlySend = false
+   hackMessageChain = true
+   disconnectMessage = "Este servidor solo es accesible a través del Proxy de Consterna Cloud."
+   secret = "PEGA_AQUI_EL_CONTENIDO_DE_FORWARDING_SECRET"
+   ```
+================================================================================

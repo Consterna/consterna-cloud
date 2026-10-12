@@ -1,99 +1,147 @@
-# 🛠️ Manual Operativo (SOP): Entrega "Llave en Mano" en Kinetic Panel
-**Versión:** Octubre 2026 (Actualizado y Auditado al 12 de octubre de 2026)  
+# 🛠️ Manual Operativo Maestro (SOP): Entrega "Llave en Mano" en Kinetic Panel
+**Versión:** Octubre 2026 (Catálogo Completo de 13 Plantillas: Minecraft Todos los Motores/Proxies + 7 Juegos Principales)  
 **Uso Interno:** Guía paso a paso para **Cristian y Víctor** en **Consterna Cloud**  
-**Objetivo:** Entregar cualquier servidor 100% configurado, optimizado y con mapa pre-generado dentro de nuestro SLA prometido (**30 a 90 minutos**), reduciendo el trabajo manual repetitivo a menos de **5 minutos de clics efectivos**.
+**Objetivo:** Entregar cualquier servidor de **Minecraft** (Paper, Purpur, Fabric, Quilt, Forge, NeoForge, Velocity Proxy), **Project Zomboid**, **Palworld**, **Rust**, **Valheim**, **Terraria (Vanilla/tModLoader)** o **Core Keeper** 100% configurado y optimizado dentro de nuestro SLA (**30 a 90 minutos**), reduciendo el trabajo manual repetitivo a menos de **5 minutos de clics efectivos**.
 
 ---
 
-## 🧭 Matriz de Decisión: ¿Qué cambia entre Versiones de Minecraft y qué Plantilla usar?
+## ⏸️ Análisis Técnico Profundo: `pause-when-empty-seconds` en Minecraft (`1.21.2+`)
 
-Una duda muy común al operar un hosting es: ***"¿Necesitamos una plantilla distinta por cada versión de Minecraft (1.20.1, 1.20.4, 1.21.1, 1.21.4)?"***  
-La respuesta técnica real (verificada contra el código fuente de PaperMC, Fabric, Forge y NeoForge) es:
+### La Pregunta Clave
+> *"Si mientras pre-genero el mundo con Chunky puedo estar yo mismo conectado adentro (sin pausar el menú), dejando de lado Chunky, ¿es mejor tener `pause-when-empty-seconds` activado (`60`) o desactivado (`-1` / `0`)?"*
 
-1. **En Servidores con Mods (`Fabric`, `Forge`, `NeoForge`): NO cambia por versión (`1.20.1` vs `1.21.x`), sino por MODLOADER.**
-   - **Fabric (`1.20.1` y `1.21.x`):** Los mods de optimización (**Lithium**, **FerriteCore**, **ModernFix** y **Simple Voice Chat**) leen exactamente las mismas rutas y claves en `1.20.1` y en `1.21.x` (`config/lithium.properties`, `config/ferritecore.mixin.properties`, `config/modernfix-mixins.properties` y `config/voicechat/voicechat-server.properties`). Por eso, **una sola plantilla de Fabric sirve para 1.20.1 y 1.21.x**.
-   - **Forge (`1.20.1`) y NeoForge (`1.21.x`):** En el ecosistema Forge/NeoForge (donde viven modpacks pesados como *All The Mods 9/10*, *Prominence II*, *Create*, *RLCraft Dregora*), **FerriteCore** NO lee archivos `.properties`, sino un archivo TOML (**`config/ferritecore-mixin.toml`**). Además, en Forge 1.20.1 se usa **Canary** (`config/canary.properties`) y en NeoForge 1.21.1+ ya existe **Lithium oficial** (`config/lithium.properties`). Nuestra plantilla **`forge-neoforge-optimizado`** incluye ambos archivos para que sirva **tanto en Forge 1.20.1 como en NeoForge 1.21.x** sin tocar nada.
+### 1. ¿Qué hace exactamente esta opción y cómo funciona en cada motor?
+Introducida por Mojang en **Minecraft 1.21.2** dentro de `server.properties`:
+- **En Vanilla / Fabric / Forge / NeoForge:** Viene por defecto en `pause-when-empty-seconds=60`. Cuando el último jugador se desconecta, el servidor cuenta 60 segundos, imprime en consola `Server empty for 60 seconds, pausing` y **congela por completo el bucle de ticks de los mundos (*world tick loop*)**.
+- **En Paper / Purpur:** El equipo de PaperMC la desactiva deliberadamente por defecto (`pause-when-empty-seconds=-1`) porque congelar el bucle de ticks rompe numerosos plugins, tareas programadas y mecánicas de servidores multijugador.
+- **Cómo se desactiva:** Poniendo cualquier valor `<= 0` (`-1` o `0`).
 
-2. **En Servidores con Plugins (`Paper` / `Purpur`): SÍ cambia entre `1.21.x` y `1.20.1`.**
-   - En **Paper 1.21.x**, `config/paper-world-defaults.yml` usa el esquema `_version: 31`, el ítem de pasto corto se llama `short_grass: 300` (renombrado por Mojang en 1.20.3+), existen los proyectiles `wind_charge` y `breeze_wind_charge`, y **Spark** ya viene integrado nativamente dentro de `paper-global.yml` (`_version: 29`).
-   - En **Paper 1.20.1**, el esquema es `_version: 30` y el ítem todavía se llamaba **`grass: 300`** (si subes la plantilla de 1.21 en un Paper 1.20.1, dará advertencia en consola porque `short_grass` y `wind_charge` no existían en 1.20.1). Por eso tenemos dos plantillas separadas para Paper: **`1.21+`** y **`1.20.1`**.
-   - *(Nota sobre versiones muy antiguas como `1.16.5` o `1.18.2`: esas versiones antiguas no usaban la carpeta `config/paper-world-defaults.yml`, sino un único archivo `paper.yml` en la raíz. Si algún cliente pide 1.16.5/1.18.2, solo sube `bukkit.yml`, `spigot.yml` y `server.properties` y deja que Paper genere su propio `paper.yml`).*
+### 2. ¿Qué se congela exactamente cuando el servidor entra en pausa?
+Mientras el servidor está pausado sin jugadores:
+- **No avanzan los ticks de entidades ni bloques** (los mobs, aldeanos, tolvas, hornos y cultivos se detienen al 100%).
+- **No avanza la Redstone** ni los mecanismos automatizados.
+- **No avanza el tiempo del mundo** (ni el ciclo día/noche, ni el contador de días `Day X` de F3, ni las estaciones del año).
+
+### 3. ¿Cuándo SÍ es muy recomendable ACTIVARLO (`pause-when-empty-seconds=60`)?
+Una vez terminada la pre-generación con Chunky, **SÍ conviene cambiarlo a `60`** en estos casos:
+1. **Servidores Survival Casuales de Amigos (por horarios):** Grupos de amigos que entran a jugar juntos por la noche y cuando se desconectan quieren que el mundo los espere exactamente como lo dejaron.
+2. **Servidores con Mods de Estaciones, Clima o Contador de Días (*Serene Seasons*, *Fabric Seasons*, *Ecliptic Seasons*, *Tough As Nails*):** Si el servidor queda corriendo 24/7 sin pausa mientras los amigos duermen o trabajan en la vida real, pasarán decenas de días dentro del juego, avanzarán las estaciones (llegando el invierno y matando sus cultivos) sin que nadie haya jugado. Con `pause-when-empty-seconds=60`, el calendario estacional se congela cuando no hay nadie conectado.
+3. **Ahorro puro de recursos e I/O:** Reduce en ~95% el uso de CPU y escrituras en disco NVMe mientras el grupo duerme.
+
+### 4. ¿Cuándo es OBLIGATORIO dejarlo DESACTIVADO (`pause-when-empty-seconds=-1` o `0`)?
+Debes dejarlo **desactivado (`-1` o `0`)** en estos 3 escenarios:
+1. **Survival Técnico Vanilla / Fabric con Granjas en Spawn Chunks o Chunk Loaders:**
+   - En Minecraft técnico, los jugadores construyen granjas de hierro, shulkers, cultivos, hornos industriales o *Mob Switches* en los *Spawn Chunks*, o usan **Chunk Loaders con portales del Nether** o **Ender Pearl Stasis Chambers** (cámaras de estasis con perlas de Ender que en 1.21.2+ cargan chunks nativamente) para que sus granjas produzcan mientras están desconectados. Si el servidor se pausa a los 60 segundos de salir el último jugador, todas las granjas y hornos se apagan.
+2. **Servidores con Mods Técnicos y *Force-Loading* (*Forge / NeoForge / Fabric*):**
+   - En modpacks como *All The Mods 9/10*, *Create*, *Mekanism*, *Applied Energistics 2* o *Prominence II*, los jugadores usan **FTB Chunks** (marcando chunks con `Shift + Clic Izquierdo` en el mapa para mantenerlos cargados 24/7) para que sus trenes de *Create*, mineros digitales, reactores de fisión de *Mekanism* o autocrafteos sigan procesando minerales toda la noche. Si `pause-when-empty-seconds=60` está activo, el *force-loading* de FTB Chunks se congela al salir el último jugador.
+3. **Servidores con Plugins, Timers, RCON y Mapas Web (*Paper / Purpur*):**
+   - Plugins de mapas web como **BlueMap**, **Dynmap** o **Squaremap** (que renderizan tiles en segundo plano), plugins con tareas síncronas (*BukkitScheduler* ligados a ticks del servidor), tiendas/subastas con tiempo de expiración, bots como **DiscordSRV** y nuestra **Fase 2 nocturna de Chunky (04:00 AM)** requieren que el bucle de ticks no esté congelado.
+
+### 📌 Regla Práctica para Consterna Cloud
+| Tipo de Servidor del Cliente | Valor Recomendado en `server.properties` |
+| :--- | :--- |
+| **Paper / Purpur con Plugins** (SMP, Towny, BoxPvP, Eventos) | **`pause-when-empty-seconds=-1`** *(Desactivado — evita romper plugins, timers y mapas web)* |
+| **Survival Técnico (Vanilla / Fabric)** o **Modpacks Técnicos (ATM, Create, Mekanism)** | **`pause-when-empty-seconds=-1`** *(Desactivado — permite granjas 24/7, Chunk Loaders y FTB Chunks)* |
+| **Survival Casual de Amigos** o **Modpacks RPG/Estaciones (Serene Seasons)** *(tras terminar Chunky)* | **`pause-when-empty-seconds=60`** *(Activado — congela días y estaciones cuando nadie juega)* |
+
+*(Por seguridad operativa, nuestras plantillas vienen con `pause-when-empty-seconds=-1` por defecto para que Chunky y los plugins nunca fallen al instalar; si el cliente es un grupo casual con mods de estaciones y ya terminaste la Fase 1 de Chunky Contigo adentro, puedes dejarlo en `60`).*
 
 ---
 
-## 📦 Resumen de las 5 Plantillas Maestras (`.zip`)
+## 🧭 Tabla Maestra de Todos los Motores, Modloaders y Proxies de Minecraft
 
-En esta carpeta (`plantillas_kinetic/`) tienes listas las 5 plantillas comprimidas para arrastrar directamente al **File Manager** de Kinetic Panel:
-
-| # | Archivo `.zip` (y Carpeta Fuente) | ¿Cuándo usarla? | Qué configura y optimiza automáticamente |
+| Motor / Modloader | ¿Para qué sirve? | Versiones Clave | ¿Qué Plantilla de Consterna Cloud usar? |
 | :--- | :--- | :--- | :--- |
-| **1** | **`Plantilla-Configs-Paper-1.21.zip`**<br>*(Carpeta: `paper-1.21-optimizado/`)* | **Paper o Purpur 1.21.1 – 1.21.4+**<br>*(Survival con Plugins moderno)* | `bukkit.yml`, `spigot.yml`, `server.properties` (`pause-when-empty-seconds=-1`), `config/paper-global.yml` (`_version: 29` con Spark activo), `config/paper-world-defaults.yml` (`_version: 31`, `ALTERNATE_CURRENT`, `per-player-mob-spawns: true`, `Anti-Xray Mode 1`) y `plugins/voicechat/voicechat-server.properties`. |
-| **2** | **`Plantilla-Configs-Paper-1.20.1.zip`**<br>*(Carpeta: `paper-1.20.1-optimizado/`)* | **Paper o Purpur 1.20.1 – 1.20.4**<br>*(Survival con Plugins 1.20)* | Igual que la de 1.21 pero adaptada al esquema real de Paper 1.20.1 (`_version: 28` y `_version: 30`, `grass: 300` en lugar de `short_grass`, y sin entidades exclusivas de 1.21) más `plugins/voicechat/voicechat-server.properties`. |
-| **3** | **`Plantilla-Configs-Fabric-1.21.zip`**<br>*(Carpeta: `fabric-optimizado/`)* | **Fabric 1.20.1 y Fabric 1.21.x**<br>*(Survival Técnico, Series con Voice Chat, Modpacks Fabric como Cobblemon / Prominence II)* | `server.properties` (`pause-when-empty-seconds=-1`), `config/lithium.properties`, `config/ferritecore.mixin.properties` (claves oficiales `FerriteConfig.java`), `config/modernfix-mixins.properties` (`dynamic_resources=true`), `config/voicechat/voicechat-server.properties` (`max_voice_distance=48.0`, `whisper_distance=24.0`, `mtu_size=1024`) y `MODS_RECOMENDADOS.txt`. |
-| **4** | **`Plantilla-Configs-Forge-NeoForge.zip`**<br>*(Carpeta: `forge-neoforge-optimizado/`)* | **Forge 1.20.1 y NeoForge 1.21.x**<br>*(Modpacks pesados: All The Mods 9/10, Create, RLCraft Dregora, Better MC Forge)* | `server.properties` (`max-tick-time=180000` anti-crash en carga de modpacks), `config/ferritecore-mixin.toml` (formato TOML de Forge/NeoForge), `config/modernfix-mixins.properties` (`dynamic_resources=true`), `config/canary.properties` (para Forge 1.20.1 con `mixin.ai.poi=false` compatible con Create/Valkyrien Skies), `config/lithium.properties` (para NeoForge 1.21.1+) y `config/voicechat/voicechat-server.properties`. |
-| **5** | **`Plantilla-Zomboid-Coop-LATAM.zip`**<br>*(Carpeta: `zomboid-coop-latam/`)* | **Project Zomboid (Co-op / Mods)**<br>*(Todos los planes de Zomboid)* | `servertest.ini` y `servertest_SandboxVars.lua`: `PingLimit=350`, `KickFastPlayers=false` (cero expulsiones injustas al conducir vehículos desde LATAM), `PauseEmpty=true`, `SaveWorldEveryMinutes=15`, `BackupsCount=5`, limpieza automática de basura en el suelo cada 24h in-game (`HoursForWorldItemRemoval = 24.0`) y `BloodLevel = 2` (`Low`). |
+| **Vanilla** *(Oficial Mojang)* | Binario puro de Mojang sin optimizaciones ni soporte de plugins/mods. Consume mucha más RAM/CPU. | Todas (`1.7` a `1.21.4+`) | **Recomendación:** Ofrecer siempre **Fabric + Lithium + FerriteCore** (100% mecánicas Vanilla con el doble de TPS) usando `Plantilla-Configs-Fabric-1.21.zip`. |
+| **Paper** | El estándar de oro para servidores con **Plugins** (alto rendimiento, asíncrono, parchea exploits). | `1.21.1 – 1.21.4+`<br>`1.20.1 – 1.20.4`<br>`1.16.5 / 1.17.1 / 1.18.2` | • `Plantilla-Configs-Paper-1.21.zip`<br>• `Plantilla-Configs-Paper-1.20.1.zip`<br>• `Plantilla-Configs-Paper-Legacy-1.16.5-1.18.2.zip` |
+| **Pufferfish** | Fork de Paper enfocado en servidores grandes: añade spawns asíncronos (`enable-async-mob-spawning`) y DAB (*Dynamic Activation of Brain*) en `pufferfish.yml`. | `1.18.2 – 1.21.x` | • `Plantilla-Configs-Purpur.zip` *(incluye `pufferfish.yml` con entidades técnicas en `blacklisted-entities` + configs de Paper)* |
+| **Purpur** | Fork de Pufferfish + Paper para SMPs y comunidades: añade `use-alternate-keepalive` (anti-timeout LATAM) y `villager.lobotomize` (`wait-until-trade-locked: true`). | `1.20.1 – 1.21.4+` | • `Plantilla-Configs-Purpur.zip` *(incluye `purpur.yml` + `pufferfish.yml` + configs de Paper)* |
+| **Fabric** | El modloader más ligero y rápido. Ideal para **Survival Técnico** (sin alterar mecánicas Vanilla), *Simple Voice Chat*, *Cobblemon* y *Prominence II*. | `1.16.5` a `1.21.4+` | • `Plantilla-Configs-Fabric-1.21.zip` *(incluye tabla por versión en `MODS_RECOMENDADOS.txt`)* |
+| **Quilt** | Fork de Fabric compatible con el 99% de mods de Fabric añadiendo **Quilted Fabric API (QFAPI)**. | `1.20.1 – 1.21.x` | • `Plantilla-Configs-Fabric-1.21.zip` *(usa las mismas rutas en `config/` que Fabric)* |
+| **Forge** | El modloader clásico de grandes modpacks en `1.20.1` y anteriores (*RLCraft*, *All The Mods 9*, *Create*, *Dawncraft*). | `1.16.5`, `1.18.2`, `1.19.2`, `1.20.1` | • `Plantilla-Configs-Forge-NeoForge.zip` *(incluye `ferritecore-mixin.toml`, `canary.properties` y `modernfix-mixins.properties`)* |
+| **NeoForge** | El sucesor moderno oficial de Forge a partir de Minecraft `1.20.4` y `1.21.1+` (*All The Mods 10*, *Cobblemon 1.6+ NeoForge*). | `1.20.4`, `1.21.1+` | • `Plantilla-Configs-Forge-NeoForge.zip` *(incluye soporte para **Lithium** nativo en NeoForge 1.21.1+)* |
+| **Sponge (`SpongeForge` / `SpongeNeo`)** | API de plugins propia (distinta de Spigot/Bukkit) diseñada para convivir limpia y oficialmente con Forge/NeoForge (muy usada en servidores *Pixelmon* clásicos). | `1.12.2`, `1.16.5`, `1.20.1`, `1.21.x` | • `Plantilla-Configs-Forge-NeoForge.zip` *(aplicando los mods de optimización de Forge/NeoForge junto a plugins exclusivos de SpongeAPI)* |
+| **Velocity Proxy** | Proxy moderno de PaperMC (reemplaza a los antiguos **BungeeCord** y **Waterfall**) para **Networks** (Lobby + Survival + Eventos) o protección frontal. | Soporta clientes `1.7.2` a `1.21.4+` | • `Plantilla-Velocity-Proxy.zip` *(incluye `velocity.toml` v2.7 y guía de enlace con Paper, Purpur y Fabric)* |
+| **Folia** *(Especial)* | Fork experimental de Paper con *multithreading* por regiones del mapa. **Solo tiene sentido en macro-eventos de +150 jugadores dispersos**; rompe la mayoría de plugins comunes. | `1.20.1 – 1.21.x` | Usar configs base de Paper solo si un evento masivo lo pide expresamente con plugins compatibles con Folia. |
+| **Híbridos (*Mohist / Arclight / Magma / Ketting*)** | ⚠️ **NO RECOMENDADOS:** Intentan mezclar Forge + Plugins de Spigot/Bukkit a la fuerza en el mismo servidor. | Varias | **Evitar siempre que sea posible.** Rompen mixins de mods (*Create*, *AE2*), causan corrupción de chunks y crashes silenciosos. **Solución profesional:** Usar Fabric o Forge/NeoForge puro con mods server-side nativos (*LuckPerms*, *FTB Essentials*, *FTB Ranks*, *FTB Chunks*, *Ledger*, *StyledChat*). |
+
+### 💡 Diferencias Clave de Mods de Optimización según la Versión (`Fabric` / `Forge` / `NeoForge`)
+1. **Motor de Iluminación (*Starlight*):**
+   - En **`1.16.5`, `1.18.2` y `1.19.2`** (tanto Fabric como Forge): Es **obligatorio instalar `Starlight`**, porque el motor de luz de Vanilla era extremadamente lento al generar o cargar chunks.
+   - En **`1.20.1` y `1.21.1+`**: **NO hace falta `Starlight`** (de hecho fue archivado en 1.20.4+) porque Mojang reescribió por completo el motor de iluminación en el juego base inspirándose en Starlight.
+2. **Arranque de DataFixerUpper (*LazyDFU*):**
+   - En **`1.16.5`, `1.18.2` y `1.19.2`**: Es **obligatorio instalar `LazyDFU`** para que el servidor no congele el CPU compilando reglas de migración al encender.
+   - En **`1.19.4+`, `1.20.1` y `1.21.1+`**: **NO hace falta `LazyDFU`** porque Mojang incorporó esta optimización de forma nativa.
+3. **Formatos de Configuración (`.properties` vs `.toml`):**
+   - **FerriteCore** usa `config/ferritecore.mixin.properties` en **Fabric/Quilt**, pero usa **`config/ferritecore-mixin.toml`** en **Forge/NeoForge**.
+   - **ModernFix** usa **`config/modernfix-mixins.properties`** en **TODOS los modloaders** (Fabric, Quilt, Forge y NeoForge), ya que su *MixinPlugin* se carga antes de que Forge inicialice su sistema TOML.
 
 ---
 
-## ⚡ PASO 1: Cómo aplicar la plantilla en 2 segundos (`Unarchive`)
+## 📦 Catálogo de las 13 Plantillas Maestras en `plantillas_kinetic/`
 
-### A. Para Minecraft (`Paper`, `Fabric`, `Forge` o `NeoForge`)
-1. En **Kinetic Panel**, instala primero la versión base desde **Version Installer** (Paper, Fabric, Forge o NeoForge) o el Modpack desde **Modpack Installer**.
-2. Inicia el servidor **una sola vez**, acepta el EULA cuando salga el aviso y **apágalo (`Stop`)** apenas termine de generar las carpetas base.
-3. Ve a **Management -> File Manager** (asegúrate de estar en la raíz `/home/container`).
-4. Arrastra el archivo `.zip` correspondiente de la tabla superior directamente hacia la ventana del File Manager.
-5. Haz clic en los **3 puntos (`...`)** a la derecha del archivo `.zip` recién subido y selecciona **`Unarchive`**.
-   - ¡Listo! Kinetic Panel sobrescribirá automáticamente `server.properties`, los archivos YAML y las subcarpetas `config/` o `plugins/` en su ubicación exacta.
-   - *(Nota si instalaste un Modpack pre-armado de CurseForge/Modrinth: si el modpack tenía un `level-type` especial como `biomesoplenty` en su `server.properties`, verifica que `level-type=` conserve el del modpack).*
-6. Borra el archivo `.zip` del File Manager para dejar limpio el directorio del cliente.
-
-### B. Para Project Zomboid
-1. Inicia el servidor de Project Zomboid por primera vez hasta que diga `SERVER STARTED` y luego **apágalo (`Stop`)**.
-2. En **File Manager**, entra a la ruta: `/.cache/Server/` (si no ves `.cache`, activa mostrar archivos ocultos o verifica la carpeta `Zomboid/Server/`).
-3. Arrastra **`Plantilla-Zomboid-Coop-LATAM.zip`** dentro de `/.cache/Server/`, haz clic en los **3 puntos (`...`)** -> **`Unarchive`** y borra el `.zip`.
-4. Si el cliente pidió mods de Steam Workshop, abre `servertest.ini` desde el editor de Kinetic Panel y pega los IDs separados por punto y coma en:
-   - `Mods=ModID1;ModID2`
-   - `WorkshopItems=123456789;987654321`
+| # | Archivo `.zip` (y Carpeta Fuente) | Juego / Motor | Qué configura y optimiza automáticamente |
+| :--- | :--- | :--- | :--- |
+| **1** | **`Plantilla-Configs-Paper-1.21.zip`**<br>*(Carpeta: `paper-1.21-optimizado/`)* | **Minecraft Paper 1.21.1 – 1.21.4+** | `bukkit.yml`, `spigot.yml`, `server.properties`, `config/paper-global.yml` (`_version: 29` con Spark), `config/paper-world-defaults.yml` (`_version: 31`, `ALTERNATE_CURRENT`, `per-player-mob-spawns: true`, `short_grass: 300`, `Anti-Xray Mode 1`) y `plugins/voicechat/voicechat-server.properties`. |
+| **2** | **`Plantilla-Configs-Paper-1.20.1.zip`**<br>*(Carpeta: `paper-1.20.1-optimizado/`)* | **Minecraft Paper 1.20.1 – 1.20.4** | Esquema exacto de Paper 1.20.1 (`_version: 28` y `_version: 30`, `grass: 300` en lugar de `short_grass`, sin entidades de 1.21) + `plugins/voicechat/voicechat-server.properties`. |
+| **3** | **`Plantilla-Configs-Paper-Legacy-1.16.5-1.18.2.zip`**<br>*(Carpeta: `paper-legacy-1.16.5-1.18.2/`)* | **Minecraft Paper 1.16.5 / 1.17.1 / 1.18.2** | Incluye el archivo monolítico **`paper.yml`** en la raíz (`config-version: 20` auto-migrable a 24/25, `eigencraft-redstone`, `per-player-mob-spawns`, `max-auto-save-chunks-per-tick: 8`, `anti-xray`), `bukkit.yml`, `spigot.yml` y `server.properties`. |
+| **4** | **`Plantilla-Configs-Purpur.zip`**<br>*(Carpeta: `purpur-optimizado/`)* | **Minecraft Purpur y Pufferfish 1.20.1 / 1.21.1+** | Incluye **`purpur.yml`** (`use-alternate-keepalive: true` anti-timeout LATAM, `villager.lobotomize.enabled: true` con `wait-until-trade-locked: true`, `use-better-mending: true`, `teleport-if-outside-border: true`) y **`pufferfish.yml`** (`enable-async-mob-spawning: true`, DAB con `blacklisted-entities` técnicos) más todo el stack de Paper y Simple Voice Chat. |
+| **5** | **`Plantilla-Configs-Fabric-1.21.zip`**<br>*(Carpeta: `fabric-optimizado/`)* | **Minecraft Fabric y Quilt (1.16.5 a 1.21.4+)** | `server.properties`, `config/lithium.properties`, `config/ferritecore.mixin.properties`, `config/modernfix-mixins.properties` (`dynamic_resources=true`), `config/voicechat/voicechat-server.properties` y `MODS_RECOMENDADOS.txt` con matriz por versión. |
+| **6** | **`Plantilla-Configs-Forge-NeoForge.zip`**<br>*(Carpeta: `forge-neoforge-optimizado/`)* | **Minecraft Forge (1.16.5–1.20.1) y NeoForge (1.21.1+)** | `server.properties` (`max-tick-time=180000` anti-crash en carga de modpacks), `config/ferritecore-mixin.toml`, `config/modernfix-mixins.properties`, `config/canary.properties` (`mixin.ai.poi=false` para Create), `config/lithium.properties` (para NeoForge 1.21+) y `MODS_RECOMENDADOS_FORGE_NEOFORGE.txt`. |
+| **7** | **`Plantilla-Velocity-Proxy.zip`**<br>*(Carpeta: `velocity-proxy-optimizado/`)* | **Minecraft Velocity Proxy 3.3+ / 3.4+** | `velocity.toml` (`config-version = "2.7"`, `player-info-forwarding-mode = "modern"`, `compression-threshold = 256`, `tcp-fast-open = true`, `login-ratelimit = 3000`) y `GUIA_VINCULACION_VELOCITY.txt` para Paper, Purpur y Fabric (*FabricProxy-Lite*). |
+| **8** | **`Plantilla-Zomboid-Coop-LATAM.zip`**<br>*(Carpeta: `zomboid-coop-latam/`)* | **Project Zomboid (Build 41 / 42 Co-op)** | `servertest.ini` y `servertest_SandboxVars.lua`: `PingLimit=350`, `KickFastPlayers=false` (cero expulsiones conduciendo desde LATAM), `PauseEmpty=true`, `SaveWorldEveryMinutes=15`, `BackupsCount=5`, limpieza de basura en el suelo cada 24h in-game y `BloodLevel = 2`. |
+| **9** | **`Plantilla-Palworld-Optimizado.zip`**<br>*(Carpeta: `palworld-optimizado/`)* | **Palworld Dedicated Server** | `Pal/Saved/Config/LinuxServer/PalWorldSettings.ini` (formato estricto de 2 líneas: `BuildObjectDeteriorationDamageRate=0`, `bEnableNonLoginPenalty=False`, `DropItemMaxNum=1500`, `bActiveUNKO=False`, `AutoSaveSpan=60`, `ServerReplicatePawnCullDistance=12000`), `Engine.ini` (`NetServerMaxTickRate=60`) y `LEEME_PALWORLD.txt`. |
+| **10** | **`Plantilla-Rust-Optimizado.zip`**<br>*(Carpeta: `rust-optimizado/`)* | **Rust Dedicated Server (Vanilla / Oxide / Carbon)** | `server/rust/cfg/server.cfg`: `fps.limit 60` (evita saturación de CPU por bucle de 256 FPS), `server.tickrate 30`, `gc.buffer 2048` (elimina congelamientos por Garbage Collector de Unity), `server.saveinterval 300` y `LEEME_RUST.txt`. |
+| **11** | **`Plantilla-Valheim-Optimizado.zip`**<br>*(Carpeta: `valheim-optimizado/`)* | **Valheim Dedicated Server (Vanilla / BepInEx)** | `adminlist.txt`, `permittedlist.txt`, `bannedlist.txt`, `start_server_consterna.sh` (`-saveinterval 1200 -backups 4`) y `LEEME_VALHEIM.txt` (secreto de latencia Direct UDP vs `-crossplay` PlayFab en LATAM, modificadores `-preset`/`-modifier` y *BetterNetworking*). |
+| **12** | **`Plantilla-Terraria-Optimizado.zip`**<br>*(Carpeta: `terraria-optimizado/`)* | **Terraria (Vanilla / TShock / tModLoader)** | `serverconfig.txt`: `npcstream=60` (sincronización suave de enemigos/jefes en LATAM), `secure=1`, `upnp=0`, `autocreate=2`, `difficulty=1`, `priority=1` y `LEEME_TERRARIA.txt` (guía de `install.txt` y `enabled.json` para Calamity/tModLoader). |
+| **13** | **`Plantilla-CoreKeeper-Optimizado.zip`**<br>*(Carpeta: `core-keeper-optimizado/`)* | **Core Keeper Dedicated Server** | `ServerConfig.json`: `networkSendRate: 30`, `maxNumberPacketsSentPerFrame: 2`, `maxNumberPlayers: 8`, `worldMode: 0`, `seasonOverride: -1` y `LEEME_CORE_KEEPER.txt` (conexión por `GameID.txt` de 28 caracteres). |
 
 ---
 
-## 🎙️ PASO 2: Configurar Simple Voice Chat en 30 segundos (`Quick Setup` + `Open Port`)
+## ⚡ PASO 1: Cómo desplegar cada Juego en Kinetic Panel (`Unarchive`)
 
-Una de las mayores ventajas de nuestra entrega **"Llave en Mano"** es entregar el chat de voz por proximidad funcionando a la primera (tanto en Mods como en Plugins):
+### 1. Minecraft (`Paper`, `Purpur`, `Fabric`, `Quilt`, `Forge`, `NeoForge` y `Velocity`)
+1. Instala la versión desde **Version Installer** o el modpack desde **Modpack Installer**.
+2. Inicia el servidor **una vez**, acepta el EULA y **apágalo (`Stop`)**.
+3. En **Management -> File Manager** (raíz `/home/container`), arrastra el `.zip` correspondiente, haz clic en los **3 puntos (`...`) -> `Unarchive`** y luego borra el `.zip`.
+4. **Simple Voice Chat (30s):** En `Network -> Ports` abre un puerto secundario (`Open Port`), copia el número y pégalo en `port=` dentro de `/config/voicechat/voicechat-server.properties` (Mods) o `/plugins/voicechat/voicechat-server.properties` (Plugins).
+5. **Startup Flags:** En `Settings -> Startup`, activa **`Aikar's Flags`** (planes de 4 GB a 12 GB) o **Generational ZGC** (`-XX:+UseZGC -XX:+ZGenerational` en planes de 16 GB con Java 21+).
 
-1. Instala el mod o plugin **Simple Voice Chat** desde el **Mod Manager / Plugin Installer** de Kinetic Panel (o súbelo a `/mods` o `/plugins`).
-2. En el menú lateral izquierdo de Kinetic Panel, ve a **Network -> Ports** (o **Split Ports / Allocations**).
-3. Si ves el botón **Quick Setup**, selecciona **Simple Voice Chat**; o bien haz clic en **`Open Port` / `Create Allocation`** para generar un puerto adicional libre.
-4. Copia el número del nuevo puerto secundario asignado (por ejemplo: `25618`). *Nota: NUNCA uses el puerto principal del servidor de Minecraft para Voice Chat.*
-5. Ve a **File Manager** y abre el archivo que nuestra plantilla ya dejó preconfigurado:
-   - En **Fabric / Forge / NeoForge**: `/config/voicechat/voicechat-server.properties`
-   - En **Paper / Purpur**: `/plugins/voicechat/voicechat-server.properties`
-6. Busca la línea `port=24454` y cámbiala por el puerto que abriste:
-   ```properties
-   port=25618
-   ```
-7. Guarda el archivo (`Save`) e inicia el servidor. Verás en consola: `[voicechat] Voice chat server started at port 25618`.
+### 2. Project Zomboid
+1. Inicia el servidor una vez hasta ver `SERVER STARTED` y **apágalo (`Stop`)**.
+2. Entra a `/.cache/Server/` (o `/Zomboid/Server/`), sube **`Plantilla-Zomboid-Coop-LATAM.zip`**, haz **`Unarchive`** y borra el `.zip`.
+3. Si el cliente pidió mods de Steam Workshop, pega los IDs en `Mods=` y `WorkshopItems=` dentro de `servertest.ini`.
+
+### 3. Palworld
+1. Inicia el servidor una vez y **apágalo por completo (`Stop`)** *(obligatorio: si está encendido al subir el archivo, Palworld sobrescribirá tus cambios al apagarse)*.
+2. En la raíz `/home/container` del **File Manager**, sube **`Plantilla-Palworld-Optimizado.zip`**, haz clic en **`Unarchive`** y borra el `.zip`. Esto colocará automáticamente `PalWorldSettings.ini` y `Engine.ini` dentro de `/Pal/Saved/Config/LinuxServer/`.
+3. Programa en `Management -> Schedules` un **Restart automático diario a las 04:30 AM** para limpiar la memoria de Unreal Engine 5.
+
+### 4. Rust
+1. Inicia el servidor o déjalo detenido tras la instalación.
+2. En la raíz `/home/container` del **File Manager**, sube **`Plantilla-Rust-Optimizado.zip`**, haz **`Unarchive`** (colocará `server.cfg` en `/server/rust/cfg/server.cfg`) y borra el `.zip`.
+3. En `Settings -> Startup`, ajusta `World Size` (`3000–3500` recomendado para 8–12 GB RAM), `Hostname` y activa **Oxide** o **Carbon** si el cliente pidió plugins.
+
+### 5. Valheim
+1. Sube **`Plantilla-Valheim-Optimizado.zip`**, haz **`Unarchive`** y coloca `adminlist.txt` (con el SteamID64 del cliente) en la carpeta de guardados (`/saves` o `/.config/unity3d/IronGate/Valheim/`).
+2. **Tip Crítico de Latencia LATAM:** En `Settings -> Startup`, si todos los amigos del cliente juegan en **Steam PC**, deja **desactivado `-crossplay`** para que usen conexión directa Steamworks UDP (~70–85ms en Miami) en lugar del relay PlayFab de Microsoft. Activa `-crossplay` únicamente si hay jugadores de Xbox/Game Pass en el grupo.
+
+### 6. Terraria (Vanilla / tModLoader)
+1. En la raíz `/home/container`, sube **`Plantilla-Terraria-Optimizado.zip`**, haz **`Unarchive`** y borra el `.zip`.
+2. Si es **tModLoader** con mods (ej. *Calamity Mod*), coloca los IDs de Steam Workshop en `/saves/Mods/install.txt` y los nombres de los mods en `/saves/Mods/enabled.json` como se detalla en `LEEME_TERRARIA.txt`.
+
+### 7. Core Keeper
+1. Con el servidor **apagado (`Stop`)**, sube **`Plantilla-CoreKeeper-Optimizado.zip`** y haz **`Unarchive`** para aplicar `ServerConfig.json`.
+2. Inicia el servidor y abre el archivo **`GameID.txt`** que se genera automáticamente: ese código de **28 caracteres** es el que debes enviarle al cliente para que entren desde `Join Game -> Enter Game ID`.
 
 ---
 
-## 🚀 PASO 3: Activar Aikar's Flags en `Startup Flags`
+## 🌍 PASO 2 (Minecraft): El "Truco de las 2 Fases" con Chunky
 
-Para evitar que el recolector de basura de Java (Garbage Collector) congele el servidor cada 30 segundos cuando hay muchos mods o jugadores:
+Con el plugin/mod **Chunky** instalado y el servidor encendido:
 
-1. En el menú lateral de Kinetic Panel, entra a **Settings -> Startup** (o **Startup Parameters**).
-2. Busca el selector o casilla de **Startup Flags / JVM Flags**.
-3. Selecciona **`Aikar's Flags`** (recomendado para todos los planes de **4 GB, 6 GB, 8 GB y 12 GB** tanto en Java 17 para 1.20.1 como en Java 21 para 1.21.x).
-4. *(Opcional para el Plan **Tier 16 GB Dedicado** con Java 21+ en modpacks masivos como All The Mods 9/10)*: Puedes usar **Aikar's Flags** o **Generational ZGC** (`-XX:+UseZGC -XX:+ZGenerational`), que elimina por completo las pausas de recolección de memoria en heaps superiores a 12 GB.
-
----
-
-## 🌍 PASO 4: El "Truco de las 2 Fases" con Chunky (Entregar rápido y sin Lag)
-
-Pre-generar un radio enorme de 4.000 bloques de golpe antes de entregar tardaría más de 1 hora, retrasando la entrega al cliente. Con el **Truco de las 2 Fases**, entregamos el servidor en **menos de 30 minutos** y el mapa completo se expande solo mientras todos duermen (gracias a que nuestras plantillas tienen `pause-when-empty-seconds=-1` para que el servidor no se congele cuando está vacío):
-
-### Fase 1: Pre-generación Express de Spawn (~4 a 6 minutos)
-Con el plugin/mod **Chunky** instalado y el servidor encendido, pega estos comandos uno por uno en la **Console** de Kinetic Panel:
-
+### Fase 1: Pre-generación Express de Spawn (~4 a 6 minutos antes de entregar)
+Pega en la **Console** de Kinetic Panel:
 ```text
 chunky world world
 chunky shape square
@@ -101,52 +149,37 @@ chunky center 0 0
 chunky radius 1500
 chunky start
 ```
-- **¿Por qué `radius 1500`?** Genera un área de **3.000 x 3.000 bloques** alrededor del spawn en apenas **4 a 6 minutos** gracias al Ryzen 9 9950X y el disco NVMe PCIe. Esto cubre de sobra las primeras horas de juego del grupo en el día 1.
+*(Genera un área de **3.000 x 3.000 bloques** en ~5 minutos gracias al Ryzen 9 9950X y NVMe PCIe).*
 
 ### Fase 2: Expansión Nocturna Automática en `Schedules` (04:00 AM)
-Para que los jugadores tengan un mapa aún más grande al día siguiente sin sufrir lag mientras juegan:
-1. En Kinetic Panel, ve a **Management -> Schedules** y haz clic en **`Create Schedule`**.
-2. Configúralo así:
-   - **Name:** `Expansion Nocturna Chunky + Backup`
-   - **Minute:** `0` | **Hour:** `4` | **Day of Month:** `*` | **Month:** `*` | **Day of Week:** `*` *(Se ejecuta a las 04:00 AM)*.
-3. Añade un **New Task** dentro de ese Schedule:
-   - **Action:** `Send Command`
-   - **Payload:**
-     ```text
-     chunky world world
-     ```
-   - Y un segundo Task (con 5 segundos de delay):
-     ```text
-     chunky radius 3000
-     ```
-   - Y un tercer Task (con 5 segundos de delay):
-     ```text
-     chunky start
-     ```
-   *(Nota: Una vez que al día siguiente veas que llegó al 100%, puedes borrar o desactivar esa tarea de Chunky en Schedules y dejar únicamente la tarea diaria de Restart/Backup a las 04:30 AM).*
+Si quieres dejar que el mapa se expanda a `radius 3000` (6.000 x 6.000 bloques) durante la madrugada:
+1. Asegúrate de que `pause-when-empty-seconds=-1` esté activo en `server.properties`.
+2. En **Management -> Schedules**, crea un Schedule a las `04:00 AM` (`Minute: 0`, `Hour: 4`) con 3 tareas `Send Command`:
+   - `chunky world world`
+   - `chunky radius 3000`
+   - `chunky start`
 
 ---
 
-## ✅ PASO 5: Checklist Final y Mensaje de Entrega al Cliente
+## ✅ PASO 3: Checklist Final y Mensaje de Entrega al Cliente
 
-Antes de escribirle al cliente por **WhatsApp o Discord**, verifica estos 4 checks rápidos (toma 30 segundos):
-- [ ] ¿El servidor encendió en verde (`Online`) sin errores rojos en consola?
-- [ ] ¿El puerto de *Simple Voice Chat* (si aplica) coincide con el puerto secundario de `Network -> Ports`?
-- [ ] ¿Terminó la **Fase 1 de Chunky** (`radius 1500` al 100%)?
-- [ ] ¿Agregaste al usuario del cliente como Sub-user en Kinetic Panel (`Users -> New User`) con todos los permisos sobre su servidor?
+- [ ] ¿El servidor encendió en verde (`Online`) sin errores en consola?
+- [ ] ¿Se aplicó la plantilla optimizada correspondiente al juego/motor?
+- [ ] En Minecraft: ¿Está configurado el puerto secundario de *Simple Voice Chat* y completada la Fase 1 de *Chunky*?
+- [ ] ¿Se creó el Sub-user del cliente en Kinetic Panel (`Users -> New User`) y se programó el Backup/Restart diario a las 04:30 AM?
 
-### 💬 Plantilla de Mensaje de Entrega (Copiar y Pegar en WhatsApp / Discord)
+### 💬 Plantilla de Mensaje de Entrega (WhatsApp / Discord)
 
-> ¡Hola **[Nombre]**! ☁️🚀 Tu servidor en **Consterna Cloud** ya está **100% configurado, optimizado y listo para entrar a jugar**.
+> ¡Hola **[Nombre]**! ☁️🚀 Tu servidor de **[Juego]** en **Consterna Cloud** ya está **100% configurado, optimizado y listo para entrar a jugar**.
 >
 > 🎮 **Datos de Conexión al Juego:**
-> • **IP del Servidor:** `[IP_Y_PUERTO]`
-> • **Versión / Modpack:** `[Ej. Fabric 1.21.1 / Forge 1.20.1 / Modpack elegido]`
-> • **Simple Voice Chat:** Ya está configurado y activo en el puerto `[PUERTO_VOICE]` *(solo necesitas tener el mod Simple Voice Chat en tu cliente y pulsar la tecla `V` dentro del juego)*.
+> • **IP / Conexión del Servidor:** `[IP_Y_PUERTO o GameID en Core Keeper]`
+> • **Versión / Modpack:** `[Ej. Fabric 1.21.1 / Forge 1.20.1 / Palworld / Project Zomboid]`
+> • **Chat de Voz / Puerto Extra (si aplica):** Configurado y activo en el puerto `[PUERTO_VOICE]`.
 >
 > 🛠️ **Lo que dejamos optimizado para tu grupo:**
-> • Argumentos de memoria **Aikar's Flags** activados para cero tirones de RAM.
-> • Configuraciones anti-lag aplicadas y **mapa pre-generado con Chunky** alrededor del spawn para que puedan explorar fluido desde el primer minuto.
+> • Plantilla de alto rendimiento de Consterna Cloud aplicada para baja latencia en LATAM.
+> • Optimización de memoria y guardado automático en disco NVMe PCIe.
 > • **Backups diarios automáticos** activados.
 >
 > 🖥️ **Acceso Total a tu Panel de Control:**

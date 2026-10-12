@@ -1,23 +1,40 @@
 ================================================================================
-☁️ CONSTERNACLOUD - STACK DE MODS SERVER-SIDE PARA FABRIC (1.20.1 y 1.21.x)
+☁️ CONSTERNACLOUD - STACK DE MODS SERVER-SIDE PARA FABRIC Y QUILT (POR VERSIÓN)
 ================================================================================
-Esta plantilla (`fabric-optimizado`) es 100% compatible tanto con **Minecraft
-1.20.1** (modpacks como Prominence II Fabric, Cobblemon 1.5, Better MC Fabric)
-como con **Minecraft 1.21.1+** (Cobblemon 1.6+, Survival Técnico moderno, etc.),
-ya que los archivos en `config/` usan exactamente las mismas claves en ambas.
+Esta plantilla (`fabric-optimizado`) es 100% compatible tanto con **Fabric**
+como con **Quilt** (vía *Quilted Fabric API / QFAPI*) en **Minecraft 1.20.1**,
+**1.21.1+** y versiones anteriores (`1.16.5`, `1.18.2`, `1.19.2`), ya que los
+archivos en `config/` usan exactamente las mismas rutas y claves en todas.
 
 Todos estos mods son 100% SERVER-SIDE (salvo Simple Voice Chat que requiere que
 el jugador también lo tenga en su cliente si desea usar el chat de voz por
 proximidad). Es decir, cualquier jugador Vanilla puede entrar sin instalarlos.
 
-En Kinetic Panel puedes instalarlos en segundos desde la pestaña "Mod Manager"
-buscando sus nombres en Modrinth (asegurándote de elegir la versión 1.20.1 o
-1.21.1 según el servidor del cliente), o subiendo los .jar a `/mods`.
+--------------------------------------------------------------------------------
+📊 MATRIZ DE MODS DE OPTIMIZACIÓN POR VERSIÓN (FABRIC & QUILT)
+--------------------------------------------------------------------------------
+| Categoría | Fabric / Quilt 1.21.1+ | Fabric / Quilt 1.20.1 | Fabric 1.18.2 / 1.19.2 | Fabric 1.16.5 |
+| :--- | :--- | :--- | :--- | :--- |
+| **API Base** | Fabric API (o QFAPI en Quilt) | Fabric API (o QFAPI en Quilt) | Fabric API | Fabric API |
+| **Físicas / Ticks (CPU)** | **Lithium** | **Lithium** | **Lithium** | **Lithium** |
+| **Memoria RAM** | **FerriteCore** | **FerriteCore** | **FerriteCore** | **FerriteCore** |
+| **Carga / Recursos** | **ModernFix** | **ModernFix** | **ModernFix** | **ModernFix** |
+| **Motor de Luz** | *(Nativo de Mojang 1.20+)* | *(Nativo de Mojang 1.20+)* | **Starlight** *(Obligatorio)* | **Starlight** o **Phosphor** |
+| **Arranque DFU** | *(Nativo de Mojang 1.19.4+)* | *(Nativo de Mojang 1.19.4+)* | **LazyDFU** *(Obligatorio)* | **LazyDFU** *(Obligatorio)* |
+| **Mobcaps / Ticks** | **ServerCore** + **Noisium** | **ServerCore** + **Noisium** | **ServerCore** | **Carpet** (optimizaciones) |
+| **Red / Netty (LATAM)** | **Krypton** | **Krypton** | **Krypton** | **Krypton** |
+| **Pre-Generador / Voz** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** | **Chunky** + **Spark** + **Voice Chat** |
+
+*Nota sobre **Quilt Modloader**:* Si un cliente pide específicamente **Quilt**,
+instala el loader Quilt en Kinetic Panel, coloca **Quilted Fabric API (QFAPI)**
+(https://modrinth.com/mod/qsl) en `/mods`, y usa exactamente este mismo stack
+(Lithium, FerriteCore, ModernFix, ServerCore, Krypton, Chunky, Spark y Simple
+Voice Chat). Quilt lee los mismos archivos de `config/` incluidos en este `.zip`.
 
 --------------------------------------------------------------------------------
 1. RENDIMIENTO DE CPU Y TICKS (TPS 20.0 Estables)
 --------------------------------------------------------------------------------
-* Fabric API (Requerido por casi todos los mods)
+* Fabric API (o Quilted Fabric API en servidores Quilt)
   https://modrinth.com/mod/fabric-api
 
 * Lithium (Optimización general de físicas, IA de mobs, explosiones y chunks)
@@ -25,8 +42,11 @@ buscando sus nombres en Modrinth (asegurándote de elegir la versión 1.20.1 o
   https://modrinth.com/mod/lithium
 
 * ServerCore (Optimización dinámica de mobcaps, breeding, portales y distancia
-  de activación en servidores Fabric 1.20.1 y 1.21.x sin romper granjas)
+  de activación en servidores Fabric sin romper granjas técnicas)
   https://modrinth.com/mod/servercore
+
+* Noisium (Optimiza la generación de chunks y ruido de biomas en 1.20.1 y 1.21+)
+  https://modrinth.com/mod/noisium
 
 --------------------------------------------------------------------------------
 2. OPTIMIZACIÓN DE MEMORIA RAM Y CARGA DE MODPACKS
@@ -37,9 +57,16 @@ buscando sus nombres en Modrinth (asegurándote de elegir la versión 1.20.1 o
   https://modrinth.com/mod/ferrite-core
 
 * ModernFix (Acelera el arranque del servidor al doble de velocidad y libera
-  memoria dinámica con `dynamic_resources=true`)
+  memoria dinámica con `mixin.perf.dynamic_resources=true`)
   - Preconfigurado en: `config/modernfix-mixins.properties`
   https://modrinth.com/mod/modernfix
+
+* En versiones antiguas (1.16.5 / 1.18.2 / 1.19.2):
+  - Starlight (Reescribe el motor de iluminación; innecesario en 1.20+ porque
+    Mojang ya reescribió el motor de luz en el juego base)
+    https://modrinth.com/mod/starlight
+  - LazyDFU (Evita que DataFixerUpper congele la CPU al arrancar en <= 1.19.2)
+    https://modrinth.com/mod/lazydfu
 
 --------------------------------------------------------------------------------
 3. OPTIMIZACIÓN DE RED Y LATENCIA PARA LATAM (~70-85ms)
@@ -47,6 +74,9 @@ buscando sus nombres en Modrinth (asegurándote de elegir la versión 1.20.1 o
 * Krypton (Optimiza el stack de red Netty de Minecraft, reduciendo el uso de CPU
   en compresión de paquetes y mejorando la fluidez de conexión para LATAM)
   https://modrinth.com/mod/krypton
+
+* FabricProxy-Lite (SOLO si el servidor Fabric está detrás de un Proxy Velocity)
+  https://modrinth.com/mod/fabricproxy-lite
 
 --------------------------------------------------------------------------------
 4. PRE-GENERACIÓN DE MAPA, DIAGNÓSTICO Y VOZ

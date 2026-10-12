@@ -1,0 +1,53 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA TERRARIA / TMODLOADER (Octubre 2026)
+================================================================================
+Archivo incluido:
+- `serverconfig.txt` (Compatible con **Terraria Vanilla**, **TShock** y **tModLoader**)
+
+--------------------------------------------------------------------------------
+🚀 QUÉ OPTIMIZA ESTA PLANTILLA AUTOMÁTICAMENTE
+--------------------------------------------------------------------------------
+1. `npcstream=60`:
+   Controla la frecuencia con la que el servidor envía paquetes de sincronización
+   de movimiento de enemigos y proyectiles. En `60` elimina el "salto" o
+   teletransporte de jefes para jugadores conectándose desde Colombia y LATAM.
+   *(Tip Pro para **tModLoader / Calamity Mod**: Si el grupo pelea contra jefes
+   post-Moon Lord como Devourer of Gods o Supreme Calamitas y tienen buena fibra
+   óptica, puedes bajar `npcstream=30` para duplicar la tasa de refresco de los
+   segmentos de los gusanos).*
+
+2. `upnp=0` y `secure=1`:
+   Desactiva la búsqueda inútil de routers domésticos UPnP en centros de datos y
+   activa la validación anti-trampas nativa del servidor dedicado.
+
+3. `priority=1`:
+   Asigna prioridad alta (`High`) al hilo principal de físicas de Terraria.
+
+--------------------------------------------------------------------------------
+🧩 GUÍA RÁPIDA PARA SERVIDORES CON MODS (`tModLoader` 1.4.4+)
+--------------------------------------------------------------------------------
+Cuando un cliente pide Terraria con Mods (ej. *Calamity Mod*, *Calamity Mod Music*,
+*Boss Checklist*, *Recipe Browser*, *Magic Storage*, *Fargo's Mutant Mod*):
+
+1. En Kinetic Panel, cambia el instalador a **tModLoader**.
+2. Para instalar mods de Steam Workshop automáticamente al iniciar:
+   - Crea o edita el archivo `install.txt` en la carpeta de mods (usualmente
+     `/home/container/saves/Mods/install.txt`) poniendo un **Workshop ID** por
+     línea (el número que sale al final de la URL del mod en Steam Workshop):
+     ```text
+     2824688072
+     2824688266
+     2669644269
+     ```
+   - Crea o edita `enabled.json` en la misma carpeta (`/saves/Mods/enabled.json`)
+     con los nombres internos de los mods a activar:
+     ```json
+     [
+       "CalamityMod",
+       "CalamityModMusic",
+       "MagicStorage"
+     ]
+     ```
+3. Inicia el servidor: tModLoader descargará, actualizará y activará todos los
+   mods automáticamente desde SteamCMD antes de abrir el mundo.
+================================================================================

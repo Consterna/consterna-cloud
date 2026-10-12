@@ -1,0 +1,49 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA RUST DEDICATED SERVER (Octubre 2026)
+================================================================================
+Archivo incluido (Con ruta lista para `Unarchive` desde `/home/container`):
+- `server/rust/cfg/server.cfg`
+
+*(Nota: Si en `Settings -> Startup` de Kinetic Panel cambiaste la variable
+`Server Identity` de `rust` a otro nombre, coloca `server.cfg` dentro de
+`server/<tu_identity>/cfg/server.cfg`).*
+
+--------------------------------------------------------------------------------
+🚀 QUÉ OPTIMIZA ESTA PLANTILLA AUTOMÁTICAMENTE
+--------------------------------------------------------------------------------
+1. `fps.limit 60`:
+   Por defecto, el servidor dedicado de Rust intenta ejecutar hasta 256 FPS
+   internos aunque no renderice gráficos, saturando innecesariamente el hilo
+   principal. Fijarlo en `60` libera CPU para balística, IA y red, evitando los
+   errores de `projectile_invalid` en combates PvP desde LATAM.
+
+2. `server.tickrate 30`:
+   Mantiene la frecuencia de actualización del servidor en el estándar oficial
+   estable de 30 Hz.
+
+3. `gc.buffer 2048`:
+   El motor Unity de Rust ejecuta una recolección de basura (Garbage Collection)
+   que congela el servidor por 0.5–1.5 segundos cada vez que se llena su buffer
+   por defecto (256 MB). Al subirlo a `2048` (2 GB), espaciamos drásticamente
+   las pausas de memoria.
+   - En planes de **8 GB / 12 GB**: Dejar `gc.buffer 2048`.
+   - En el **Plan 16 GB Dedicado**: Puedes subirlo a `gc.buffer 4096`.
+
+4. `server.saveinterval 300`:
+   Guarda el estado del mundo en el disco NVMe PCIe cada 5 minutos (300s).
+
+--------------------------------------------------------------------------------
+⚙️ PARÁMETROS QUE SE CONFIGURAN EN `SETTINGS -> STARTUP` (KINETIC PANEL)
+--------------------------------------------------------------------------------
+En Kinetic Panel, los siguientes datos se definen directamente en las casillas
+de la pestaña **Startup** (para que el comando de arranque los inyecte):
+- **Hostname:** Nombre público del servidor en la lista de Rust.
+- **World Size:**
+  - `3000` a `3500`: Recomendado para planes de 8 GB – 12 GB (óptimo en RAM y PvP).
+  - `4000` a `4500`: Solo para planes de 12 GB – 16 GB Dedicado.
+- **World Seed:** Semilla del mapa.
+- **Max Players:** Límite de jugadores (ej. `50` o `100`).
+- **RCON Password:** Contraseña para RustAdmin / BattleMetrics.
+- **Oxide / uMod o Carbon:** Si el cliente pidió plugins (Kits, GatherManager,
+  Teleport, Clans), activa el interruptor de **Oxide** o **Carbon** en `Startup`.
+================================================================================

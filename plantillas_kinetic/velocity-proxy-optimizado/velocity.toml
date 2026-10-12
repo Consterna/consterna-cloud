@@ -1,0 +1,126 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA OPTIMIZADA VELOCITY PROXY 3.3+ / 3.4+ (Oct 2026)
+# Archivo: velocity.toml
+# Fuente oficial: PaperMC/Velocity (default-velocity.toml - config-version 2.7)
+# Enfoque:
+#   - Forwarding seguro "modern" (HMAC-SHA256) nativo para Paper/Purpur y Fabric.
+#   - TCP Fast Open activado (`tcp-fast-open = true`) para reducir la latencia
+#     del handshake inicial desde Colombia y LATAM en servidores Linux.
+#   - Compresión de paquetes centralizada en el Proxy (`compression-threshold = 256`).
+# ==============================================================================
+
+# Versión de configuración interna de Velocity. NO MODIFICAR.
+config-version = "2.7"
+
+# Dirección IP y puerto en el que escucha el Proxy (En Kinetic Panel usa 0.0.0.0:PUERTO_ASIGNADO)
+bind = "0.0.0.0:25577"
+
+# Mensaje del día (MOTD) en formato MiniMessage oficial
+motd = "<aqua><bold>Consterna Cloud</bold></aqua> <dark_gray>»</dark_gray> <white>Red Optimizada</white> <gray>|</gray> <green>Baja Latencia LATAM</green>"
+
+# Número máximo de jugadores mostrado en la lista de servidores
+show-max-players = 100
+
+# ¿Autenticar jugadores contra Mojang? (true = Premium, false = No-Premium / AuthMe / LibreLogin)
+online-mode = true
+
+# ¿Forzar validación de clave pública de chat firmada de Mojang (1.19.1+)?
+force-key-authentication = true
+
+# Si es true, desconecta jugadores cuya IP no coincida con la sesión de Mojang
+prevent-client-proxy-connections = false
+
+# Modo de reenvío de IP y UUID a los servidores backend:
+# - "modern": Recomendado para 1.13+ (Paper, Purpur y Fabric con FabricProxy-Lite).
+# - "bungeeguard": Si usas servidores backend 1.8 - 1.12.2 con plugin BungeeGuard.
+# - "legacy": Modo antiguo estilo BungeeCord (No recomendado salvo en Forge antiguo).
+# - "none": Sin reenvío.
+player-info-forwarding-mode = "modern"
+
+# Archivo que contiene la clave secreta compartida con los servidores backend
+forwarding-secret-file = "forwarding.secret"
+
+# Activar en true solo si detrás del proxy hay servidores Forge 1.13 - 1.19
+announce-forge = false
+
+# Si es true, expulsa al jugador ya conectado si entra otra sesión con el mismo usuario
+kick-existing-players = false
+
+# Pasar información del ping del servidor backend ("disabled", "mods", "description", "all")
+ping-passthrough = "disabled"
+
+# Registrar IPs de jugadores en consola (false si deseas anonimizar logs por GDPR)
+enable-player-address-logging = true
+
+[servers]
+# Define aquí las IPs y puertos internos de tus servidores backend (Lobby, Survival, etc.)
+lobby = "127.0.0.1:25566"
+survival = "127.0.0.1:25567"
+eventos = "127.0.0.1:25568"
+
+# Orden de servidores a los que el jugador intentará conectarse al entrar o si cae uno
+try = [
+    "lobby",
+    "survival"
+]
+
+[forced-hosts]
+# Redirección automática por subdominio (opcional)
+"lobby.ejemplo.com" = [
+    "lobby"
+]
+"survival.ejemplo.com" = [
+    "survival"
+]
+
+[advanced]
+# Tamaño mínimo de paquete (en bytes) para comprimir en el Proxy (256 es el óptimo).
+# IMPORTANTE: En los servidores backend (server.properties), pon `network-compression-threshold=-1`
+# para que el backend no comprima dos veces el mismo paquete y ahorres CPU.
+compression-threshold = 256
+
+# Nivel de compresión ZLIB (-1 usa el nivel por defecto 6)
+compression-level = -1
+
+# Tiempo mínimo en milisegundos entre reconexiones desde la misma IP (3000 = 3s anti-bot Flood)
+login-ratelimit = 3000
+
+# Timeout de conexión hacia los servidores backend (ms)
+connection-timeout = 5000
+
+# Timeout de lectura de paquetes (ms)
+read-timeout = 30000
+
+# Soporte HAProxy PROXY protocol (dejar en false salvo que uses túnel TCPShield/HAProxy propio)
+haproxy-protocol = false
+
+# Activa TCP Fast Open en Linux (Kernel 4.14+) para acelerar conexiones desde LATAM
+tcp-fast-open = true
+
+# Soporte para el canal de mensajes de plugins BungeeCord
+bungee-plugin-message-channel = true
+
+# Mostrar cada ping de lista de servidores en consola
+show-ping-requests = false
+
+# Evitar desconexión total si un backend crashea, enviando al jugador al servidor de respaldo (`try`)
+failover-on-unexpected-server-disconnect = true
+
+# Anunciar comandos de Velocity a los clientes 1.13+
+announce-proxy-commands = true
+
+# Registrar cada comando ejecutado por jugadores en la consola del proxy
+log-command-executions = false
+
+# Registrar conexiones y desconexiones en consola
+log-player-connections = true
+
+# Permitir paquetes Transfer (1.20.5+) desde otros servidores externos
+accepts-transfers = false
+
+[query]
+# Protocolo GameSpy4 Query
+enabled = false
+port = 25577
+map = "Consterna-Cloud-Network"
+show-plugins = false

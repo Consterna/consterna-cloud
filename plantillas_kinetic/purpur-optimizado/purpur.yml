@@ -1,0 +1,88 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA OPTIMIZADA PURPUR 1.20.1 / 1.21+ (Octubre 2026)
+# Archivo: purpur.yml
+# Fuente oficial: PurpurMC/Purpur (PurpurConfig.java & PurpurWorldConfig.java)
+# Enfoque:
+#   1. `use-alternate-keepalive: true` -> Evita desconexiones ("Timed Out") por
+#      micro-cortes o pérdida puntual de paquetes en rutas de Internet de LATAM.
+#      (Nota: desactivar a `false` únicamente si se usa TCPShield).
+#   2. `villager.lobotomize.enabled: true` -> Desactiva el pathfinding pesado de
+#      aldeanos encerrados en trading halls 1x1 sin afectar el restock de tradeos.
+#   3. `use-better-mending: true` -> La experiencia repara siempre primero las
+#      piezas dañadas en lugar de elegirse al azar entre ítems ya reparados.
+#   4. `teleport-if-outside-border: true` -> Teletransporta al spawn si un
+#      jugador atraviesa accidentalmente el WorldBorder.
+# ==============================================================================
+
+verbose: false
+config-version: 34
+
+settings:
+  server-mod-name: Purpur
+  lagging-threshold: 19.0
+  use-alternate-keepalive: true
+  tps-catchup: true
+  allow-water-placement-in-the-end: true
+  logger:
+    suppress-init-legacy-material-errors: false
+    suppress-ignored-advancement-warnings: false
+    suppress-unrecognized-recipe-errors: false
+    suppress-setblock-in-far-chunk-errors: true
+    suppress-library-loader: false
+
+world-settings:
+  default:
+    gameplay-mechanics:
+      use-better-mending: true
+      always-tame-in-creative: false
+      disable-drops-on-cramming-death: false
+      entities-can-use-portals: true
+      milk-cures-bad-omen: true
+      trident-loyalty-void-return-height: 0.0
+      void-damage-height: -64.0
+      void-damage-dealt: 4.0
+      player:
+        teleport-if-outside-border: true
+        totem-of-undying-works-in-inventory: false
+        fix-stuck-in-portal: true
+        idle-timeout:
+          kick-if-idle: true
+          tick-nearby-entities: true
+          count-as-sleeping: true
+          update-tab-list: false
+    blocks:
+      anvil:
+        allow-colors: false
+      barrel:
+        rows: 3
+      ender_chest:
+        six-rows: false
+      farmland:
+        gets-moist-from-below: false
+        trample-only-players: false
+      respawn_anchor:
+        explode: true
+      spawner:
+        deactivate-by-redstone: false
+    mobs:
+      villager:
+        brain-ticks: 1
+        use-brain-ticks-only-when-lagging: true
+        lobotomize:
+          enabled: true
+          check-interval: 100
+          wait-until-trade-locked: true
+        search-radius:
+          acquire-poi: 16
+          nearest-bed-sensor: 16
+        spawn-iron-golem:
+          radius: 0
+          limit: 0
+      zombie:
+        aggressive-towards-villager-when-lagging: false
+        jockey:
+          only-babies: true
+          chance: 0.05
+          try-existing-chickens: true
+      iron_golem:
+        can-swim: false
