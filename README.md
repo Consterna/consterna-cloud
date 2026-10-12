@@ -2,7 +2,7 @@
 
 ![W3C Validated](https://img.shields.io/badge/W3C-Validated-brightgreen) ![Accessibility WCAG 2.1 AA](https://img.shields.io/badge/Accessibility-WCAG_2.1_AA-blue) ![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-success)
 
-Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor independiente de infraestructura de alto rendimiento y servicios adicionales (Add-ons) para servidores de videojuegos. Impulsado por hardware AMD Ryzen 9 9950X y almacenamiento NVMe PCIe mediante partners Tier-1, con alojamiento estratégico en EE.UU. (Miami) para lograr latencia ultra estable (~70-85ms) hacia Colombia y LATAM, más cobertura adicional en Norteamérica y Europa.
+Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor independiente de servidores de videojuegos de alto rendimiento listos para jugar ("Llave en Mano") y servicios adicionales a medida (Add-ons). Impulsado por hardware AMD Ryzen 9 9950X y almacenamiento NVMe PCIe mediante partners Tier-1, con alojamiento estratégico en EE.UU. (Miami) para lograr latencia ultra estable (~70-85ms) hacia Colombia y LATAM, más cobertura adicional en Norteamérica y Europa.
 
 ## 🚀 Archivos del Proyecto
 
@@ -16,9 +16,9 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor ind
 
 - **Framework CSS:** Tailwind CSS (vía CDN con sistema Anti-FOUC).
 - **Fuente:** Plus Jakarta Sans (Google Fonts) cargada con `preconnect` y `preload`.
-- **Modelo de Negocio (Infraestructura + Add-ons):**
-  - **5 Planes Base por RAM (4 GB a 16 GB Dedicado):** Incluyen acceso total al panel de control con el juego base preinstalado, mitigación DDoS, backups diarios automáticos, infraestructura/red activa 24/7 y soporte de infraestructura.
-  - **3 Servicios Adicionales (`#addons`):** Monetización modular para *Instalación de Modpacks Complejos* (pago único), *Soporte VIP Sysadmin Dedicado* (mensual) e *IP Dedicada Exclusiva* (mensual), cada uno con precios transparentes y CTA directo a WhatsApp.
+- **Modelo de Negocio (Entrega "Llave en Mano" + Límites Sanos en Add-ons):**
+  - **5 Planes Base por RAM (4 GB a 16 GB Dedicado):** Incluyen configuración inicial "Llave en Mano" lista para jugar (instalación del juego o modpack público elegido de CurseForge/Modrinth/Steam Workshop, puertos adicionales como *Simple Voice Chat*, optimización de memoria/flags y pre-generación con Chunky en Minecraft), acceso total al panel de control, mitigación DDoS, backups diarios automáticos, infraestructura/red activa 24/7 y soporte técnico (Lun–Dom 10:00 AM a 10:00 PM GMT-5).
+  - **3 Servicios Adicionales (`#addons`):** Monetización modular con límites sanos para trabajo pesado a medida o continuo: *Creación de Modpacks / Eventos a Medida* ($5.00 USD, pago único para armar, diseñar, combinar y testear un modpack propio desde cero), *Sysadmin Dedicado Mensual* ($6.00 USD/mes, administrador técnico de cabecera todo el mes para agregar/quitar mods o plugins constantemente, configurar permisos complejos, reparar crashes por ediciones manuales, gestionar wipes y mantenimiento continuo) e *IP Dedicada Exclusiva* ($4.00 USD/mes, puerto por defecto ej. 25565), cada uno con precios transparentes y CTA directo a WhatsApp.
 - **Accesibilidad (WCAG 2.1 AA) y Compatibilidad:**
   - Implementación estricta de `aria-controls`, `aria-expanded`, `aria-labelledby`, `aria-hidden` y `aria-label` en todos los botones, regiones y enlaces de solo ícono, con contraste mínimo >= 4.5:1 (`text-zinc-400`).
   - Soporte para preferencias del usuario (`prefers-reduced-motion: reduce`).
