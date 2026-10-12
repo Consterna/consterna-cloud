@@ -1,0 +1,56 @@
+================================================================================
+☁️ CONSTERNACLOUD - STACK DE MODS SERVER-SIDE PARA FABRIC 1.21+ (OCTUBRE 2026)
+================================================================================
+Todos estos mods son 100% SERVER-SIDE (salvo Simple Voice Chat que requiere que
+el jugador también lo tenga en su cliente si desea usar el chat de voz por
+proximidad). Es decir, cualquier jugador Vanilla puede entrar sin instalarlos.
+
+En Kinetic Panel puedes instalarlos en segundos desde la pestaña "Mod Manager"
+buscando sus nombres en Modrinth, o subiendo los .jar a la carpeta `/mods`.
+
+--------------------------------------------------------------------------------
+1. RENDIMIENTO DE CPU Y TICKS (TPS 20.0 Estables)
+--------------------------------------------------------------------------------
+* Fabric API (Requerido por casi todos los mods)
+  https://modrinth.com/mod/fabric-api
+
+* Lithium (Optimización general de físicas, IA de mobs, explosiones y chunks)
+  https://modrinth.com/mod/lithium
+
+* ServerCore (Optimización dinámica de mobcaps, breeding, portales y distancia
+  de activación en servidores Fabric sin alterar granjas técnicas)
+  https://modrinth.com/mod/servercore
+
+--------------------------------------------------------------------------------
+2. OPTIMIZACIÓN DE MEMORIA RAM Y CARGA DE MODPACKS
+--------------------------------------------------------------------------------
+* FerriteCore (Reduce el uso de memoria RAM hasta un 40-45% deduplicando
+  BlockStates y modelos en memoria; indispensable en planes de 4GB a 12GB)
+  https://modrinth.com/mod/ferrite-core
+
+* ModernFix (Acelera el arranque del servidor al doble de velocidad y libera
+  memoria dinámica durante la generación de recursos y datapacks)
+  https://modrinth.com/mod/modernfix
+
+--------------------------------------------------------------------------------
+3. OPTIMIZACIÓN DE RED Y LATENCIA PARA LATAM (~70-85ms)
+--------------------------------------------------------------------------------
+* Krypton (Optimiza el stack de red Netty de Minecraft, reduciendo el uso de CPU
+  en compresión de paquetes y mejorando la fluidez de conexión para LATAM)
+  https://modrinth.com/mod/krypton
+
+--------------------------------------------------------------------------------
+4. PRE-GENERACIÓN DE MAPA, DIAGNÓSTICO Y VOZ
+--------------------------------------------------------------------------------
+* Chunky (Pre-generador de mundos ultra rápido para evitar tirones al explorar
+  o volar con Elytras. Ver GUIA_RAPIDA_KINETIC_SOP.md para el Truco de 2 Fases)
+  https://modrinth.com/mod/chunky
+
+* Spark (Profiler de rendimiento en tiempo real para diagnosticar MSPT, TPS y
+  consumo de memoria RAM con `/spark health` y `/spark profiler`)
+  https://modrinth.com/mod/spark
+
+* Simple Voice Chat (Chat de voz por proximidad dentro del juego. Ya viene
+  preconfigurado en `config/voicechat/voicechat-server.properties`)
+  https://modrinth.com/mod/simple-voice-chat
+================================================================================

@@ -1,0 +1,44 @@
+# ==============================================================================
+# CONSTERNACLOUD - PLANTILLA OPTIMIZADA PAPER 1.21+ (Edición Octubre 2026)
+# Archivo: bukkit.yml
+# Enfoque: Cero Lag (TPS 20.0 estables) sin romper granjas técnicas ni redstone.
+# ==============================================================================
+
+settings:
+  allow-end: true
+  warn-on-overload: true
+  permissions-file: permissions.yml
+  update-folder: update
+  plugin-profiling: false
+  connection-throttle: 4000
+  query-plugins: true
+  deprecated-verbose: default
+  shutdown-message: "§b§lConsterna Cloud §8» §fReiniciando servidor por mantenimiento programado. ¡Volvemos en segundos!"
+  minimum-api: none
+  use-map-color-cache: true
+
+spawn-limits:
+  # Reducción inteligente (~20%) respecto a Vanilla para evitar saturación de MSPT
+  # Combinado con per-player-mob-spawns: true en Paper, las granjas rinden al 100%.
+  monsters: 56
+  animals: 8
+  water-animals: 4
+  water-ambient: 8
+  water-underground-creature: 4
+  axolotls: 4
+  ambient: 2
+
+chunk-gc:
+  period-in-ticks: 400
+
+ticks-per:
+  animal-spawns: 400
+  monster-spawns: 2
+  water-spawns: 20
+  water-ambient-spawns: 40
+  water-underground-creature-spawns: 40
+  axolotl-spawns: 40
+  ambient-spawns: 40
+  autosave: 6000
+
+aliases: now-in-commands.yml

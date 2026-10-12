@@ -1,5 +1,6 @@
 *.xlsx
 *.zip
+!plantillas_kinetic/*.zip
 *_diff*.txt
 
 # Python / Backend

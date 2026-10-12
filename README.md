@@ -6,7 +6,8 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor ind
 
 ## 🚀 Archivos del Proyecto
 
-- `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, animaciones custom y cotizador dinámico USD/COP).
+- `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, Hub de Consultas/Tickets en Discord, animaciones custom y cotizador dinámico USD/COP).
+- `plantillas_kinetic/`: Kit de plantillas maestras pre-optimizadas (Octubre 2026) y manual operativo (`GUIA_RAPIDA_KINETIC_SOP.md`) para despliegues "Llave en Mano" en **Kinetic Panel** (`Paper 1.21+`, `Fabric 1.21+` con *Simple Voice Chat* y `Project Zomboid Co-op LATAM`), disponibles tanto en carpetas versionables como en paquetes `.zip` listos para *Unarchive*.
 - `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, manejando validación estricta de UUID y codificación de emails.
 - `banner_whatsapp.jpg`: Imagen OG (Open Graph) para las previsualizaciones de WhatsApp, Discord y redes sociales.
 - `robots.txt` & `sitemap.xml`: Archivos de configuración SEO para motores de búsqueda (Google, Bing).
@@ -16,11 +17,12 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor ind
 
 - **Framework CSS:** Tailwind CSS (vía CDN con sistema Anti-FOUC).
 - **Fuente:** Plus Jakarta Sans (Google Fonts) cargada con `preconnect` y `preload`.
-- **Modelo de Negocio (Entrega "Llave en Mano" + Límites Sanos en Add-ons):**
-  - **5 Planes Base por RAM (4 GB a 16 GB Dedicado):** Incluyen configuración inicial "Llave en Mano" lista para jugar (instalación del juego o modpack público elegido de CurseForge/Modrinth/Steam Workshop, puertos adicionales como *Simple Voice Chat*, optimización de memoria/flags y pre-generación con Chunky en Minecraft), acceso total al panel de control, mitigación DDoS, backups diarios automáticos, infraestructura/red activa 24/7 y soporte técnico (Lun–Dom 10:00 AM a 10:00 PM GMT-5).
+- **Modelo de Negocio (Entrega "Llave en Mano" en 30–90 min + Límites Sanos en Add-ons):**
+  - **5 Planes Base por RAM (4 GB a 16 GB Dedicado):** Incluyen configuración inicial "Llave en Mano" lista para jugar (instalación del juego o modpack público elegido de CurseForge/Modrinth/Steam Workshop, puertos adicionales como *Simple Voice Chat*, optimización de memoria/flags y pre-generación con Chunky en Minecraft), entregada habitualmente entre **30 y 90 minutos** tras verificar el pago dentro del horario de atención (Lun–Dom 10:00 AM a 10:00 PM GMT-5), con acceso total al panel de control, mitigación DDoS, backups diarios automáticos e infraestructura/red activa 24/7.
   - **3 Servicios Adicionales (`#addons`):** Monetización modular con límites sanos para trabajo pesado a medida o continuo: *Creación de Modpacks / Eventos a Medida* ($5.00 USD, pago único para armar, diseñar, combinar y testear un modpack propio desde cero), *Sysadmin Dedicado Mensual* ($6.00 USD/mes, administrador técnico de cabecera todo el mes para agregar/quitar mods o plugins constantemente, configurar permisos complejos, reparar crashes por ediciones manuales, gestionar wipes y mantenimiento continuo) e *IP Dedicada Exclusiva* ($4.00 USD/mes, puerto por defecto ej. 25565), cada uno con precios transparentes y CTA directo a WhatsApp.
+  - **Hub Oficial de Discord y Comunidad (`#comunidad`):** Integración de Discord (`https://discord.gg/PhsZEfc4KE`) junto a WhatsApp como canal oficial de consultas pre-venta, atención de soporte técnico mediante sistema de tickets privados y punto de encuentro de la comunidad.
 - **Accesibilidad (WCAG 2.1 AA) y Compatibilidad:**
-  - Implementación estricta de `aria-controls`, `aria-expanded`, `aria-labelledby`, `aria-hidden` y `aria-label` en todos los botones, regiones y enlaces de solo ícono, con contraste mínimo >= 4.5:1 (`text-zinc-400`).
+  - Implementación estricta de `aria-controls`, `aria-expanded`, `aria-labelledby`, `aria-hidden` y `aria-label` en todos los botones, regiones y enlaces de solo ícono, con contraste mínimo >= 4.5:1 (`text-zinc-400` / `text-indigo-400`).
   - Soporte para preferencias del usuario (`prefers-reduced-motion: reduce`).
   - Fallback progresivo para `IntersectionObserver` (más `<noscript>`) y scripts 100% en ES5 para navegadores legacy.
 - **Rendimiento:**
@@ -29,12 +31,13 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor ind
   - Scroll horizontal estrictamente bloqueado para dispositivos móviles (`max-width: 100%; overflow-x: hidden`).
 - **SEO y Conversiones:**
   - Inyección de JSON-LD Schema (`Product`, `AggregateRating` con `bestRating`/`worstRating`, y `AggregateOffer` para los 5 planes).
-  - Insignias de confianza (Trust Badges) integradas bajo el Hero CTA.
+  - Insignias de confianza (Trust Badges: *Entregado 100% Configurado*, *Protección DDoS*, *Infraestructura y Red 24/7*) integradas bajo el Hero CTA.
   - Uso de SVG Sprites optimizados con retrocompatibilidad (`xlink:href`).
   - **Automatización de Precios (USD/COP):** Script cambiario en tiempo real conectado a API de divisas con caché local de 24 horas y precios piso de respaldo (`Math.max` sobre base 4.000 COP/USD) tanto en planes de RAM como en Add-ons, actualizando dinámicamente los enlaces de WhatsApp.
 
-## 📞 Enlaces de Contacto Dinámicos
-Todos los botones de planes, add-ons, barra de navegación y soporte apuntan a WhatsApp (`https://wa.me/573214118506`) con mensajes pre-llenados (`?text=...`) codificados en URI y alineados con la acción de cada botón.
+## 📞 Canales Oficiales de Contacto (WhatsApp y Discord)
+- **WhatsApp Directo (`https://wa.me/573214118506`):** Todos los botones de planes, add-ons, barra de navegación y soporte cuentan con mensajes pre-llenados (`?text=...`) codificados en URI y alineados con la acción de cada botón.
+- **Discord Oficial (`https://discord.gg/PhsZEfc4KE`):** Canal de consultas pre-venta, cotizaciones de RAM/Modpacks, soporte técnico por tickets y comunidad, integrado en el Navbar, Hero, Banner de Asesoría, `#comunidad`, FAQ y Footer.
 
 ## ☁️ Despliegue (Deploy)
 Diseñado para desplegarse en **Cloudflare Pages** conectado al repositorio o subiendo los activos estáticos (`index.html`, `robots.txt`, `sitemap.xml`, `banner_whatsapp.jpg`).
