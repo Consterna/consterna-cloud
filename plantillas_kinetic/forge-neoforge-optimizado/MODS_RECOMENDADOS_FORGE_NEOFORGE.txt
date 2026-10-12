@@ -1,0 +1,55 @@
+================================================================================
+☁️ CONSTERNACLOUD - STACK SERVER-SIDE PARA FORGE 1.20.1 Y NEOFORGE 1.21.1+
+================================================================================
+Esta plantilla (`forge-neoforge-optimizado`) incluye los archivos de configuración
+exactos tanto para **Forge 1.20.1** (la versión más popular de modpacks como All
+The Mods 9, Create, RLCraft Dregora, Better MC Forge) como para **NeoForge 1.21.1+**
+(All The Mods 10, Cobblemon 1.6+, modpacks modernos).
+
+¿Por qué una sola plantilla sirve para ambos?
+- FerriteCore en Forge 1.20.1 y NeoForge 1.21.1 lee `config/ferritecore-mixin.toml`.
+- ModernFix en ambos lee `config/modernfix-mixins.properties`.
+- En Forge 1.20.1, Canary lee `config/canary.properties` (y NeoForge lo ignora).
+- En NeoForge 1.21.1, Lithium oficial lee `config/lithium.properties` (y Forge lo ignora).
+- Simple Voice Chat lee `config/voicechat/voicechat-server.properties` en ambos.
+
+--------------------------------------------------------------------------------
+1. RENDIMIENTO DE CPU Y TICKS (TPS 20.0 Estables)
+--------------------------------------------------------------------------------
+* En NeoForge 1.21.1+ -> Instalar **Lithium** (Soporte oficial para NeoForge)
+  - Preconfigurado en: `config/lithium.properties`
+  https://modrinth.com/mod/lithium
+
+* En Forge 1.20.1 -> Instalar **Canary** o **Radium Reforged** (Ports de Lithium)
+  - Preconfigurado en: `config/canary.properties` (con `mixin.ai.poi=false` para
+    total compatibilidad con Create y Valkyrien Skies)
+  https://modrinth.com/mod/canary
+
+* ServerCore (Disponible para Forge 1.20.1 y NeoForge 1.21.1)
+  https://modrinth.com/mod/servercore
+
+--------------------------------------------------------------------------------
+2. OPTIMIZACIÓN DE MEMORIA RAM (Indispensable en Modpacks de 6GB a 16GB)
+--------------------------------------------------------------------------------
+* FerriteCore (Reduce el consumo de RAM hasta un 45%)
+  - Preconfigurado en: `config/ferritecore-mixin.toml`
+  https://modrinth.com/mod/ferrite-core
+
+* ModernFix (Activa `dynamic_resources=true` ahorrando 1.5GB–3GB de RAM y
+  reduciendo a la mitad el tiempo de encendido del servidor)
+  - Preconfigurado en: `config/modernfix-mixins.properties`
+  https://modrinth.com/mod/modernfix
+
+--------------------------------------------------------------------------------
+3. PRE-GENERACIÓN DE MAPA, DIAGNÓSTICO Y VOZ
+--------------------------------------------------------------------------------
+* Chunky (Pre-generador de mundos para Forge 1.20.1 y NeoForge 1.21.1)
+  https://modrinth.com/mod/chunky
+
+* Spark (Profiler de rendimiento — en Forge 1.20.1 y NeoForge 1.21.1)
+  https://modrinth.com/mod/spark
+
+* Simple Voice Chat (Chat de voz por proximidad para Forge y NeoForge)
+  - Preconfigurado en: `config/voicechat/voicechat-server.properties`
+  https://modrinth.com/mod/simple-voice-chat
+================================================================================

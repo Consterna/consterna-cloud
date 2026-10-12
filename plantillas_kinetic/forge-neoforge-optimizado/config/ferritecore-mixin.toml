@@ -1,0 +1,26 @@
+# ==============================================================================
+# CONSTERNACLOUD - CONFIGURACIÓN FERRITECORE (Forge 1.20.1 / NeoForge 1.21+)
+# Archivo: config/ferritecore-mixin.toml
+# Fuente oficial: malte0811/FerriteCore (FerriteConfig.java)
+# Nota: En Forge y NeoForge, FerriteCore utiliza este archivo .toml en lugar
+# de ferritecore.mixin.properties. Reduce el uso de RAM hasta un 45%.
+# ==============================================================================
+
+# Replace the blockstate neighbor table
+replaceNeighborLookup = true
+# Do not store the properties of a state explicitly and read them from the replace neighbor table instead. Requires replaceNeighborLookup to be enabled
+replacePropertyMap = true
+# Cache the predicate instances used in multipart models
+cacheMultipartPredicates = true
+# Avoid creation of new strings when creating ModelResourceLocations
+modelResourceLocations = true
+# Do not create a new MultipartBakedModel instance for each block state using the same multipart model. Requires cacheMultipartPredicates to be enabled
+multipartDeduplication = true
+# Deduplicate cached data for blockstates, most importantly collision and render shapes
+blockstateCacheDeduplication = true
+# Deduplicate vertex data of baked quads in the basic model implementations
+bakedQuadDeduplication = true
+# Use a slightly more compact, but also slightly slower representation for block states
+compactFastMap = false
+# Populate the neighbor table used by vanilla. Enabling this slightly increases memory usage, but can help with issues in the rare case where mods access it directly.
+populateNeighborTable = false

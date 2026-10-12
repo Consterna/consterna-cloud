@@ -7,7 +7,7 @@
 
 SandboxVars = {
     VERSION = 5,
-    -- Población equilibrada (3 = Normal)
+    -- Población equilibrada (4 = Normal)
     Zombies = 4,
     Distribution = 1,
     DayLength = 3,
@@ -75,9 +75,9 @@ SandboxVars = {
     BoneFracture = true,
     HoursForCorpseRemoval = 72.0,
     DecayingCorpseHealthImpact = 3,
-    -- Reducción de BloodDecals a 3 (Bajo/Medio) para evitar que los paquetes de chunks
-    -- pesen decenas de MB tras semanas de matar hordas en la base.
-    BloodLevel = 3,
+    -- Reducción de BloodLevel a 2 (2 = Low / Bajo; 3 = Normal) para evitar que los paquetes
+    -- de chunks pesen decenas de MB tras semanas de matar hordas en la base.
+    BloodLevel = 2,
     ClothingDegradation = 3,
     FireSpread = true,
     DaysForRottenFoodRemoval = 7,

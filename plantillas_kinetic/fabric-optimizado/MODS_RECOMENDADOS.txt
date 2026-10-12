@@ -1,12 +1,18 @@
 ================================================================================
-☁️ CONSTERNACLOUD - STACK DE MODS SERVER-SIDE PARA FABRIC 1.21+ (OCTUBRE 2026)
+☁️ CONSTERNACLOUD - STACK DE MODS SERVER-SIDE PARA FABRIC (1.20.1 y 1.21.x)
 ================================================================================
+Esta plantilla (`fabric-optimizado`) es 100% compatible tanto con **Minecraft
+1.20.1** (modpacks como Prominence II Fabric, Cobblemon 1.5, Better MC Fabric)
+como con **Minecraft 1.21.1+** (Cobblemon 1.6+, Survival Técnico moderno, etc.),
+ya que los archivos en `config/` usan exactamente las mismas claves en ambas.
+
 Todos estos mods son 100% SERVER-SIDE (salvo Simple Voice Chat que requiere que
 el jugador también lo tenga en su cliente si desea usar el chat de voz por
 proximidad). Es decir, cualquier jugador Vanilla puede entrar sin instalarlos.
 
 En Kinetic Panel puedes instalarlos en segundos desde la pestaña "Mod Manager"
-buscando sus nombres en Modrinth, o subiendo los .jar a la carpeta `/mods`.
+buscando sus nombres en Modrinth (asegurándote de elegir la versión 1.20.1 o
+1.21.1 según el servidor del cliente), o subiendo los .jar a `/mods`.
 
 --------------------------------------------------------------------------------
 1. RENDIMIENTO DE CPU Y TICKS (TPS 20.0 Estables)
@@ -15,10 +21,11 @@ buscando sus nombres en Modrinth, o subiendo los .jar a la carpeta `/mods`.
   https://modrinth.com/mod/fabric-api
 
 * Lithium (Optimización general de físicas, IA de mobs, explosiones y chunks)
+  - Preconfigurado en: `config/lithium.properties`
   https://modrinth.com/mod/lithium
 
 * ServerCore (Optimización dinámica de mobcaps, breeding, portales y distancia
-  de activación en servidores Fabric sin alterar granjas técnicas)
+  de activación en servidores Fabric 1.20.1 y 1.21.x sin romper granjas)
   https://modrinth.com/mod/servercore
 
 --------------------------------------------------------------------------------
@@ -26,10 +33,12 @@ buscando sus nombres en Modrinth, o subiendo los .jar a la carpeta `/mods`.
 --------------------------------------------------------------------------------
 * FerriteCore (Reduce el uso de memoria RAM hasta un 40-45% deduplicando
   BlockStates y modelos en memoria; indispensable en planes de 4GB a 12GB)
+  - Preconfigurado en: `config/ferritecore.mixin.properties`
   https://modrinth.com/mod/ferrite-core
 
 * ModernFix (Acelera el arranque del servidor al doble de velocidad y libera
-  memoria dinámica durante la generación de recursos y datapacks)
+  memoria dinámica con `dynamic_resources=true`)
+  - Preconfigurado en: `config/modernfix-mixins.properties`
   https://modrinth.com/mod/modernfix
 
 --------------------------------------------------------------------------------

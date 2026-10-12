@@ -7,7 +7,7 @@ Landing page y ecosistema de operaciones para **Consterna Cloud**, proveedor ind
 ## 🚀 Archivos del Proyecto
 
 - `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, Hub de Consultas/Tickets en Discord, animaciones custom y cotizador dinámico USD/COP).
-- `plantillas_kinetic/`: Kit de plantillas maestras pre-optimizadas (Octubre 2026) y manual operativo (`GUIA_RAPIDA_KINETIC_SOP.md`) para despliegues "Llave en Mano" en **Kinetic Panel** (`Paper 1.21+`, `Fabric 1.21+` con *Simple Voice Chat* y `Project Zomboid Co-op LATAM`), disponibles tanto en carpetas versionables como en paquetes `.zip` listos para *Unarchive*.
+- `plantillas_kinetic/`: Kit de 5 plantillas maestras pre-optimizadas (Octubre 2026) y manual operativo (`GUIA_RAPIDA_KINETIC_SOP.md`) para despliegues "Llave en Mano" en **Kinetic Panel** (`Paper 1.21+`, `Paper 1.20.1`, `Fabric 1.20.1/1.21+`, `Forge 1.20.1 / NeoForge 1.21+` y `Project Zomboid Co-op LATAM`), verificadas contra el código fuente oficial de PaperMC, FerriteCore, Lithium/Canary, ModernFix y Simple Voice Chat.
 - `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, manejando validación estricta de UUID y codificación de emails.
 - `banner_whatsapp.jpg`: Imagen OG (Open Graph) para las previsualizaciones de WhatsApp, Discord y redes sociales.
 - `robots.txt` & `sitemap.xml`: Archivos de configuración SEO para motores de búsqueda (Google, Bing).
