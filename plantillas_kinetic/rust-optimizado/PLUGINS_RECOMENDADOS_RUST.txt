@@ -1,0 +1,94 @@
+================================================================================
+☁️ CONSTERNACLOUD - CARGADORES Y PLUGINS RECOMENDADOS PARA RUST (CARBON & OXIDE)
+================================================================================
+En **Rust Dedicated Server**, todas las modificaciones y optimizaciones se hacen
+mediante **Plugins 100% Server-Side** (escritos en C# `.cs`). Los jugadores
+entran directamente desde su cliente normal de Steam sin descargar mods aparte.
+
+--------------------------------------------------------------------------------
+🧭 1. ¿QUÉ LOADER ELEGIR EN RUST: `CARBON` VS `OXIDE (uMod)`?
+--------------------------------------------------------------------------------
+En la pestaña `Settings -> Startup` de Kinetic Panel puedes activar cualquiera
+de los dos cargadores con un solo clic:
+
+| Característica | **Carbon Framework (Recomendado 2026)** | **Oxide / uMod (Clásico)** |
+| :--- | :--- | :--- |
+| **¿Qué es?** | El modloader moderno de nueva generación para Rust (`carbonmod.gg`). | El framework histórico tradicional de Rust (`umod.org`). |
+| **Compatibilidad de Plugins** | **99% compatible** con todos los plugins `.cs` de Oxide/uMod + plugins exclusivos de Carbon. | Compatible con los plugins estándar de uMod/Codefling. |
+| **Rendimiento y Memoria** | Hooks dinámicos más rápidos, menor uso de RAM y **Profiler integrado**. | Estable pero con arquitectura más antigua. |
+| **Panel In-Game** | Incluye **`/cpanel`** nativo dentro del juego para gestionar plugins, permisos y configs con el ratón. | Todo se administra por comandos de consola RCON/F1 (`oxide.grant`, `oxide.reload`). |
+| **Carpeta de Plugins** | `/carbon/plugins/` (y configs en `/carbon/configs/`) | `/oxide/plugins/` (y configs en `/oxide/config/`) |
+
+**Recomendación de Consterna Cloud:**
+* Usa **Carbon** para nuevos servidores Modded / Semi-Vanilla por su panel visual
+  `/cpanel` y menor consumo de CPU.
+* Usa **Oxide (uMod)** únicamente si el cliente ya trae un paquete antiguo de
+  configuraciones hecho específicamente para las rutas de `/oxide/`.
+
+--------------------------------------------------------------------------------
+🚀 2. PLUGINS DE OPTIMIZACIÓN, RENDIMIENTO Y ADMINISTRACIÓN (uMod)
+--------------------------------------------------------------------------------
+Además de nuestro `server.cfg` (`fps.limit 60`, `gc.buffer 2048`, `server.tickrate 30`),
+estos plugins mantienen el servidor limpio y fácil de moderar:
+
+* **Vanish** (`https://umod.org/plugins/vanish`)
+  - Permite a los administradores hacerse 100% invisibles y silenciosos para
+    espectar posibles cheaters sin ser detectados.
+
+* **Admin Radar** (`https://umod.org/plugins/admin-radar`)
+  - Herramienta visual para administradores que muestra la posición de jugadores,
+    durmientes, cofres y stashes para detectar trampas (ESP/Aimbot).
+
+* **No Give Notices** (`https://umod.org/plugins/no-give-notices`)
+  - Elimina el anuncio global en el chat (`SERVER gave 1000 wood to Admin`)
+    cuando un administrador saca objetos del menú F1.
+
+* **Entity Limit / Auto Purge** (`https://umod.org/plugins/auto-purge`)
+  - Limpia automáticamente bases abandonadas de jugadores que llevan muchos días
+    sin conectarse, reduciendo miles de entidades (colliders) y manteniendo los
+    60 FPS del servidor durante todo el wipe.
+
+--------------------------------------------------------------------------------
+⚡ 3. PLUGINS ESENCIALES PARA SERVIDORES MODDED (x2 / x3 / x5 / PVP)
+--------------------------------------------------------------------------------
+* **Gather Manager** (`https://umod.org/plugins/gather-manager`)
+  - Ajusta la tasa de recolección de recursos (ej. Servidor x2):
+    - En consola RCON: `gather.rate dispenser * 2` y `gather.rate pickup * 2`.
+
+* **Stack Size Controller** (`https://umod.org/plugins/stack-size-controller`)
+  - Aumenta el límite de apilado de madera, piedra, metal y componentes en el
+    inventario y cofres.
+
+* **Quick Smelt** + **Furnace Splitter**
+  - `Quick Smelt`: Acelera la fundición de minerales y evita que los clanes
+    construyan 40 hornos gigantes que bajan los FPS del servidor.
+  - `Furnace Splitter`: Divide automáticamente la mena en partes exactas al
+    arrastrarla dentro del horno.
+  https://umod.org/plugins/quick-smelt
+  https://umod.org/plugins/furnace-splitter
+
+* **Clans** (`https://umod.org/plugins/clans`)
+  - Sistema de clanes con etiqueta en el chat (`[CLAN]`) y opción de compartir
+    puertas/armarios.
+
+* **NTeleportation** + **No Escape**
+  - `NTeleportation`: Añade `/tpr`, `/tpa`, `/home`, `/outpost` y `/bandit`.
+  - `No Escape`: Bloquea el teletransporte y la herramienta de demolición cuando
+    un jugador está siendo raideado (*Raid Block*) o en combate (*Combat Block*).
+  https://umod.org/plugins/nteleportation
+  https://umod.org/plugins/no-escape
+
+* **Remover Tool** (`https://umod.org/plugins/remover-tool`)
+  - Permite demoler paredes propias con `/remove` si tienes autorización en el
+    armario (Tool Cupboard).
+
+* **Kits** + **Image Library**
+  - Permite crear kits de inicio (`/kit starter`), kits diarios y kits VIP con
+    interfaz gráfica de iconos.
+  https://umod.org/plugins/kits
+  https://umod.org/plugins/image-library
+
+* **Better Chat** (`https://umod.org/plugins/better-chat`)
+  - Personaliza colores, prefijos de rangos (Admin, VIP, Jugador) y formato del
+    chat global y de equipo.
+================================================================================

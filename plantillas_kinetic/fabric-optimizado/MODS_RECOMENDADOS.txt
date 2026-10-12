@@ -92,4 +92,49 @@ Voice Chat). Quilt lee los mismos archivos de `config/` incluidos en este `.zip`
 * Simple Voice Chat (Chat de voz por proximidad dentro del juego. Ya viene
   preconfigurado en `config/voicechat/voicechat-server.properties`)
   https://modrinth.com/mod/simple-voice-chat
+
+--------------------------------------------------------------------------------
+5. MODS SERVER-SIDE QUE REEMPLAZAN PLUGINS (SIN USAR HÍBRIDOS INESTABLES)
+--------------------------------------------------------------------------------
+Si un cliente pide un servidor con mods en Fabric/Quilt pero también quiere
+funciones clásicas de plugins (`/tpa`, `/home`, rangos, protección de casas,
+logs anti-robo o entrada desde Bedrock), NUNCA uses motores híbridos (Banner /
+Arclight). Instala estos mods 100% Server-Side (los jugadores no necesitan
+instalarlos en su cliente):
+
+* LuckPerms (Fabric) - Sistema de rangos, prefijos y permisos con editor web
+  https://modrinth.com/mod/luckperms
+
+* Ledger - Equivalente nativo a CoreProtect para Fabric (investiga quién abrió
+  cofres o rompió bloques y permite hacer rollback con `/ledger rollback`)
+  https://modrinth.com/mod/ledger
+
+* Essential Commands (o FTB Essentials) - Añade `/tpa`, `/tpahere`, `/home`,
+  `/spawn`, `/warp` y `/rtp` 100% del lado del servidor
+  https://modrinth.com/mod/essential-commands
+
+* Flan (Fabric LandManager) o Open Parties and Claims - Protección de terrenos
+  y cofres contra grifeo 100% server-side
+  https://modrinth.com/mod/flan
+  https://modrinth.com/mod/open-parties-and-claims
+
+* StyledChat + StyledPlayerList - Chat formateado con rangos de LuckPerms y
+  Tablist personalizada del lado del servidor
+  https://modrinth.com/mod/styled-chat
+  https://modrinth.com/mod/styled-player-list
+
+* Universal Graves - Crea tumbas seguras al morir sin requerir mod en el cliente
+  https://modrinth.com/mod/universal-graves
+
+* BlueMap (Fabric) - Mapa web 3D interactivo en tiempo real en el navegador
+  https://modrinth.com/mod/bluemap
+
+* GeyserMC + Floodgate (Fabric) - Permite entrar desde Minecraft Bedrock
+  (Celular, PS4/PS5, Xbox, Switch, Windows) si el servidor no usa mods que
+  agreguen bloques/ítems nuevos
+  https://modrinth.com/mod/geyser
+
+* ViaFabric + ViaVersion + ViaBackwards - Permite entrar desde distintas
+  versiones de Minecraft al servidor Fabric
+  https://modrinth.com/mod/viafabric
 ================================================================================

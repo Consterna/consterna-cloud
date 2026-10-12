@@ -87,4 +87,50 @@ mods de menú custom como *FancyMenu* client-only pueden causar crash al arranca
 * Simple Voice Chat (Chat de voz por proximidad para Forge y NeoForge)
   - Preconfigurado en: `config/voicechat/voicechat-server.properties`
   https://modrinth.com/mod/simple-voice-chat
+
+--------------------------------------------------------------------------------
+4. ADMINISTRACIÓN Y UTILIDADES (ALTERNATIVA PROFESIONAL A MOHIST / ARCLIGHT)
+--------------------------------------------------------------------------------
+⚠️ REGLA DE ORO: NUNCA uses motores híbridos (Mohist, Arclight, Magma, Ketting)
+para mezclar plugins de Spigot con modpacks de Forge/NeoForge (rompen mixins de
+Create, Mekanism y AE2, y corrompen chunks). En su lugar, instala estos mods
+oficiales de Forge/NeoForge que cumplen exactamente la misma función:
+
+* FTB Essentials (Forge / NeoForge) - Añade `/tpa`, `/home`, `/spawn`, `/warp`,
+  `/rtp`, `/back` y `/enderchest` sin romper ningún mod
+  https://www.curseforge.com/minecraft/mc-mods/ftb-essentials
+
+* FTB Chunks (o Open Parties and Claims) - Permite a los jugadores reclamar
+  terrenos en un mapa visual para proteger sus bases y mantener chunks cargados
+  https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge
+  https://modrinth.com/mod/open-parties-and-claims
+
+* LuckPerms (Forge / NeoForge) o FTB Ranks - Gestión de rangos, prefijos y
+  permisos (compatible con los nodos de FTB Essentials y FTB Chunks)
+  https://modrinth.com/mod/luckperms
+  https://www.curseforge.com/minecraft/mc-mods/ftb-ranks-forge
+
+* WorldEdit (Forge / NeoForge) - Edición rápida de construcciones y spawns
+  https://modrinth.com/mod/worldedit
+
+* BlueMap (Forge / NeoForge) - Mapa 3D en navegador compatible con mods
+  https://modrinth.com/mod/bluemap
+
+* Nota sobre Sponge (`SpongeForge` / `SpongeNeo`):
+  Si el cliente administra un servidor grande (ej. Pixelmon / Cobblemon) y
+  necesita plugins empresariales sobre Forge/NeoForge, usa **SpongeForge** o
+  **SpongeNeo** (https://spongepowered.org/) con plugins de SpongeAPI (Nucleus,
+  GriefDefender, LuckPerms-Sponge), diseñados oficialmente para convivir con Forge.
+
+* Nota sobre Sinytra Connector (Correr mods de Fabric en Forge 1.20.1 / NeoForge 1.21.1):
+  Si un cliente quiere agregar un mod exclusivo de Fabric dentro de su servidor
+  Forge 1.20.1 o NeoForge 1.21.1, instala **Sinytra Connector** junto con
+  **Forgified Fabric API**:
+  https://modrinth.com/mod/connector
+  https://modrinth.com/mod/forgified-fabric-api
+
+* Proxy Compatible Forge (PCF) (SOLO si el servidor Forge/NeoForge va detrás de Velocity Proxy):
+  Permite conectar servidores Forge (1.16.5–1.20.1) y NeoForge (1.20.4–1.21.1+)
+  con el protocolo seguro `modern` (`forwarding.secret`) de Velocity:
+  https://modrinth.com/mod/proxy-compatible-forge
 ================================================================================

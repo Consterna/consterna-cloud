@@ -1,0 +1,89 @@
+================================================================================
+☁️ CONSTERNACLOUD - STACK DE PLUGINS RECOMENDADOS PARA PAPER 1.20.1 - 1.20.4
+================================================================================
+Esta guía enumera el stack oficial de plugins probados y recomendados por
+Consterna Cloud para servidores **Paper 1.20.1 - 1.20.4**. Todos se instalan en
+la carpeta `/plugins/`.
+
+--------------------------------------------------------------------------------
+1. OPTIMIZACIÓN, PRE-GENERACIÓN Y DIAGNÓSTICO (ESTÁNDAR CONSTERNACLOUD)
+--------------------------------------------------------------------------------
+* Chunky + ChunkyBorder (Obligatorio en la entrega "Llave en Mano")
+  - Pre-genera el mundo antes de entregar el servidor para evitar caídas de TPS
+    al explorar terreno nuevo.
+  https://modrinth.com/plugin/chunky
+  https://modrinth.com/plugin/chunkyborder
+
+* Spark (Profiler de rendimiento en tiempo real)
+  - En Paper 1.20.1 instálalo como plugin en `/plugins` para diagnosticar TPS,
+    MSPT y uso de RAM con `/spark profiler` y `/spark health`.
+  https://modrinth.com/plugin/spark
+
+* FarmControl o Insights (Control inteligente de granjas y entidades por chunk)
+  https://modrinth.com/plugin/insights
+  https://www.spigotmc.org/resources/farmcontrol.86923/
+
+⚠️ QUÉ NO INSTALAR NUNCA EN PAPER 1.20.1:
+* NUNCA instales `ClearLag` (ClearLagg). Nuestra plantilla ya configura
+  `alt-item-despawn-rate` (con `grass: 300`, `cobblestone: 300`, `netherrack: 300`)
+  y `merge-radius` en `config/paper-world-defaults.yml` y `spigot.yml`. ClearLag
+  consume CPU innecesariamente y elimina ítems valiosos de los jugadores.
+
+--------------------------------------------------------------------------------
+2. PERMISOS, SEGURIDAD, ANTI-GRIFEO Y ANTI-CHEAT
+--------------------------------------------------------------------------------
+* LuckPerms (Gestión de rangos, prefijos y permisos vía editor web `/lp editor`)
+  https://modrinth.com/plugin/luckperms
+
+* CoreProtect (Historial de bloques/cofres y rollback instantáneo `/co rollback`)
+  https://modrinth.com/plugin/coreprotect
+
+* FastAsyncWorldEdit (FAWE) + WorldGuard (Edición asíncrona y protección de zonas)
+  https://modrinth.com/plugin/fastasyncworldedit
+  https://modrinth.com/plugin/worldguard
+
+* GrimAC (Anti-Cheat de simulación de físicas sin falsos positivos en LATAM)
+  https://modrinth.com/plugin/grimac
+
+* LibreLogin o AuthMeReloaded (Autenticación `/login` para servidores No-Premium)
+  https://modrinth.com/plugin/librelogin
+
+--------------------------------------------------------------------------------
+3. CHAT DE VOZ, CROSSPLAY (JAVA + BEDROCK) Y MULTI-VERSIÓN
+--------------------------------------------------------------------------------
+* Simple Voice Chat (Chat de voz por proximidad dentro del juego)
+  - Ya viene preconfigurado en `plugins/voicechat/voicechat-server.properties`.
+  https://modrinth.com/plugin/simple-voice-chat
+
+* GeyserMC (Spigot/Paper) + Floodgate (Crossplay Java + Bedrock)
+  - Permite entrar a jugadores de Celular, PS4/PS5, Xbox, Switch y Windows 10/11.
+  - Abre un puerto UDP adicional en `Network -> Ports` de Kinetic Panel y
+    asígnalo en `bedrock.port` dentro de `plugins/Geyser-Spigot/config.yml`.
+  https://geysermc.org/
+
+* ViaVersion + ViaBackwards (Permite que entren clientes 1.20.x y 1.21.x)
+  https://modrinth.com/plugin/viaversion
+  https://modrinth.com/plugin/viabackwards
+
+--------------------------------------------------------------------------------
+4. UTILIDADES ESENCIALES DE JUGABILIDAD (SMP / COMUNIDADES)
+--------------------------------------------------------------------------------
+* EssentialsX + EssentialsX Spawn + EssentialsX Chat (`/tpa`, `/home`, `/spawn`)
+  https://essentialsx.net/downloads.html
+
+* Vault + PlaceholderAPI (PAPI) (Economía y variables globales)
+  https://modrinth.com/plugin/placeholderapi
+
+* TAB (de NEZNAMY) (Tablist, Scoreboard y BossBar de alto rendimiento)
+  https://modrinth.com/plugin/tab-was-taken
+
+* ProtectionStones o GriefPrevention (Protección de terrenos por bloques de mena)
+  https://modrinth.com/plugin/protectionstones
+
+* BlueMap o Squaremap (Mapa web interactivo ligero en disco NVMe)
+  https://modrinth.com/plugin/bluemap
+  https://modrinth.com/plugin/squaremap
+
+* DiscordSRV (Sincronización de chat y consola con Discord)
+  https://modrinth.com/plugin/discordsrv
+================================================================================

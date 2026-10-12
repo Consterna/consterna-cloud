@@ -1,8 +1,9 @@
 ================================================================================
 ☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA CORE KEEPER DEDICATED SERVER (Oct 2026)
 ================================================================================
-Archivo incluido:
+Archivos incluidos:
 - `ServerConfig.json`
+- `MODS_RECOMENDADOS_CORE_KEEPER.txt` (Guía del ecosistema oficial `mod.io` / `BepInEx` Client-Side vs Cooperativo)
 
 *(Ubicación en Kinetic Panel: Según el Egg instalado, se encuentra en la raíz
 `/home/container/ServerConfig.json` o en

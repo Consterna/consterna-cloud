@@ -1,8 +1,9 @@
 ================================================================================
 ☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA RUST DEDICATED SERVER (Octubre 2026)
 ================================================================================
-Archivo incluido (Con ruta lista para `Unarchive` desde `/home/container`):
+Archivos incluidos (Con ruta lista para `Unarchive` desde `/home/container`):
 - `server/rust/cfg/server.cfg`
+- `PLUGINS_RECOMENDADOS_RUST.txt` (Comparativa **Carbon vs Oxide/uMod** y catálogo de plugins `.cs`)
 
 *(Nota: Si en `Settings -> Startup` de Kinetic Panel cambiaste la variable
 `Server Identity` de `rust` a otro nombre, coloca `server.cfg` dentro de

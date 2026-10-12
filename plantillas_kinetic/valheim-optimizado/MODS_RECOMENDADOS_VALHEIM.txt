@@ -1,0 +1,98 @@
+================================================================================
+☁️ CONSTERNACLOUD - MODLOADER (BEPINEX) Y MODS RECOMENDADOS PARA VALHEIM
+================================================================================
+Esta guía detalla cómo funciona el ecosistema de mods de **Valheim**
+(Thunderstore / r2modman) sobre **BepInEx** en Kinetic Panel, y cuáles son los
+mods de optimización de red, seguridad y calidad de vida más recomendados.
+
+--------------------------------------------------------------------------------
+🧭 1. EL CARGADOR DE MODS: `BepInExPack Valheim`
+--------------------------------------------------------------------------------
+* **¿Qué es BepInEx?** Es el modloader estándar universal para juegos creados en
+  el motor Unity (Valheim, Core Keeper, Risk of Rain 2, Lethal Company).
+* **Cómo activarlo en Kinetic Panel:** En `Settings -> Startup`, activa el
+  interruptor de **BepInEx** (o usa el instalador de variantes).
+* **Dónde van los archivos:**
+  - Los mods (`.dll`) se suben a `/BepInEx/plugins/`.
+  - Los archivos de configuración (`.cfg`) se generan en `/BepInEx/config/` tras
+    encender el servidor por primera vez.
+
+--------------------------------------------------------------------------------
+🚀 2. OPTIMIZACIÓN DE RED Y LATENCIA PARA LATAM (¡EL MOD #1 OBLIGATORIO!)
+--------------------------------------------------------------------------------
+* **BetterNetworking (de CW_Jesse)**
+  - Enlace: https://thunderstore.io/c/valheim/p/CW_Jesse/BetterNetworking_Valheim/
+  - **¿Por qué soluciona el lag en Valheim?**
+    El servidor de Valheim no calcula las físicas del mundo por sí mismo: el
+    primer jugador que llega a una zona se convierte en el "dueño de zona" (*Zone
+    Owner*) y envía los datos al servidor, el cual por defecto limita la tasa de
+    envío a unos escasos **~60 KB/s por jugador**. Cuando se juntan 4 o más
+    vikingos en una base grande o contra un jefe, ese límite se satura y provoca
+    *desync* (cofres que tardan en abrir, barcos con tirones, enemigos que se
+    teletransportan).
+  - **Qué hace BetterNetworking:**
+    1. Aumenta el límite de transferencia de red (`SendRate` a 256 KB/s o 512 KB/s)
+       y el tamaño de cola (`QueueSize` a 80 KB).
+    2. Activa compresión de paquetes **Zstd** de alta velocidad.
+    3. Funciona si se instala solo en el servidor (subiendo el `SendRate` de
+       subida), y rinde al 100% cuando los jugadores también lo tienen en su
+       perfil de *r2modman / Thunderstore*.
+
+*(Recuerda además la Regla de Oro de `LEEME_VALHEIM.txt`: Si todos los amigos
+juegan en Steam PC, desactiva `-crossplay` en Startup para usar **Steamworks
+Direct UDP** con ~70-85ms en lugar del relay PlayFab).*
+
+--------------------------------------------------------------------------------
+🛡️ 3. ADMINISTRACIÓN, SEGURIDAD Y ANTI-TRAMPAS SERVER-SIDE
+--------------------------------------------------------------------------------
+* **ServerCharacters (de Smoothbrain) o AzuAntiCheat**
+  - En Valheim Vanilla, los personajes se guardan en la PC local del jugador, lo
+    que permite que cualquiera entre desde un mundo singleplayer con habilidades
+    al 100 y cofres llenos de metales. **ServerCharacters** obliga a que el
+    personaje se guarde dentro del servidor dedicado.
+  - https://thunderstore.io/c/valheim/p/Smoothbrain/ServerCharacters/
+
+* **WardIsLove (de Azumatt)**
+  - Mejora los tótems de protección (*Wards*) permitiendo configurar qué pueden
+    hacer otros jugadores dentro de una base (abrir puertas, cofres, daño nulo a
+    estructuras).
+  - https://thunderstore.io/c/valheim/p/Azumatt/WardIsLove/
+
+* **Server Devcommands + World Edit Commands (de JereKuusela)**
+  - Permite a los administradores registrados en `adminlist.txt` ejecutar
+    comandos de mantenimiento, limpiar objetos tirados y gestionar eventos.
+  - https://thunderstore.io/c/valheim/p/JereKuusela/Server_devcommands/
+
+--------------------------------------------------------------------------------
+⚒️ 4. CALIDAD DE VIDA (QoL) Y MODS CON `SERVERSYNC`
+--------------------------------------------------------------------------------
+Los mejores mods modernos de Valheim incluyen **ServerSync**: tú editas el
+archivo `.cfg` en `/BepInEx/config/` del servidor y esa configuración se
+sincroniza automáticamente a todos los jugadores que entran.
+
+* **AzuCraftyBoxes (Craftear desde cofres cercanos)**
+  - Permite construir y fabricar en la mesa de trabajo tomando la madera, piedra
+    y metales automáticamente de los cofres cercanos sin llenar tu inventario.
+  - https://thunderstore.io/c/valheim/p/Azumatt/AzuCraftyBoxes/
+
+* **AzuExtendedPlayerInventory (Ranuras dedicadas para Armadura y Comida)**
+  - Añade filas exclusivas para el casco, peto, capa y flechas para que no
+    ocupen espacio de tu mochila principal.
+  - https://thunderstore.io/c/valheim/p/Azumatt/AzuExtendedPlayerInventory/
+
+* **PlantEverything + MassFarming**
+  - Permite plantar arbustos de bayas, frambuesas, cardos y cosechar en cuadrícula.
+  - https://thunderstore.io/c/valheim/p/Advize/PlantEverything/
+
+* **Adventure / RPG Pack: `Creature Level and Loot Control (CLLC)` + `EpicLoot`**
+  - El combo favorito para grupos veteranos: añade criaturas de hasta 5 estrellas
+    con poderes elementales y botín mágico/legendario estilo Diablo.
+  - https://thunderstore.io/c/valheim/p/Smoothbrain/CreatureLevelAndLootControl/
+  - https://thunderstore.io/c/valheim/p/RandyKnapp/EpicLoot/
+
+* ⚠️ **Nota Técnica sobre `Valheim Plus`:**
+  El mod original *Valheim Plus* fue abandonado hace años y rompe el servidor en
+  versiones recientes (*Ashlands / Bog Witch*). Si un cliente pide expresamente
+  *Valheim Plus*, instala únicamente el fork mantenido por **Grantapher**:
+  https://thunderstore.io/c/valheim/p/Grantapher/ValheimPlus_Grantapher_Temporary/
+================================================================================

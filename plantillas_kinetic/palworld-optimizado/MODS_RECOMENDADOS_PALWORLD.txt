@@ -1,0 +1,83 @@
+================================================================================
+☁️ CONSTERNACLOUD - MODS, API Y OPTIMIZACIÓN AVANZADA PARA PALWORLD
+================================================================================
+Esta guía explica cómo funcionan las modificaciones, la REST API oficial y las
+optimizaciones en **Palworld Dedicated Server** dentro de Kinetic Panel.
+
+--------------------------------------------------------------------------------
+💡 1. ANTES DE INSTALAR MODS: LO QUE YA HACE `PalWorldSettings.ini` NATIVAMENTE
+--------------------------------------------------------------------------------
+En Palworld, el 85% de los "mods de calidad de vida" que los jugadores ven en
+YouTube (incubación rápida, que las bases no se rompan fuera del círculo azul,
+que los Pals no mueran de hambre mientras duermes, más experiencia o tasa de
+captura) **NO requieren instalar mods externos que obliguen a tus amigos a
+descargar archivos**: se configuran de forma 100% nativa en `PalWorldSettings.ini`
+y funcionan también con jugadores de **PS5, Xbox y Mac (Crossplay)**:
+
+* **Incubación rápida de huevos:** `PalEggDefaultHatchingTime=2.000000` (o ponlo
+  en `0.000000` si el cliente quiere incubación instantánea).
+* **Construcción sin deterioro fuera de la Palbox:**
+  `BuildObjectDeteriorationDamageRate=0.000000` (Ya activado en nuestra plantilla).
+* **Cero penalización por desconexión prolongada:**
+  `bEnableNonLoginPenalty=False` (Ya activado en nuestra plantilla).
+* **Más Pals trabajando por base y más bases por gremio:**
+  - `BaseCampWorkerMaxNum=20` (Por defecto es 15; en planes de 12GB-16GB puedes
+    subirlo hasta 20-25).
+  - `BaseCampMaxNumInGuild=4` (Hasta 4-10 bases por gremio).
+* **Peso de inventario reducido / Estamina:**
+  - `PlayerStaminaDecreaceRate=0.500000` (Mitad de gasto de estamina al volar/escalar).
+  - `EquipmentDurabilityDamageRate=0.500000` (Armas y armaduras duran el doble).
+
+--------------------------------------------------------------------------------
+🧩 2. CÓMO FUNCIONAN LOS MODS EXTERNOS EN PALWORLD (`.pak` vs `UE4SS`)
+--------------------------------------------------------------------------------
+Existen 2 tipos de mods externos en Palworld (CurseForge / NexusMods):
+
+1. **Mods de Paquetes Unreal (`.pak`):**
+   - Se colocan en `/Pal/Content/Paks/~mods/` o `/Pal/Content/Paks/LogicMods/`.
+   - Compatibles con servidores **Linux** y Windows.
+   - ⚠️ **Importante:** Cualquier mod `.pak` que altere mecánicas del servidor
+     (tiendas, recetas, límites de peso, drops) debe estar instalado **tanto en
+     el servidor como en la PC de cada jugador** (y no es compatible con consolas
+     Xbox/PS5).
+
+2. **Mods de Scripts Lua / Blueprint (`UE4SS` - Unreal Engine 4/5 Scripting System):**
+   - Utilizan librerías `.dll` de Windows (`dwmapi.dll`) junto al ejecutable
+     `PalServer-Win64-Shipping-Cmd.exe`.
+   - En contenedores Linux de Kinetic Panel solo cargan si el servidor usa el
+     Egg de **Palworld Wine/Proton** (no en el binario Linux nativo).
+   - **Recomendación de Consterna Cloud:** Prioriza siempre el binario **Linux
+     nativo** por consumir ~2 GB menos de RAM y tener mejor estabilidad de hilos,
+     usando `PalWorldSettings.ini`, la **REST API oficial** y mods `.pak`.
+
+--------------------------------------------------------------------------------
+🛠️ 3. MODS CLIENT-SIDE Y `.PAK` MÁS RECOMENDADOS (CURSEFORGE / NEXUSMODS)
+--------------------------------------------------------------------------------
+* **Mods 100% Client-Side (Tus clientes pueden instalarlos en su PC sin tocar el servidor):**
+  1. **Pal Analyzer / Pal Info:** Muestra las estadísticas, IVs y habilidades
+     pasivas de un Pal salvaje al apuntarle antes de lanzar la esfera.
+  2. **Visible Pal Capture Counter:** Muestra en pantalla cuántos Pals de esa
+     especie llevas capturados (`3/12`) para el bono de experiencia.
+  3. **Better Night Light / Mapa Desbloqueado:** Mejoras visuales locales.
+
+* **Mods `.pak` Populares (Servidor + Cliente en `/Pal/Content/Paks/~mods/`):**
+  1. **Carry Weight Increase (1000 per point):** Cada punto en Peso da +1000 de
+     capacidad para transportar minerales sin quedar inmovilizado.
+  2. **AlwaysFastTravel:** Permite teletransportarse desde cualquier punto del
+     mapa hacia las estatuas de águila sin tener que caminar hasta una estatua.
+  3. **No Food Decay:** Detiene el temporizador de putrefacción de los alimentos
+     en las cajas de comida y el inventario.
+
+--------------------------------------------------------------------------------
+🛡️ 4. HERRAMIENTAS DE ADMINISTRACIÓN Y SEGURIDAD SERVER-SIDE
+--------------------------------------------------------------------------------
+* **REST API Oficial de Palworld (`bEnableRESTAPI=True` en `PalWorldSettings.ini`):**
+  - Permite conectar bots de Discord y paneles de administración modernos por
+    HTTP (`PublicPort` + `RESTAPIPort=8212` + `AdminPassword`) para ver lista de
+    jugadores, métricas de FPS del servidor, anunciar reinicios (`Broadcast`) y
+    ejecutar guardados limpios (`Save`) antes del reinicio automático de las
+    04:30 AM sin necesidad de mods inestables.
+* **PalGuard / PalDefender (Solo en servidores públicos PvP bajo Proton/Windows):**
+  - Filtrado de paquetes contra exploits de creación de ítems o robo de Pals en
+    servidores comunitarios abiertos sin contraseña.
+================================================================================

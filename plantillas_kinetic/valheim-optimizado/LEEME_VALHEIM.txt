@@ -6,6 +6,7 @@ Archivos incluidos:
 - `permittedlist.txt` (Whitelist opcional)
 - `bannedlist.txt` (Lista de baneados)
 - `start_server_consterna.sh` (Script de referencia con flags de guardado/backup)
+- `MODS_RECOMENDADOS_VALHEIM.txt` (Guía de **BepInEx**, **BetterNetworking**, **ServerCharacters** y mods **ServerSync**)
 
 *(Ubicación en Kinetic Panel: Si el Egg usa `-savedir "/home/container/saves"`,
 sube `adminlist.txt`, `permittedlist.txt` y `bannedlist.txt` dentro de `/saves`

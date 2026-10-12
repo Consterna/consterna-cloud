@@ -1,8 +1,9 @@
 ================================================================================
 ☁️ CONSTERNACLOUD - PLANTILLA OPTIMIZADA TERRARIA / TMODLOADER (Octubre 2026)
 ================================================================================
-Archivo incluido:
+Archivos incluidos:
 - `serverconfig.txt` (Compatible con **Terraria Vanilla**, **TShock** y **tModLoader**)
+- `MODS_Y_PLUGINS_RECOMENDADOS_TERRARIA.txt` (Catálogo de plugins TShock y tabla de Workshop IDs para tModLoader)
 
 --------------------------------------------------------------------------------
 🚀 QUÉ OPTIMIZA ESTA PLANTILLA AUTOMÁTICAMENTE
@@ -37,6 +38,8 @@ Cuando un cliente pide Terraria con Mods (ej. *Calamity Mod*, *Calamity Mod Musi
      ```text
      2824688072
      2824688266
+     2908170107
+     2563309347
      2669644269
      ```
    - Crea o edita `enabled.json` en la misma carpeta (`/saves/Mods/enabled.json`)
@@ -45,7 +48,9 @@ Cuando un cliente pide Terraria con Mods (ej. *Calamity Mod*, *Calamity Mod Musi
      [
        "CalamityMod",
        "CalamityModMusic",
-       "MagicStorage"
+       "SerousCommonLib",
+       "MagicStorage",
+       "BossChecklist"
      ]
      ```
 3. Inicia el servidor: tModLoader descargará, actualizará y activará todos los

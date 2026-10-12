@@ -1,0 +1,65 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLUGINS RECOMENDADOS PARA PAPER LEGACY (1.16.5 / 1.17.1 / 1.18.2)
+================================================================================
+Esta guía enumera los plugins recomendados para servidores **Paper Legacy**
+(`1.16.5`, `1.17.1` y `1.18.2`), donde se usa el archivo monolítico `paper.yml`
+en la raíz del servidor.
+
+--------------------------------------------------------------------------------
+1. OPTIMIZACIÓN, PRE-GENERACIÓN Y SEGURIDAD (OBLIGATORIOS EN LEGACY)
+--------------------------------------------------------------------------------
+* Chunky (Versión compatible con 1.16.5 - 1.18.2)
+  - Pre-genera el mundo con el Truco de las 2 Fases (`chunky radius 1500`).
+  - En versiones 1.16.5 - 1.18.2 la generación de chunks es más pesada en CPU que
+    en versiones recientes, por lo que pre-generar con Chunky es indispensable.
+  https://modrinth.com/plugin/chunky
+
+* Spark (Profiler de rendimiento para 1.16.5 - 1.18.2)
+  - Permite identificar qué plugin o entidad está consumiendo MSPT con
+    `/spark profiler`.
+  https://modrinth.com/plugin/spark
+
+* ExploitFixer + PacketEvents (Muy recomendado en 1.16.5 / 1.18.2 públicos)
+  - Parchea exploits de paquetes Netty, libros corruptos y crashers de clientes
+    que atacan versiones antiguas.
+  https://modrinth.com/plugin/packetevents
+
+⚠️ QUÉ NO INSTALAR:
+* No instales `ClearLag`. El archivo `paper.yml` incluido en esta plantilla ya
+  tiene preconfigurado `alt-item-despawn-rate` (`COBBLESTONE: 300`, `NETHERRACK: 300`),
+  `per-player-mob-spawns: true`, `eigencraft-redstone: true` y `max-auto-save-chunks-per-tick: 8`.
+
+--------------------------------------------------------------------------------
+2. PERMISOS, PROTECCIÓN Y ADMINISTRACIÓN
+--------------------------------------------------------------------------------
+* LuckPerms (Rangos y permisos universales)
+  https://modrinth.com/plugin/luckperms
+
+* CoreProtect (Auditoría y rollback de grifeos)
+  https://modrinth.com/plugin/coreprotect
+
+* FastAsyncWorldEdit (FAWE) + WorldGuard (Usa la rama correspondiente a 1.16.5
+  o 1.18.2 para editar mapas sin tirones)
+  https://modrinth.com/plugin/fastasyncworldedit
+  https://modrinth.com/plugin/worldguard
+
+* GrimAC (Anti-Cheat compatible con 1.16.5 - 1.18.2)
+  https://modrinth.com/plugin/grimac
+
+--------------------------------------------------------------------------------
+3. VOZ, MULTI-VERSIÓN Y UTILIDADES
+--------------------------------------------------------------------------------
+* Simple Voice Chat (Ya preconfigurado en `plugins/voicechat/voicechat-server.properties`)
+  https://modrinth.com/plugin/simple-voice-chat
+
+* ViaVersion + ViaBackwards + ViaRewind
+  - Indispensable en servidores 1.16.5 / 1.18.2 para permitir que entren
+    jugadores que abren su launcher en 1.20.x o 1.21.x.
+  https://modrinth.com/plugin/viaversion
+  https://modrinth.com/plugin/viabackwards
+
+* EssentialsX + Vault + PlaceholderAPI + TAB (de NEZNAMY)
+  https://essentialsx.net/downloads.html
+  https://modrinth.com/plugin/placeholderapi
+  https://modrinth.com/plugin/tab-was-taken
+================================================================================

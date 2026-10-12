@@ -1,0 +1,174 @@
+================================================================================
+☁️ CONSTERNACLOUD - MODS RECOMENDADOS PARA PROJECT ZOMBOID (BUILD 41 / 42)
+================================================================================
+Esta guía contiene los mods de **Optimización**, **Calidad de Vida (QoL)**,
+**Vehículos** y **Armas** más recomendados para servidores de **Project Zomboid**
+en Consterna Cloud, incluyendo sus **Workshop IDs** y **Mod IDs** exactos listos
+para copiar y pegar en `/.cache/Server/servertest.ini`.
+
+--------------------------------------------------------------------------------
+⚙️ CÓMO SE INSTALAN LOS MODS EN `servertest.ini` (REGLAS OBLIGATORIAS)
+--------------------------------------------------------------------------------
+En Project Zomboid, cada mod requiere llenar **DOS líneas distintas** dentro de
+`servertest.ini`, separando cada elemento con punto y coma (`;`):
+
+1. `WorkshopItems=` -> Aquí van los **números** de la URL de Steam Workshop
+   (ej. `2503622437;2875848298`). El servidor los usa para descargar los archivos.
+2. `Mods=` -> Aquí van los **nombres internos (`Mod ID`)** de cada mod
+   (ej. `SkillRecoveryJournal;BB_CommonSense`). El servidor los usa para activarlos.
+
+⚠️ **REGLA DE ORO DE LIBRERÍAS Y MAPAS:**
+* Si un mod pide una librería base (como `modoptions` o `tsarslib`), pon su
+  `Mod ID` **ANTES** en la línea `Mods=`.
+* Si instalas un **Mapa Nuevo** (ej. *Raven Creek*), además de ponerlo en
+  `WorkshopItems=` y `Mods=`, debes agregar su carpeta en la línea `Map=`
+  **ANTES** de `Muldraugh, KY` (porque el mapa base de Kentucky siempre va al final):
+  `Map=RavenCreek;Muldraugh, KY`
+
+--------------------------------------------------------------------------------
+🚀 1. MODS DE OPTIMIZACIÓN, ANTI-LAG Y MANTENIMIENTO DE SERVIDOR
+--------------------------------------------------------------------------------
+Además de las optimizaciones nativas ya incluidas en nuestra plantilla
+(`PingLimit=350`, `KickFastPlayers=false`, `BloodLevel=2` y limpieza de basura
+cada 24h en `servertest_SandboxVars.lua`), recomendamos estos mods:
+
+* **Rain Cleans Blood (La lluvia limpia la sangre del suelo y paredes)**
+  - ¿Por qué optimiza? Tras semanas matando hordas, miles de tiles quedan con
+    manchas de sangre (`BloodSplat`) que inflan el peso de los chunks enviados
+    por red y causan tirones al conducir. Con este mod, cada vez que llueve el
+    mapa se limpia automáticamente de forma inmersiva.
+  - `WorkshopItems`: `2956146279`
+  - `Mods`: `RainCleansBlood`
+
+* **Udderly Up To Date (Detector automático de actualizaciones de Workshop)**
+  - ¿Para qué sirve? El problema #1 de Project Zomboid ocurre cuando un autor
+    actualiza su mod en Steam y los jugadores no pueden entrar porque sale el
+    error *"Workshop item version is different from server's"*. Este mod detecta
+    cuando un mod se actualizó en Steam, avisa a los jugadores conectados con un
+    temporizador y reinicia el servidor limpiamente para que actualice los mods.
+  - `WorkshopItems`: `2844315442` *(Opcional traducción ES: `2991237516`)*
+  - `Mods`: `UdderlyUpToDate` *(Con traducción ES: `UdderlyUpToDate;UdderlyUpToDateES`)*
+
+* **Clean Dirt (Limpiar suciedad acumulada en paredes y pisos de la base)**
+  - `WorkshopItems`: `2711057211`
+  - `Mods`: `CleanDirt`
+
+* **Mod Manager + Mod Manager: Server (Para armar listas desde tu PC)**
+  - Úsalo en tu propio juego para ordenar mods visualmente y exportar las líneas
+    `WorkshopItems=` y `Mods=` sin errores de tipeo.
+  - `WorkshopItems`: `2694448564;2725216703`
+  - `Mods`: `ModManager;ModManagerServer`
+
+--------------------------------------------------------------------------------
+🛠️ 2. PACK DE CALIDAD DE VIDA (QoL) ESENCIAL PARA GRUPOS COOPERATIVOS
+--------------------------------------------------------------------------------
+Estos son los mods más pedidos por grupos de amigos porque mejoran la experiencia
+sin alterar la esencia de supervivencia ni consumir memoria RAM extra:
+
+* **Skill Recovery Journal (Diario de Recuperación de Habilidades - ¡EL #1!)**
+  - Permite fabricar un diario personal donde el jugador anota su experiencia;
+    si muere por una mordida o accidente, su nuevo personaje lee el diario y
+    recupera sus niveles de carpintería/mecánica. Evita que los amigos se frustren
+    y abandonen el servidor tras morir en la segunda semana.
+  - `WorkshopItems`: `2503622437`
+  - `Mods`: `SkillRecoveryJournal`
+
+* **Common Sense (Sentido Común)**
+  - Permite forzar puertas, ventanas y portones de garaje usando una palanca
+    (*Crowbar*), abrir latas con cuchillos/destornilladores y ver el estado de
+    la batería/motor desde el icono del tablero.
+  - `WorkshopItems`: `2875848298`
+  - `Mods`: `BB_CommonSense`
+
+* **Weapon Condition Indicator + Mod Options**
+  - Muestra visualmente la barra de durabilidad del arma en mano y las balas en
+    el cargador sin tener que abrir el inventario en medio de una horda.
+  - ⚠️ **Atención al `Mod ID`:** Su nombre interno en `mod.info` es **`TheStar`**
+    (NO `WeaponConditionIndicator`).
+  - `WorkshopItems`: `2169435993;2619072426`
+  - `Mods`: `modoptions;TheStar`
+
+* **Has Been Read (Marcador de Libros, Revistas y VHS leídos)**
+  - Muestra un ícono claro sobre los libros que tu personaje ya leyó o está
+    leyendo, ahorrando horas revisando estanterías en grupo.
+  - `WorkshopItems`: `2544353492`
+  - `Mods`: `P4HasBeenRead`
+
+* **Minimal Display Bars (Barras de Hambre, Sed, Fatiga y Temperatura)**
+  - `WorkshopItems`: `2004998206`
+  - `Mods`: `MinimalDisplayBars`
+
+* **Proximity Inventory (Inventario de Proximidad)**
+  - Permite ver en una sola pestaña el botín de todas las cajas, estanterías o
+    cadáveres cercanos sin hacer clic contenedor por contenedor.
+  - `WorkshopItems`: `2847184718`
+  - `Mods`: `ProximityInventory`
+
+* **Generator Time Remaining (Tiempo restante del generador)**
+  - Muestra cuántas horas y días exactos de gasolina le quedan al generador.
+  - `WorkshopItems`: `2883397918`
+  - `Mods`: `GeneratorTimeRemaining`
+
+* **More Description for Traits (Descripciones exactas de Rasgos)**
+  - Muestra los valores numéricos exactos de cada rasgo al crear personaje.
+  - `WorkshopItems`: `2685168362`
+  - `Mods` (en **Build 41**): `MoreDescriptionForTraits4166`
+  - `Mods` (en **Build 42**): `MoreDescriptionForTraits42`
+
+* **True Actions: Act 1 & 2 - Sitting & Lying (Sentarse en sillas y acostarse - Build 41)**
+  - Incluye su librería requerida *Tsar's Common Library 2.0*.
+  - ⚠️ **Atención al `Mod ID` y Anti-Cheat:** Su nombre interno es **`TMC_TrueActions`**
+    y requiere `AntiCheatProtectionType12=false` (ya desactivado por defecto en
+    el `servertest.ini` de nuestra plantilla). En **Build 42** sentarse en muebles
+    ya viene integrado nativamente en el juego base.
+  - `WorkshopItems`: `2392709985;2487022075`
+  - `Mods`: `tsarslib;TMC_TrueActions`
+
+--------------------------------------------------------------------------------
+🚗 3. VEHÍCULOS, BASES MÓVILES Y ARMAS (CON GUÍA DE RAM)
+--------------------------------------------------------------------------------
+* **Filibuster Rhymes' Used Cars! (Pack de Vehículos ligero y Lore-Friendly)**
+  - Añade decenas de autos, camionetas, camiones de bomberos y ambulancias de
+    los años 90 con consumo mínimo de RAM.
+  - `WorkshopItems`: `1510950729`
+  - `Mods`: `FRUsedCars`
+
+* **Autotsar Trailers (Remolques de carga, generadores y cisternas de gasolina)**
+  - Requiere *Tsar's Common Library 2.0* (`2392709985`).
+  - `WorkshopItems`: `2392709985;2282429356`
+  - `Mods`: `tsarslib;autotsartrailers`
+
+* **RV Interior (Interiores habitables para Casas Rodantes, Furgonetas y Barcos)**
+  - Permite entrar físicamente a la parte trasera de una casa rodante y armar
+    una base móvil con electricidad, camas y estanterías.
+  - ⚠️ **Nota importante de `Map=` y Anti-Cheat:** RV Interior agrega un mapa de
+    instancias; debes poner `vehicle_interior` en la línea `Map=` **ANTES** de
+    `Muldraugh, KY` (`Map=vehicle_interior;Muldraugh, KY`). Además, requiere
+    `AntiCheatProtectionType2=false` y `AntiCheatProtectionType12=false` (ambos
+    ya vienen en `false` en nuestro `servertest.ini`).
+  - `WorkshopItems`: `2822286426`
+  - `Mods`: `RV_Interior_MP;RV_Interior_Vanilla`
+
+* **Armas de Fuego: ¿`Vanilla Firearms Expansion (VFE)` o `Brita's Weapon Pack`?**
+  - **En Planes de 4 GB – 6 GB RAM (Recomendado):** Usa **Vanilla Firearms
+    Expansion (VFE)** (`WorkshopItems=2667899942` | `Mods=VFExpansion1`) o
+    **Firearms B41** (`WorkshopItems=2256623447` | `Mods=Firearms`). Son súper
+    optimizados, estéticos y no saturan el suelo con 80 calibres distintos.
+  - **En Planes de 8 GB – 16 GB RAM:** Si el cliente pide expresamente **Brita's
+    Weapon Pack** + **Brita's Armor Pack**, instala siempre su dependencia
+    obligatoria **Arsenal(26) GunFighter Mod [2.0]**:
+    - `WorkshopItems`: `2169435993;2297098490;2200148440;2460154811`
+    - `Mods`: `modoptions;Arsenal(26)GunFighter[MAIN MOD 2.0];Brita;Brita_2`
+
+--------------------------------------------------------------------------------
+📋 4. COPIAR Y PEGAR EN `servertest.ini` (PACK BASE QOL + VEHÍCULOS CONSTERNACLOUD)
+--------------------------------------------------------------------------------
+Si un cliente te pide *"el servidor con los mejores mods básicos de calidad de
+vida, diario de experiencia, sentarse y remolques sin romper el rendimiento"*,
+reemplaza las líneas `Mods=` y `WorkshopItems=` de `servertest.ini` por estas:
+
+```ini
+WorkshopItems=2169435993;2392709985;2956146279;2844315442;2503622437;2875848298;2619072426;2544353492;2004998206;2847184718;2883397918;2685168362;2487022075;2282429356;1510950729
+Mods=modoptions;tsarslib;RainCleansBlood;UdderlyUpToDate;SkillRecoveryJournal;BB_CommonSense;TheStar;P4HasBeenRead;MinimalDisplayBars;ProximityInventory;GeneratorTimeRemaining;MoreDescriptionForTraits4166;TMC_TrueActions;autotsartrailers;FRUsedCars
+```
+================================================================================

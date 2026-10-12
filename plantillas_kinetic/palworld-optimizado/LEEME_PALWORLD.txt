@@ -4,6 +4,7 @@
 Archivos incluidos (Con ruta lista para `Unarchive` desde `/home/container`):
 1. `Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`
 2. `Pal/Saved/Config/LinuxServer/Engine.ini`
+3. `MODS_RECOMENDADOS_PALWORLD.txt` (Guía de ajustes nativos crossplay, mods `.pak`, `UE4SS` y `REST API`)
 
 --------------------------------------------------------------------------------
 ⚠️ REGLAS DE ORO DE PALWORLD (MUY IMPORTANTE)

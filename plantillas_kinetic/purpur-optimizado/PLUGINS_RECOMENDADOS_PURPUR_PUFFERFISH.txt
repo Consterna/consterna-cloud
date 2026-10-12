@@ -1,0 +1,76 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLUGINS Y VENTAJAS EXCLUSIVAS DE PURPUR Y PUFFERFISH
+================================================================================
+**Purpur** es un fork directo de **Pufferfish** y **Paper** (es decir, incluye el
+100% de las optimizaciones de Paper + el 100% de Pufferfish + `purpur.yml`), por
+lo que acepta exactamente todos los plugins de Spigot, Paper y Purpur en `/plugins/`.
+
+--------------------------------------------------------------------------------
+🔥 1. LO QUE PURPUR + PUFFERFISH YA HACEN NATIVAMENTE (NO INSTALES PLUGINS EXTRA)
+--------------------------------------------------------------------------------
+Gracias a los archivos `purpur.yml` y `pufferfish.yml` de esta plantilla, ya NO
+necesitas instalar plugins externos pesados para estas funciones:
+
+1. **Anti-Timeout para LATAM (`use-alternate-keepalive: true` en `purpur.yml`):**
+   Evita que los jugadores de Colombia, Argentina, Chile o Perú sean expulsados
+   por `Timed Out` cuando su proveedor de internet sufre un micro-corte de 1s.
+2. **Optimización de Aldeanos sin romper Granjas (`villager.lobotomize`):**
+   En `purpur.yml` viene activo `lobotomize.enabled: true` junto con
+   `wait-until-trade-locked: true`. Desactiva el pathfinding costoso SOLO a los
+   aldeanos encerrados en bloques 1x1 cuyos tradeos ya fueron bloqueados, sin
+   afectar granjas de hierro ni el reroll de atriles. No necesitas instalar
+   plugins antiguos como *VillagerOptimiser*.
+3. **DAB (`Dynamic Activation of Brain` en `pufferfish.yml`):**
+   Reduce gradualmente la frecuencia de IA de los mobs lejanos, manteniendo a
+   `minecraft:villager`, `minecraft:iron_golem` y `minecraft:zombified_piglin`
+   en `blacklisted-entities` para que las granjas técnicas funcionen al 100%.
+4. **Spawns de Mobs Asíncronos (`enable-async-mob-spawning: true`):**
+   Calcula el aparición de criaturas en un hilo secundario del Ryzen 9 9950X.
+5. **Mending Inteligente (`use-better-mending: true` en `purpur.yml`):**
+   La experiencia repara directamente la pieza de armadura o herramienta dañada
+   en lugar de elegir al azar una que ya está al 100%.
+
+--------------------------------------------------------------------------------
+2. STACK DE PLUGINS RECOMENDADOS PARA PURPUR / PUFFERFISH (SMP, TOWNY, BOXPVP)
+--------------------------------------------------------------------------------
+* Chunky + ChunkyBorder (Pre-generación de mapa en 2 Fases y bordes de mundo)
+  https://modrinth.com/plugin/chunky
+  https://modrinth.com/plugin/chunkyborder
+
+* Spark (Ya integrado nativamente en Purpur 1.21+, o como plugin en 1.20.1)
+  https://modrinth.com/plugin/spark
+
+* LuckPerms (Sistema de rangos y permisos; permite activar mecánicas exclusivas
+  de Purpur por permiso como `purpur.enderchest.rows.six` para dar 6 filas de
+  Enderchest a rangos VIP sin plugins extra)
+  https://modrinth.com/plugin/luckperms
+
+* CoreProtect (Auditoría anti-grifeo y rollback instantáneo `/co rollback`)
+  https://modrinth.com/plugin/coreprotect
+
+* FastAsyncWorldEdit (FAWE) + WorldGuard (Edición asíncrona y protección de zonas)
+  https://modrinth.com/plugin/fastasyncworldedit
+  https://modrinth.com/plugin/worldguard
+
+* Simple Voice Chat (Preconfigurado en `plugins/voicechat/voicechat-server.properties`)
+  https://modrinth.com/plugin/simple-voice-chat
+
+* GeyserMC + Floodgate (Crossplay Java + Bedrock para jugadores de consola/móvil)
+  https://geysermc.org/
+
+* ViaVersion + ViaBackwards (Compatibilidad multi-versión)
+  https://modrinth.com/plugin/viaversion
+  https://modrinth.com/plugin/viabackwards
+
+* EssentialsX + Vault + PlaceholderAPI + TAB (de NEZNAMY)
+  https://essentialsx.net/downloads.html
+  https://modrinth.com/plugin/placeholderapi
+  https://modrinth.com/plugin/tab-was-taken
+
+* BlueMap o Squaremap (Mapa web interactivo de bajo consumo)
+  https://modrinth.com/plugin/bluemap
+  https://modrinth.com/plugin/squaremap
+
+* DiscordSRV (Conexión de chat y alertas con Discord)
+  https://modrinth.com/plugin/discordsrv
+================================================================================

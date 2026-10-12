@@ -1,0 +1,107 @@
+================================================================================
+☁️ CONSTERNACLOUD - CARGADORES, MODS Y PLUGINS PARA TERRARIA (TSHOCK & TMODLOADER)
+================================================================================
+En **Terraria** existen **dos motores distintos** según lo que busque el cliente:
+1. **TShock** -> Motor de **Plugins Server-Side** para Terraria Vanilla (los
+   jugadores entran desde Terraria normal de Steam o Celular sin instalar mods).
+2. **tModLoader (1.4.4+)** -> El modloader oficial en Steam para jugar con
+   **Mods de Contenido y Calidad de Vida** (*Calamity Mod*, *Thorium*, *Magic
+   Storage*). Al entrar al servidor, tModLoader descarga automáticamente a los
+   amigos todos los mods activos en el servidor.
+
+--------------------------------------------------------------------------------
+🛡️ 1. SERVIDORES VANILLA CON PLUGINS: `TSHOCK` (`/ServerPlugins`)
+--------------------------------------------------------------------------------
+**TShock** (`https://github.com/Pryaxis/TShock`) es el equivalente a *PaperMC*
+para Terraria Vanilla. Incluye de serie:
+* **Server-Side Characters (SSC):** Activándolo en `tshock/sscconfig.json`, el
+  inventario y la vida de cada jugador se guardan en el servidor (impide que
+  entren con personajes chetados con la *Zenith* desde mapas de ítems gratis).
+* **Protección de Casas y Regiones (`/house` y `/region`):** Evita que grifeen
+  construcciones con dinamita o roben cofres.
+* **Sistema de Permisos, Grupos y Cuentas (`/register`, `/login`, `/tp`, `/warp`).**
+
+**Plugins extra recomendados para TShock (`/ServerPlugins`):**
+* **WorldEdit (TShock):** Permite copiar/pegar estructuras y limpiar biomas de
+  Corrupción/Carmesí con comandos.
+* **History:** Equivalente a *CoreProtect* (registra quién puso o rompió cada
+  bloque en el mapa).
+* **EssentialsPlus:** Añade `/home`, `/back`, `/tpa` y comandos de utilidad.
+
+--------------------------------------------------------------------------------
+⚔️ 2. SERVIDORES CON MODS: `tModLoader` (WORKSHOP IDs + `enabled.json`)
+--------------------------------------------------------------------------------
+Como se detalla en `LEEME_TERRARIA.txt`, en Kinetic Panel los mods de tModLoader
+se instalan listando sus **Workshop IDs** en `/saves/Mods/install.txt` y sus
+**Nombres Internos** en `/saves/Mods/enabled.json`.
+
+Aquí tienes la tabla maestra verificada para copiar y pegar:
+
+### A) Grandes Mods de Contenido (Overhauls y sus Librerías)
+| Nombre del Mod | Workshop ID (`install.txt`) | Nombre Interno (`enabled.json`) | RAM Recomendada / Notas |
+| :--- | :--- | :--- | :--- |
+| **Calamity Mod** | `2824688072` | `"CalamityMod"` | **6 GB – 8 GB** |
+| **Calamity Mod Music** | `2824688266` | `"CalamityModMusic"` | *(Incluido junto a Calamity)* |
+| **Calamity: Infernum Mode** | `3018310203` | `"InfernumMode"` | **8 GB+** *(Requiere `SubworldLibrary`)* |
+| **Calamity: Wrath of the Gods** | `2995193002` | `"NoxusBoss"` | **8 GB+** *(Requiere `SubworldLibrary` y `Luminance`)* |
+| **Subworld Library** *(Librería)* | `2785100219` | `"SubworldLibrary"` | Dependencia obligatoria para *Infernum* y *Wrath of the Gods* |
+| **Luminance** *(Librería)* | `3222496602` | `"Luminance"` | Dependencia obligatoria para *Wrath of the Gods (`NoxusBoss`)* |
+| **Thorium Mod** | `2909886416` | `"ThoriumMod"` | **4 GB – 6 GB** |
+| **Fargo's Souls Mod** | `2815540735` | `"FargowiltasSouls"` | **6 GB – 8 GB** *(Requiere `Fargowiltas`)* |
+
+### B) Pack Esencial de Calidad de Vida (QoL) y Optimización en tModLoader
+| Nombre del Mod | Workshop ID (`install.txt`) | Nombre Interno (`enabled.json`) | ¿Por qué es imprescindible? |
+| :--- | :--- | :--- | :--- |
+| **Magic Storage** | `2563309347` | `"MagicStorage"` | Almacenamiento centralizado en red. Además de ser comodísimo, **reduce el lag de red** al reemplazar 80 cofres individuales por un solo corazón de almacenamiento. *(Requiere `SerousCommonLib`)*. |
+| **absoluteAquarian Utilities** | `2908170107` | `"SerousCommonLib"` | **Dependencia obligatoria** para que *Magic Storage* cargue en tModLoader 1.4.4+. |
+| **Recipe Browser** | `2619954303` | `"RecipeBrowser"` | Buscador completo de crafteos, estaciones y botín de enemigos dentro del juego. |
+| **Boss Checklist** | `2669644269` | `"BossChecklist"` | Muestra el orden exacto de todos los jefes (Vanilla + Calamity/Thorium) y cómo invocarlos. |
+| **Fargo's Mutant Mod** | `2570931073` | `"Fargowiltas"` | Añade NPCs que venden invocadores de jefes ya derrotados, constructores de arenas y buffs infinitos al juntar 30 pociones. |
+| **AlchemistNPC Lite** | `2599842748` | `"AlchemistNPCLite"` | Añade NPCs vendedores de pociones, materiales y accesorios (versión Lite sin ítems rotos). |
+| **Ore Excavator** | `2565639705` | `"OreExcavator"` | Sucesor moderno y optimizado de *VeinMiner*: pica toda la veta de mineral de un solo golpe. |
+| **Begone, Evil!** | `2663992626` | `"BegoneEvil"` | Desactiva la propagación automática de la Corrupción, el Carmesí y la Bendición (vital en servidores 24/7 para que no se corrompa la base mientras el grupo duerme). |
+| **Shorter Respawn Time** | `2563851005` | `"ShorterRespawn"` | Reduce el tiempo de reaparición tras morir fuera de combates de jefes. |
+
+--------------------------------------------------------------------------------
+📋 3. ARCHIVOS LISTOS PARA COPIAR Y PEGAR (PACK CALAMITY + QOL ESTÁNDAR)
+--------------------------------------------------------------------------------
+Si un cliente contrata un servidor de **Calamity Mod Completo + Calidad de Vida**
+(incluyendo `SerousCommonLib` para que `MagicStorage` inicie sin errores):
+
+1. Contenido para `/saves/Mods/install.txt`:
+```text
+2824688072
+2824688266
+2908170107
+2563309347
+2619954303
+2669644269
+2570931073
+2599842748
+2565639705
+2663992626
+```
+
+2. Contenido para `/saves/Mods/enabled.json`:
+```json
+[
+  "CalamityMod",
+  "CalamityModMusic",
+  "SerousCommonLib",
+  "MagicStorage",
+  "RecipeBrowser",
+  "BossChecklist",
+  "Fargowiltas",
+  "AlchemistNPCLite",
+  "OreExcavator",
+  "BegoneEvil"
+]
+```
+
+⚠️ **REGLA DE ORO DE RENDIMIENTO EN TMODLOADER (MODS GRÁFICOS):**
+Nunca agregues mods que sean exclusivamente de **efectos visuales o shaders de
+cliente** (como *Fancy Lighting*, *Lights and Shadows* o *High FPS Support*) en
+el servidor dedicado Linux, ya que un servidor dedicado no tiene tarjeta gráfica
+(GPU) y puede crashear al intentar compilar shaders visuales. Esos mods cada
+jugador puede activarlos libremente en su propio PC sin ponerlos en el servidor.
+================================================================================

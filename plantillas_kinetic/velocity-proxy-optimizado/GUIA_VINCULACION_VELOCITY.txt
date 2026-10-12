@@ -1,8 +1,8 @@
 ================================================================================
-☁️ CONSTERNACLOUD - GUÍA PASO A PASO: VINCULAR VELOCITY CON PAPER, PURPUR Y FABRIC
+☁️ CONSTERNACLOUD - GUÍA PASO A PASO: VINCULAR VELOCITY CON PAPER, PURPUR, FABRIC Y FORGE/NEOFORGE
 ================================================================================
-Cuando un cliente contrata una Network (ej. Lobby + Survival + Evento) o un
-Proxy Velocity para mitigación y balanceo, sigue estos 3 pasos exactos:
+Cuando un cliente contrata una Network (ej. Lobby + Survival + Evento/Modpack) o
+un Proxy Velocity para mitigación y balanceo, sigue estos pasos exactos:
 
 --------------------------------------------------------------------------------
 PASO 1: CONFIGURAR EL PROXY VELOCITY
@@ -51,7 +51,7 @@ En cada servidor backend (Lobby, Survival, etc.) que esté detrás de Velocity:
    dentro de `paper.yml` en la raíz con `enabled: true` y `secret: '...'`).*
 
 --------------------------------------------------------------------------------
-PASO 3: CONFIGURAR SERVIDORES BACKEND FABRIC (1.20.1 / 1.21+)
+PASO 3: CONFIGURAR SERVIDORES BACKEND FABRIC / QUILT (1.20.1 / 1.21+)
 --------------------------------------------------------------------------------
 Fabric Vanilla no entiende el protocolo `modern` de Velocity por sí solo. Para
 conectarlo de forma segura:
@@ -74,4 +74,26 @@ conectarlo de forma segura:
    disconnectMessage = "Este servidor solo es accesible a través del Proxy de Consterna Cloud."
    secret = "PEGA_AQUI_EL_CONTENIDO_DE_FORWARDING_SECRET"
    ```
+
+--------------------------------------------------------------------------------
+PASO 4: CONFIGURAR SERVIDORES BACKEND FORGE / NEOFORGE (1.16.5 - 1.20.1 / 1.21.1+)
+--------------------------------------------------------------------------------
+Para conectar un servidor con modpack **Forge** o **NeoForge** detrás de Velocity
+usando el protocolo seguro `modern`:
+
+1. Instala el mod **Proxy Compatible Forge (PCF)** en la carpeta `/mods` del
+   servidor Forge o NeoForge:
+   https://modrinth.com/mod/proxy-compatible-forge
+   (y añade **CrossStitch** en `/mods` si algún mod registra tipos de argumentos
+   de comando personalizados).
+2. En `server.properties` del servidor Forge/NeoForge, pon:
+   ```properties
+   online-mode=false
+   network-compression-threshold=-1
+   ```
+3. Inicia el servidor una vez y pega tu cadena de `forwarding.secret` dentro del
+   archivo de configuración generado en `config/pcf-common.toml` (`forwardingSecret`).
+4. **Tip para Modpacks Grandes en NeoForge 1.21.1+:** Si el modpack tiene más de
+   64 mods y al entrar por el Proxy sale el error *"Too many known packs"*, añade
+   el flag `-Dvelocity.max-known-packs=256` en los argumentos de inicio de Velocity.
 ================================================================================

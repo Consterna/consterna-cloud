@@ -1,0 +1,80 @@
+================================================================================
+☁️ CONSTERNACLOUD - PLUGINS RECOMENDADOS PARA VELOCITY PROXY (3.3.0 / 3.4.0+)
+================================================================================
+Los plugins de **Velocity** NO son los mismos que los de Spigot/Paper (a menos
+que el autor indique soporte explícito para Velocity). Todos los `.jar` de esta
+lista se suben dentro de la carpeta `/plugins/` del servidor Proxy Velocity.
+
+--------------------------------------------------------------------------------
+1. SEGURIDAD, ANTI-BOTS Y AUTENTICACIÓN CENTRALIZADA (NETWORKS)
+--------------------------------------------------------------------------------
+* Sonar (de Jones Development) - Filtro Anti-Bot de nueva generación
+  - Protege el Proxy contra ataques de bots masivos verificando las físicas de
+    caída del cliente en un entorno aislado ultra-ligero sin molestar a los
+    jugadores reales con captchas.
+  https://modrinth.com/plugin/sonar
+
+* LibreLogin + PicoLimbo / NanoLimbo (Autenticación No-Premium + Auto-Login Premium)
+  - Permite que los jugadores se registren (`/register`) e inicien sesión
+    (`/login`) una sola vez al entrar a la Network, detectando automáticamente
+    a los jugadores con cuenta oficial de Mojang/Microsoft para no pedirles
+    contraseña.
+  https://modrinth.com/plugin/librelogin
+
+* SignedVelocity (Indispensable en Minecraft 1.19.1 a 1.21.4+)
+  - Sincroniza la cancelación o modificación de mensajes de chat firmados
+    criptográficamente entre Velocity y los servidores backend Paper/Purpur,
+    evitando que los jugadores sean expulsados por error de firma de chat.
+  https://modrinth.com/plugin/signedvelocity
+
+--------------------------------------------------------------------------------
+2. CROSSPLAY (JAVA + BEDROCK) Y MULTI-VERSIÓN A NIVEL DE PROXY
+--------------------------------------------------------------------------------
+* Geyser-Velocity + Floodgate-Velocity
+  - Al instalar Geyser y Floodgate directamente en Velocity (en lugar de en cada
+    servidor individual), los jugadores de Bedrock (Celular, PS4/PS5, Xbox,
+    Switch y Windows) pueden cambiar entre el Lobby, el Survival y los Eventos
+    sin desconectarse.
+  - Recuerda instalar también `Floodgate-Spigot` en los backends o activar
+    `send-floodgate-data: true` en la configuración de Floodgate del Proxy.
+  https://geysermc.org/
+
+* ViaVersion + ViaBackwards (Velocity o Backends)
+  - Nota técnica de PaperMC: En Networks grandes se recomienda colocar
+    ViaVersion y ViaBackwards en cada servidor backend Paper/Purpur para que la
+    traducción de paquetes se reparta entre varios núcleos, o en Velocity si
+    todos los servidores corren la misma versión base.
+  https://modrinth.com/plugin/viaversion
+  https://modrinth.com/plugin/viabackwards
+
+--------------------------------------------------------------------------------
+3. PERMISOS EN RED, TABLIST GLOBAL, VOZ Y NAVEGACIÓN
+--------------------------------------------------------------------------------
+* LuckPerms-Velocity (Sincronización de rangos en toda la Network)
+  - Conéctalo a la misma base de datos MySQL/MariaDB de Kinetic Panel que usan
+    tus servidores Paper/Purpur para que los rangos se actualicen al instante.
+  https://modrinth.com/plugin/luckperms
+
+* Velocitab o TAB (de NEZNAMY)
+  - Muestra una lista de jugadores (Tablist) unificada o separada por servidor
+    en toda la Network con prefijos de LuckPerms y MiniMessage.
+  https://modrinth.com/plugin/velocitab
+  https://modrinth.com/plugin/tab-was-taken
+
+* Simple Voice Chat (Velocity Bridge)
+  - Instalado en Velocity (junto con el plugin/mod en cada servidor backend),
+    actúa como puente de audio usando un único puerto UDP público abierto en el
+    Proxy para toda la Network.
+  https://modrinth.com/plugin/simple-voice-chat
+
+* Maintenance (Modo Mantenimiento profesional)
+  - Permite cerrar la Network o un servidor específico (ej. `/maintenance on survival`)
+    mostrando un MOTD personalizado y contador en la lista de servidores sin
+    apagar el Proxy.
+  https://modrinth.com/plugin/maintenance
+
+* SlashServer o VeloHub (Comandos rápidos de navegación)
+  - Crea atajos directos como `/lobby`, `/hub`, `/survival` y `/evento` en vez
+    de obligar a escribir `/server survival`.
+  https://modrinth.com/plugin/slashserver
+================================================================================

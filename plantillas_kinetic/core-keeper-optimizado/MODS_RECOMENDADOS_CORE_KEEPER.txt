@@ -1,0 +1,67 @@
+================================================================================
+☁️ CONSTERNACLOUD - SISTEMA DE MODS (`mod.io` / `BepInEx`) EN CORE KEEPER
+================================================================================
+Esta guía explica cómo funcionan los mods en **Core Keeper Dedicated Server**
+(versión 1.0+) y cuáles son los más recomendados para grupos cooperativos.
+
+--------------------------------------------------------------------------------
+🧭 1. CÓMO FUNCIONAN LOS MODS EN CORE KEEPER (`mod.io` OFICIAL + `BepInEx`)
+--------------------------------------------------------------------------------
+Core Keeper integra soporte oficial de mods a través de **`mod.io`** (accesible
+directamente desde el menú principal del juego en la pestaña *Mods*).
+
+En partidas multijugador dedicadas, los mods se dividen en **dos categorías**:
+
+1. **Mods 100% Client-Side (No requieren instalarse en el servidor):**
+   - Mejoran los controles, la interfaz o automatizan acciones locales del
+     jugador. Cualquier amigo del grupo puede suscribirse a ellos desde el menú
+     *Mods* dentro de Core Keeper y entrar al servidor dedicado sin que el
+     servidor tenga que instalar nada.
+
+2. **Mods Server-Side / Cooperativos (Deben estar en el Servidor y en Clientes):**
+   - Mods que añaden objetos nuevos, alteran la generación del subsuelo, cambian
+     el tamaño de los stacks en cofres del mundo o modifican la vida de los jefes.
+   - Para que el servidor dedicado cargue mods de `mod.io`, se pasa el token de
+     autenticación o se instalan dentro del directorio de mods del servidor.
+
+--------------------------------------------------------------------------------
+🛠️ 2. MODS MÁS RECOMENDADOS PARA CORE KEEPER (CATÁLOGO `mod.io`)
+--------------------------------------------------------------------------------
+### A) Calidad de Vida (QoL) Client-Side (Tus clientes los activan en 1 clic in-game)
+* **PlacementPlus:**
+  - Permite colocar pisos, paredes, puentes, antorchas y plantar semillas en
+    cuadrículas de hasta 5x5 o 7x7 de un solo clic (ahorra horas al construir
+    y decorar la base central).
+* **AutoFish:**
+  - Automatiza la captura en el minijuego de pesca para conseguir peces raros y
+    ingredientes de cocina sin fatiga.
+* **AutoDoors:**
+  - Abre y cierra las puertas de la base automáticamente cuando el jugador pasa
+    caminando cerca.
+* **KeepFarming (Protección de Cultivos Dorados):**
+  - Evita que los jugadores destruyan por accidente las plantas permanentes o
+    cultivos dorados al usar la azada o el pico.
+
+### B) Mods Cooperativos (Servidor + Clientes)
+* **InstantPortalCharge:**
+  - Elimina el tiempo de espera de recarga al colocar un portal nuevo en el mapa
+    (en Vanilla tarda varios minutos en activarse tras construirlo).
+* **Infinite Ore Boulder (Vetas de Mineral Infinitas o Extendidas):**
+  - Muy útil en servidores de 6 a 8 jugadores donde las rocas gigantes de
+    hierro, escarlata, octarina o galaxita se agotan rápidamente con los taladros.
+* **Expanded Stacks / Chest Auto-Sort:**
+  - Amplía el límite de objetos apilables en cofres compartidos de la base.
+
+--------------------------------------------------------------------------------
+🚀 3. OPTIMIZACIÓN NATIVA YA INCLUIDA EN `ServerConfig.json` (SIN MODS)
+--------------------------------------------------------------------------------
+Recuerda que la plantilla `core-keeper-optimizado` ya aplica las mejores
+optimizaciones de red y eventos directamente en `ServerConfig.json`:
+* `networkSendRate: 30` y `maxNumberPacketsSentPerFrame: 2`: Evita retrasos al
+  picar paredes o abrir cofres cuando los 8 jugadores exploran biomas lejanos
+  (Mar Hundido, Desierto del Inicio, Pasaje) desde LATAM.
+* `worldMode`: Configurable entre Normal (`0`), Difícil (`1`), Creativo (`2`) y
+  Casual (`4`).
+* `seasonOverride`: Permite activar eventos como Halloween (`2`), Navidad (`3`)
+  o Cerezos en Flor (`6`) en cualquier época del año sin instalar mods.
+================================================================================
