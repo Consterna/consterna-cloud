@@ -2,9 +2,19 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.6.0] - 2026-10-12 - Business Model Alignment, Add-ons Monetization & QA Audit
+### Cambios y Mejoras
+- **Modelo Infraestructura + Add-ons:** Alineación integral de textos en Hero, Beneficios, Planes, FAQ y Footer diferenciando claramente la infraestructura/monitoreo 24/7 (con entrega siempre incluida del panel de control y juego base) de la atención humana directa por chat (Lunes a Domingo, 10:00 AM a 10:00 PM GMT-5) y los servicios adicionales.
+- **Catálogo de Add-ons Completo (`#addons`):** Se añadieron precios en USD y COP dinámico (`$5.00 USD` Instalación de Modpacks Complejos, `$6.00 USD/mes` Soporte VIP Sysadmin Dedicado, `$4.00 USD/mes` IP Dedicada Exclusiva), interactividad hover y botones CTA directos a WhatsApp, además de enlazar la sección en el Navbar Desktop y Mobile en el orden exacto del DOM (`lg:` breakpoint con `whitespace-nowrap` para prevenir colisiones en resoluciones tablet `768px-1023px`).
+- **Simetría en Planes por RAM (`#planes`):** Estandarización total de las 5 tarjetas (4 GB a 16 GB) con 4 viñetas estrictamente simétricas y progresivas (`N Cores Ryzen 9 9950X (5.7 GHz)`, `NVMe PCIe, Panel Total y Motor Optimizado`, `Backups diarios automáticos y Anti-DDoS`, `Red 24/7 y Soporte de Infraestructura`), ajuste del precio inicial estático del Tier 4 GB a `~$34.000 COP` y aclaración de capacidad de hardware recomendada.
+- **Precisión Técnica y Geográfica:** Aclaración del uso de Chunky en Minecraft y lectura NVMe PCIe en Project Zomboid, especificación de baja latencia (`~70-85ms` en LATAM) vía nodos estratégicos en Miami/EE.UU., y retiro de marcas de terceros obsoletas ("Pro Hosting").
+- **Accesibilidad (WCAG 2.1 AA) y Resiliencia JS (ES5):** Adición de `aria-label` en todos los enlaces de solo ícono, `aria-labelledby` en las regiones de respuesta del FAQ, contraste mínimo >= 4.5:1 (`text-zinc-400`) en textos secundarios, recálculo de altura del acordeón FAQ en `resize`, refactorización de todos los scripts interactivos a ES5 estricto con fallback real para `IntersectionObserver` y `noscript`, y validación defensiva (`isFinite` + traversal `parentNode`) en el cálculo cambiario TRM.
+- **Higiene del Repositorio:** Eliminación de archivos residuales temporales (`full_diff.txt`, `git_diff_check.txt`, `index.zip`, `update_docs.py`) y endurecimiento de `.gitignore`.
+
 ## [1.5.0] - Dynamic Pricing Automation
 ### Cambios y Mejoras
 - **Script Cambiario Automático:** Se implementó un script en index.html que consulta la API de tasas de cambio para calcular automáticamente el precio en COP del plan base según la TRM actual, protegiendo los márgenes de ganancia. Cuenta con caché de 24h vía localStorage y mecanismo de fallback seguro.
+
 
 ## [1.4.0] - SEO, Conversion & SVG Legacy Support
 ### Cambios y Mejoras
