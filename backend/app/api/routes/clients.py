@@ -61,7 +61,7 @@ def create_client(*, session: SessionDep, client_in: ClientCreate) -> Any:
     ).first()
     if existing:
         raise HTTPException(
-            status_code=400, detail="Email already registered for a client"
+            status_code=409, detail="A client with this email already exists"
         )
 
     client = Client.model_validate(client_in)
@@ -83,6 +83,14 @@ def update_client(
     client = session.get(Client, id)
     if not client:
         raise HTTPException(status_code=404, detail="Client not found")
+    if client_in.email and client_in.email != client.email:
+        existing = session.exec(
+            select(Client).where(Client.email == client_in.email)
+        ).first()
+        if existing:
+            raise HTTPException(
+                status_code=409, detail="A client with this email already exists"
+            )
     update_dict = client_in.model_dump(exclude_unset=True)
     client.sqlmodel_update(update_dict)
     session.add(client)
