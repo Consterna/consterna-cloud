@@ -1,5 +1,5 @@
 import uuid
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 
 from pydantic import EmailStr
 from sqlalchemy import DateTime
@@ -74,6 +74,7 @@ class UsersPublic(SQLModel):
 
 # Shared properties
 class ClientBase(SQLModel):
+    external_id: str | None = Field(default=None, max_length=50, index=True)
     full_name: str = Field(max_length=255)
     email: EmailStr = Field(unique=True, index=True, max_length=255)
     discord_username: str | None = Field(default=None, max_length=255)
@@ -85,6 +86,7 @@ class ClientCreate(ClientBase):
 
 
 class ClientUpdate(SQLModel):
+    external_id: str | None = Field(default=None, max_length=50)
     full_name: str | None = Field(default=None, max_length=255)
     email: EmailStr | None = Field(default=None, max_length=255)
     discord_username: str | None = Field(default=None, max_length=255)
@@ -114,6 +116,16 @@ class ClientsPublic(SQLModel):
 class ServerBase(SQLModel):
     ip_address: str | None = Field(default=None, max_length=255)
     plan_name: str = Field(max_length=255)
+    game: str = Field(default="Minecraft", max_length=100)
+    extra_service: str = Field(default="Ninguno (Solo Host)", max_length=150)
+    currency: str = Field(default="USD", max_length=10)
+    monthly_price: float = Field(default=0.0, ge=0)
+    one_time_fee: float = Field(default=0.0, ge=0)
+    host_cost_usd: float = Field(default=0.0, ge=0)
+    payment_method: str | None = Field(default=None, max_length=100)
+    start_date: date | None = Field(default=None)
+    voice_port: str | None = Field(default=None, max_length=50)
+    notes: str | None = Field(default=None, max_length=1000)
     status: str = Field(default="pending", max_length=50)  # pending, active, suspended
     expiration_date: datetime | None = Field(
         default=None, sa_type=DateTime(timezone=True)
@@ -127,6 +139,16 @@ class ServerCreate(ServerBase):
 class ServerUpdate(SQLModel):
     ip_address: str | None = Field(default=None, max_length=255)
     plan_name: str | None = Field(default=None, max_length=255)
+    game: str | None = Field(default=None, max_length=100)
+    extra_service: str | None = Field(default=None, max_length=150)
+    currency: str | None = Field(default=None, max_length=10)
+    monthly_price: float | None = Field(default=None, ge=0)
+    one_time_fee: float | None = Field(default=None, ge=0)
+    host_cost_usd: float | None = Field(default=None, ge=0)
+    payment_method: str | None = Field(default=None, max_length=100)
+    start_date: date | None = Field(default=None)
+    voice_port: str | None = Field(default=None, max_length=50)
+    notes: str | None = Field(default=None, max_length=1000)
     status: str | None = Field(default=None, max_length=50)
     expiration_date: datetime | None = None
 
@@ -152,6 +174,55 @@ class ServerPublic(ServerBase):
 class ServersPublic(SQLModel):
     data: list[ServerPublic]
     count: int
+
+
+class ExpiringServerPublic(SQLModel):
+    id: uuid.UUID
+    server_id: uuid.UUID
+    owner_id: uuid.UUID
+    client_name: str
+    client_email: str
+    whatsapp_number: str | None = None
+    game: str
+    plan_name: str
+    ip_address: str | None = None
+    currency: str = "USD"
+    monthly_price: float = 0.0
+    status: str
+    expiration_date: datetime | None = None
+    renewal_date: str | None = None
+    days_remaining: int
+    billing_status: str
+    reminder_message: str
+    whatsapp_url: str
+
+
+class ServerDeliveryMessage(SQLModel):
+    server_id: uuid.UUID
+    client_name: str
+    game: str
+    plan_name: str
+    ip_address: str | None = None
+    voice_port: str | None = None
+    panel_url: str = "https://panel.kinetichosting.net"
+    renewal_date: str | None = None
+    message: str
+    whatsapp_url: str
+
+
+class ServersSummary(SQLModel):
+    total_clients: int
+    total_servers: int
+    active_servers: int
+    suspended_servers: int
+    expiring_soon_count: int
+    overdue_count: int
+    trm_cop_usd: float = 4000.0
+    mrr_usd_estimated: float
+    host_cost_usd_total: float
+    one_time_fees_usd_total: float
+    net_profit_usd: float
+    partner_split_50_50_usd: float
 
 
 # Generic message

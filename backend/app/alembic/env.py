@@ -1,5 +1,12 @@
 import os
+import sys
 from logging.config import fileConfig
+from pathlib import Path
+
+# Ensure backend root is on sys.path so 'app' can be imported by alembic CLI
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
@@ -31,7 +38,7 @@ target_metadata = SQLModel.metadata
 
 
 def get_url():
-    return str(settings.DATABASE_URL)
+    return config.get_main_option("sqlalchemy.url") or str(settings.DATABASE_URL)
 
 
 def run_migrations_offline():
