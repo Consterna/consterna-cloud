@@ -12,18 +12,18 @@ consterna-cloud/
 ├── banner_whatsapp.jpg               # Imagen Open Graph / Twitter Card en raíz para previsualizaciones
 ├── robots.txt                        # Directivas SEO de rastreo para motores de búsqueda
 ├── sitemap.xml                       # Mapa XML del sitio para indexación en Google y Bing
-├── compose.yml                       # Orquestación Docker Compose (Traefik, PostgreSQL, Adminer, Backend)
+├── compose.yml                       # Orquestación Docker Compose (Traefik, PostgreSQL, Adminer, Backend, Frontend Nginx)
 ├── .env.example                      # Plantilla segura de variables de entorno
 ├── README.md                         # Documentación general del ecosistema
 ├── CHANGELOG.md                      # Historial detallado de versiones y auditorías
 ├── assets/
 │   └── brand/
 │       └── consterna-discord-icon.jpg # Activo oficial de marca / ícono para Discord y comunidad
-├── backend/                          # API Backend en FastAPI + SQLModel + Alembic
-│   ├── app/                          # Núcleo de la aplicación (modelos, rutas REST, seguridad, Alembic)
-│   ├── scripts/                      # Scripts de operación, calidad y migración (import_data.py, fix_emails.py)
-│   ├── tests/                        # Suite de 47 pruebas automatizadas (Pytest)
-│   ├── Dockerfile                    # Imagen de producción multi-stage con uv
+├── backend/                          # API Backend en FastAPI + SQLModel + Alembic + Panel Web /admin
+│   ├── app/                          # Núcleo de la aplicación (modelos, rutas REST, /admin UI, seguridad, Alembic)
+│   ├── scripts/                      # Scripts de operación, calidad y migración idempotente (import_data.py, fix_emails.py)
+│   ├── tests/                        # Suite de 58 pruebas automatizadas (Pytest con SQLite in-memory aislado)
+│   ├── Dockerfile                    # Imagen de producción multi-stage con uv (incluye /app/scripts)
 │   ├── alembic.ini                   # Configuración de migraciones de base de datos
 │   ├── pyproject.toml                # Dependencias y configuración estricta de Ruff, Mypy y Pytest
 │   └── README.md                     # Documentación técnica del Backend
@@ -42,12 +42,12 @@ consterna-cloud/
 
 ## 🚀 Componentes Principales
 
-- `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, Hub de Consultas/Tickets en Discord, animaciones custom y cotizador dinámico USD/COP).
+- `index.html`: Landing page principal (HTML5, Tailwind CSS, catálogo de 5 Planes por RAM + 3 Add-ons, **Recomendador de RAM + Cotizador "Arma tu Servidor" en Vivo (`#cotizador`)**, **Vitrina Técnica Interactiva de Optimización "Llave en Mano" por Juego (`#optimizacion`)**, Hub de Consultas/Tickets en Discord, animaciones custom y cotizador dinámico USD/COP).
 - `plantillas_kinetic/`: Kit completo de **13 plantillas maestras pre-optimizadas** (Octubre 2026), organizadas limpiamente en **`paquetes_zip/`** (listas para subir con `Unarchive` en Kinetic Panel, separadas en `minecraft/` y `otros_juegos/`), **`codigo_fuente/`** (carpetas editables con sus guías `MODS_RECOMENDADOS_*.txt` / `PLUGINS_RECOMENDADOS_*.txt`), **`scripts/empaquetar_plantillas.py`** y el manual operativo **`GUIA_RAPIDA_KINETIC_SOP.md`**.
-- `backend/`: API Backend implementado en FastAPI (Python) con migraciones de base de datos vía Alembic, validación estricta de UUID/EmailStr, scripts centralizados en `backend/scripts/` y 47 pruebas unitarias en `backend/tests/`.
+- `backend/`: API Backend implementado en FastAPI (Python) con panel web operativo **`/admin`** (KPIs financieros con reparto 50/50 Cristian & Víctor, semáforo de cobros, recordatorio WhatsApp 1-clic, generador de acta de entrega *"Llave en Mano"* y botón de sincronización con Excel CRM), endpoints operativos (`/api/v1/servers/expiring`, `/api/v1/servers/summary`, `/api/v1/servers/{id}/delivery-message`, `/api/v1/utils/sync-excel`), migración inicial real en Alembic, sincronización idempotente (`upsert`) en `backend/scripts/import_data.py` y **58 pruebas unitarias e integrales** en `backend/tests/` aisladas en SQLite in-memory.
 - `banner_whatsapp.jpg`, `robots.txt` & `sitemap.xml`: Activos estáticos de raíz requeridos por **Cloudflare Pages** para SEO y previsualizaciones Open Graph en WhatsApp y Discord.
 - `assets/brand/consterna-discord-icon.jpg`: Activo gráfico oficial de marca para el servidor de Discord y canales de comunidad.
-- `Control_Clientes_Consterna_V7_ENTERPRISE.xlsx`: Archivo local automatizado para el seguimiento de renovaciones y pagos (excluido del repositorio público vía `.gitignore`).
+- `Control_Clientes_Consterna_V7_ENTERPRISE.xlsx`: Archivo local automatizado y homologado con el catálogo oficial v1.9.0 para el seguimiento de renovaciones y pagos (excluido del repositorio público vía `.gitignore`).
 
 ## 🔧 Detalles Técnicos (`index.html`)
 
@@ -55,6 +55,8 @@ consterna-cloud/
 - **Fuente:** Plus Jakarta Sans (Google Fonts) cargada con `preconnect` y `preload`.
 - **Modelo de Negocio (Entrega "Llave en Mano" en 30–90 min + Límites Sanos en Add-ons):**
   - **5 Planes Base por RAM (4 GB a 16 GB Dedicado):** Incluyen configuración inicial "Llave en Mano" lista para jugar (instalación del juego o modpack público elegido de CurseForge/Modrinth/Steam Workshop, puertos adicionales como *Simple Voice Chat*, optimización de memoria/flags y pre-generación con Chunky en Minecraft), entregada habitualmente entre **30 y 90 minutos** tras verificar el pago dentro del horario de atención (Lun–Dom 10:00 AM a 10:00 PM GMT-5), con acceso total al panel de control, mitigación DDoS, backups diarios automáticos e infraestructura/red activa 24/7.
+  - **Recomendador de RAM + Cotizador "Arma tu Servidor" en Vivo (`#cotizador`):** Selector interactivo de juego (los 7 juegos del catálogo), slider de jugadores (`2` a `30+`), nivel de mods (*Vanilla / Ligero*, *Moderado / Workshop*, *Pesado (+100 mods)*) y checkboxes de los 3 Add-ons que calcula la RAM mínima sugerida y el desglose mensual + pago único en USD y COP dinámico (`aria-live="polite"`) con botón de orden directa a WhatsApp.
+  - **Vitrina Técnica Interactiva de Optimización "Llave en Mano" (`#optimizacion`):** Pestañas interactivas para los 7 juegos mostrando las configuraciones reales del kit `plantillas_kinetic/` aplicadas en cada entrega versus un hosting genérico sin configurar.
   - **3 Servicios Adicionales (`#addons`):** Monetización modular con límites sanos para trabajo pesado a medida o continuo: *Creación de Modpacks / Eventos a Medida* ($5.00 USD, pago único para armar, diseñar, combinar y testear un modpack propio desde cero), *Sysadmin Dedicado Mensual* ($6.00 USD/mes, administrador técnico de cabecera todo el mes para agregar/quitar mods o plugins constantemente, configurar permisos complejos, reparar crashes por ediciones manuales, gestionar wipes y mantenimiento continuo) e *IP Dedicada Exclusiva* ($4.00 USD/mes, puerto por defecto ej. 25565), cada uno con precios transparentes y CTA directo a WhatsApp.
   - **Hub Oficial de Discord y Comunidad (`#comunidad`):** Integración de Discord (`https://discord.gg/PhsZEfc4KE`) junto a WhatsApp como canal oficial de consultas pre-venta, atención de soporte técnico mediante sistema de tickets privados y punto de encuentro de la comunidad.
 - **Accesibilidad (WCAG 2.1 AA) y Compatibilidad:**

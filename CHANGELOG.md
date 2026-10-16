@@ -2,6 +2,32 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.9.1] - 2026-10-15 - Correcciones Responsive en index.html
+### Correcciones
+- **Navbar:** el menu horizontal completo se muestra solo desde el breakpoint `xl:` para evitar desbordes en pantallas medianas.
+- **Mobile-menu:** ahora con scroll interno y fondo opaco para mantener legibilidad.
+- **Cotizador interactivo:** se agrego `flex-wrap` para que los controles no se desborden en moviles.
+- **Vitrina:** se aplico `break-all` a textos largos (direcciones/IPs) para evitar overflow horizontal.
+
+## [1.9.0] - 2026-10-15 - 4-Pillar Full-Stack Operational Upgrade: CRM Sync, /admin Panel, Interactive Configurator & Showcase
+### Cambios y Mejoras
+- **Pilar 1 — Robustez del Backend, Base de Datos, Migraciones y Sincronización con Excel CRM:**
+  - **Aislamiento de Pytest y Persistencia Segura (`backend/app/core/db.py` y `backend/tests/conftest.py`):** Se configuró Pytest para utilizar un motor SQLite en memoria aislado (`sqlite://` con `StaticPool` y `app.dependency_overrides[get_db]`), impidiendo que la ejecución de pruebas borre los datos reales de `backend/consterna.db`. Se añadió `@event.listens_for(Engine, "connect")` para activar `PRAGMA foreign_keys=ON` en SQLite, `SQLModel.metadata.create_all(session.get_bind())` e inspección/auto-migración de columnas en `init_db`.
+  - **Enriquecimiento de Modelos CRM (`backend/app/models.py`) y Migración Inicial Real (`backend/app/alembic/versions/0794bc9fbf9f_initial_schema.py`):** Se ampliaron `Client` (`external_id`) y `Server` (`game`, `extra_service`, `currency`, `monthly_price`, `one_time_fee`, `host_cost_usd`, `payment_method`, `start_date`, `voice_port`, `notes`) con valores por defecto retrocompatibles y se reemplazaron los `pass` vacíos de la revisión inicial de Alembic por las operaciones reales `op.create_table` y `op.drop_table`.
+  - **Sincronización Idempotente (`Upsert`) y Homologación del Excel CRM (`backend/scripts/import_data.py` y `Control_Clientes_Consterna_V7_ENTERPRISE.xlsx`):** Se actualizaron mediante `openpyxl` las tablas de `'⚙️ Configuración'` y las fórmulas universales `VLOOKUP` de `'👥 Clientes Activos'` en el Excel local con los 5 planes (`4GB` a `16GB`), 3 Add-ons y 7 juegos oficiales, y se refactorizó `import_data.py` para realizar *upsert* idempotente con soporte multiserver por cliente, extracción de puerto de voz y repoblación segura de `backend/consterna.db`.
+  - **Infraestructura y API (`backend/app/api/routes/clients.py`, `backend/pyproject.toml`, `backend/Dockerfile`, `compose.yml`):** Se corrigió la validación de email duplicado en `POST /api/v1/clients/` para devolver `409 Conflict`, se declararon `pandas>=2.2.0` y `openpyxl>=3.1.2` en `pyproject.toml`, se corrigió `backend/Dockerfile` para copiar `./backend/scripts` a `/app/scripts` y `/app/backend/scripts`, y se añadió el servicio `frontend` (`nginx:alpine` en `8080:80`) en `compose.yml`.
+- **Pilar 2 — Automatización Operativa Diaria, Panel Web `/admin`, Pruebas y Monitoreo:**
+  - **Endpoints Operativos (`backend/app/api/routes/servers.py` y `backend/app/api/routes/utils.py`):**
+    - `GET /api/v1/servers/expiring?days=4`: Lista servidores próximos a vencer o vencidos con días restantes, semáforo (`🟢 Al Día`, `🟡 Cobrar Pronto`, `🔴 Vencido`) y enlace `wa.me` pre-llenado con normalización internacional de teléfonos (código 57).
+    - `GET /api/v1/servers/summary`: Resumen financiero de ingresos brutos USD/COP, costos de host USD, ganancia neta total y reparto societario **50/50 (Cristian & Víctor)**.
+    - `GET /api/v1/servers/{id}/delivery-message`: Generador automático del mensaje de entrega *"Llave en Mano"* con IP:Puerto, puerto de voz, panel Pterodactyl y optimizaciones aplicadas según el juego.
+    - `POST /api/v1/utils/sync-excel`: Sincronización bajo demanda con el Excel CRM desde la API.
+  - **Panel Web Operativo `/admin` (`backend/app/api/routes/admin_ui.py` y `backend/app/main.py`):** Interfaz web oscura (*glassmorphism*) autocontenida con login JWT, tarjetas KPI en vivo, tabla de clientes/servidores con semáforo de cobros, recordatorio WhatsApp a 1 clic, modal de acta de entrega *"Llave en Mano"* con copia robusta al portapapeles y botón de sincronización con Excel.
+  - **Cobertura Completa de Tests (`backend/tests/api/routes/test_clients.py` y `test_servers.py`):** Se añadieron 15 pruebas nuevas cubriendo CRUD de clientes/servidores, cascada `ON DELETE CASCADE`, `409 Conflict`, `/expiring`, `/summary`, `/delivery-message`, normalización telefónica, extracción de puertos de voz, `/sync-excel`, upsert multiserver y `/admin`, alcanzando **62 pruebas pasando al 100%**.
+- **Pilar 3 — Conversión Interactiva en la Landing Page (`index.html`):**
+  - **Recomendador de RAM + Cotizador "Arma tu Servidor" en Vivo (`#cotizador`):** Selector interactivo de los 7 juegos del catálogo, slider de jugadores (`2` a `30+`), nivel de mods y checkboxes de Add-ons con cálculo en tiempo real en USD y COP dinámico (`aria-live="polite"`, 100% ES5) y CTA directo a WhatsApp con el resumen exacto.
+  - **Vitrina Técnica Interactiva de Optimización "Llave en Mano" (`#optimizacion`):** Pestañas accesibles por juego mostrando las configuraciones reales del kit `plantillas_kinetic/` aplicadas en cada servidor frente a un hosting genérico sin configurar.
+
 ## [1.8.2] - 2026-10-12 - Professional Repository, Templates & Backend Directory Organization
 ### Cambios y Mejoras
 - **Reorganización Profesional de `plantillas_kinetic/`:**
