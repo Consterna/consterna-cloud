@@ -2,6 +2,55 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [1.9.3] - 2026-10-16 - Reestructuración SEO Integral, Pruning de Textos Repetitivos y Expansión a 10 Preguntas Frecuentes
+### Cambios y Mejoras
+- **Reestructuración de Metadatos y SEO On-Page (`index.html`):**
+  - **`<title>` & Meta Tags:** Se optimizó el título a *"Hosting de Minecraft y Servidores Gaming en Colombia | Consterna"*, junto con descripciones y palabras clave comerciales enfocadas en Ryzen 9 9950X, ping ~70ms y pagos con Nequi/PayPal.
+  - **Schema.org (JSON-LD):** Se implementó `@graph` unificado conteniendo entidad `Product` (valoración 4.9/5 sobre 142 reseñas, rango de precios $8.50 a $32.00 USD) y `FAQPage` enriquecida con las 10 preguntas y respuestas oficiales para capturar fragmentos enriquecidos (Rich Snippets).
+- **Navbar Limpia y Drawer Móvil:**
+  - Se compactó la navegación desktop y el menú móvil a 6 enlaces estratégicos esenciales (*Planes*, *Cotizador*, *Add-ons*, *Optimización*, *Pagos*, *FAQ*), manteniendo los accesos directos a Discord y WhatsApp.
+- **Hero Section Comercial y Reaseguros Clave:**
+  - H1 optimizado para intención de búsqueda transaccional y micro-badge de pago local en COP (`~$34.000 COP`).
+  - Tres insignias de confianza destacadas: *Entrega Llave en Mano (30–90 min)*, *Garantía de Satisfacción 48h* y *Soporte Humano Real (WhatsApp / Discord)*.
+  - Corrección de espaciado en micro-badge local a `mt-2` y normalización de IDs en tabs de optimización (`tab-btn-Project-Zomboid`, `tab-btn-Core-Keeper`) para cumplimiento estricto de HTML5 y `aria-labelledby` accesible.
+  - Idempotencia en navegación por enlaces internos y hash para acordeón de FAQs (`openFaq` y `checkFaqHash`).
+- **Fusión de Pilares de Valor (`#beneficios`):**
+  - Se eliminó la duplicidad entre la antigua barra de confianza y los beneficios, consolidando una cuadrícula de 4 pilares: *Ping Miami ~70–85ms*, *AMD Ryzen 9 9950X a 5.7 GHz*, *Entrega Llave en Mano* y *Backups Diarios + Protección Anti-DDoS*.
+- **Catálogo de Planes (`#planes`):**
+  - Se integró una franja superior de beneficios universales incluidos (Chunky, Voice Chat, anti-DDoS, backups, panel 24/7).
+  - Se reestructuraron las 5 tarjetas de planes (`4GB` a `16GB`) con 4 viñetas progresivas de capacidad real y pie de tarjeta conciso, preservando rigurosamente los IDs dinámicos de cotización TRM (`price-cop`, `price-cop-6`, `price-cop-8`, `price-cop-12`, `price-cop-16`).
+- **Cotizador (`#cotizador`) y Vitrina de Optimización (`#optimizacion`):**
+  - Se agregó micro-reaseguro de entrega y garantía bajo el botón principal de cotización por WhatsApp.
+  - Se limpió el objeto JavaScript `OPTIMIZATION_SHOWCASE`, reemplazando nombres crudos de archivos `.zip` y configuraciones internas por descripciones orientadas a beneficios reales para jugadores en los 7 títulos.
+- **Métodos de Pago (`#pagos`):**
+  - Se sustituyeron bloques de texto denso por badges visuales destacados para Colombia (Nequi, Nu Colombia, Bre-B, Bancolombia) e Internacional (PayPal, Tarjetas de Crédito/Débito) acompañados de franja de reaseguro de prepago mes a mes sin débitos automáticos.
+- **Expansión a 10 Preguntas Frecuentes (`#faq`):**
+  - Se añadieron 4 nuevas preguntas con sus respuestas completas en el acordeón accesible:
+    7. *¿Tienen garantía de satisfacción o devolución de dinero?* (Garantía 48h con 100% reembolso).
+    8. *¿Pueden migrar mi mundo actual desde Aternos, otro hosting o mi PC?* (Migración 100% gratuita).
+    9. *¿El chat de voz (Simple Voice Chat) y los puertos UDP tienen costo adicional?* (Puerto UDP dedicado incluido sin costo).
+    10. *¿Pueden entrar jugadores de Bedrock (celular/consola) y usuarios No-Premium?* (GeyserMC/Floodgate crossplay y autenticación segura No-Premium).
+
+## [1.9.2] - 2026-10-16 - Clarificación de Escalera de 3 Niveles y Desaturación Visual de la Landing Page
+### Cambios y Mejoras
+- **Clarificación de la Escalera de 3 Niveles de Servicio (`index.html`):**
+  - **Tarjeta Add-on #1 (`#addons`):** Se actualizó a *"Ensamble de Modpacks y Torneos a Medida"* ($5.00 USD / ~$20.000 COP • Pago Único), explicitando que el plan base ya incluye cualquier modpack público (CurseForge/Modrinth) y Voice Chat, y que este Add-on cubre el armado propio desde cero o la configuración previa de torneos estándar (FFA/border/vidas) sin staff en vivo.
+  - **Banner Dedicado de Nivel 3 (`#addons`):** Se incorporó un bloque destacado para *"Nivel 3 • Series Gigantescas y Eventos Extremos (Cotización Especial)"*, separando visualmente los torneos con streamers, clúster multi-server y árbitro técnico en vivo para evitar confusiones de alcance con el Add-on #1.
+  - **Cotizador Interactivo (`#cotizador`):** Se homologaron las etiquetas, fila de pago único y mensajes dinámicos de WhatsApp para reflejar el ensamble a medida.
+- **Desaturación Visual y Enfoque Comercial Directo (`index.html`):**
+  - **Limpieza de Ruido Técnico en Cotizador (`GAME_MATRIX`):** Se reemplazaron nombres crudos de archivos `.zip`, scripts y variables de motor (`DoLuaChecksum`, `servertest.ini`, `NetServerMaxTickRate=60`) por resúmenes comerciales orientados a beneficios del jugador.
+  - **Vitrina de Optimización (`#optimizacion`):** Se sustituyó el bloque de código de archivos de configuración crudos (`opt-files`) por un panel de entrega optimizada limpio y elegante con enlace directo hacia el FAQ técnico.
+  - **Barra de Confianza y Beneficios (`#beneficios`):** Se eliminó jerga innecesaria sobre intermediarios y partners en pantalla principal, enfocando el mensaje en procesadores Ryzen 9 9950X a 5.7 GHz, NVMe PCIe y entrega lista para jugar.
+  - **Nota al pie de Planes (`#planes`):** Se compactó el texto y se crearon enlaces directos e interactivos hacia las guías de niveles (`#faq-btn-2`) y memoria RAM (`#faq-btn-3`).
+- **Expansión y Traslado Técnico a Preguntas Frecuentes (`#faq`):**
+  - Se estructuraron 6 preguntas frecuentes en acordeón dinámico con accesibilidad ARIA completa y soporte de apertura por hash/función `openFaq(id)`:
+    1. *¿Cómo y cuándo me entregan el servidor?* (Llave en Mano personalizada en 30-90 min).
+    2. *¿Qué incluye mi mensualidad y cuándo necesito el Add-on de $5 USD o una cotización de evento grande?* (Desglose transparente de los 3 niveles con tarjetas visuales).
+    3. *¿Cómo sé cuánta memoria RAM necesita mi servidor y qué pasa si nos quedamos cortos?* (Guía por juego/mods/jugadores y escalabilidad inmediata sin perder datos).
+    4. *¿Qué optimizaciones aplican internamente y por qué no tengo lag?* (Desglose multijuego con configuraciones de Minecraft, Zomboid, Palworld, Rust, Valheim, Terraria y Core Keeper).
+    5. *¿Puedo cambiar de juego, instalar mis propios mods o descargar mis mapas?* (Panel 24/7, SFTP, cambio de plantillas y Sysadmin Dedicado mensual).
+    6. *¿Cómo funcionan los pagos y renovaciones? ¿Hay cobros automáticos a mi tarjeta?* (Cero débitos sorpresa, aviso previo de 4 días, Nequi/Nu Bre-B en Colombia a cero comisión y PayPal internacional).
+
 ## [1.9.1] - 2026-10-15 - Correcciones Responsive en index.html
 ### Correcciones
 - **Navbar:** el menu horizontal completo se muestra solo desde el breakpoint `xl:` para evitar desbordes en pantallas medianas.

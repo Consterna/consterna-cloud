@@ -39,7 +39,7 @@ La API estará disponible en `http://localhost:8000`, con documentación interac
 * `app/core/`: Configuración central (`config.py` leyendo `../.env`), conexión a base de datos (`db.py`) y seguridad JWT/Argon2 (`security.py`).
 * `app/alembic/`: Entorno y versiones de migraciones de esquema de base de datos (`versions/0794bc9fbf9f_initial_schema.py`).
 * `scripts/`: Scripts de utilidad para pre-arranque, pruebas, formateo (`ruff`), tipado (`mypy`) y migración/saneamiento de datos (`import_data.py`, `fix_emails.py`).
-* `tests/`: Suite de 47 pruebas automatizadas con `pytest` (`api/`, `crud/`, `scripts/`, `utils/`).
+* `tests/`: Suite de 62 pruebas automatizadas con `pytest` (`api/`, `crud/`, `scripts/`, `utils/`).
 
 ---
 
@@ -54,7 +54,7 @@ Desde el directorio `./backend/`:
 # 2. Verificación estricta de tipos (Mypy)
 .\venv\Scripts\mypy .
 
-# 3. Suite completa de pruebas unitarias e integración (47 tests)
+# 3. Suite completa de pruebas unitarias e integración (62 tests)
 .\venv\Scripts\pytest
 ```
 
@@ -80,6 +80,6 @@ El entorno de desarrollo utiliza **SQLite** (`consterna.db`, ignorado en Git) y 
 - Base de datos conectada con SQLite (listo para PostgreSQL).
 - Validadores estrictos (`Pydantic EmailStr` y `UUID`) corregidos.
 - Entorno Alembic iniciado (`0794bc9fbf9f_initial_schema.py`).
-- Pruebas E2E y unitarias exitosas (47/47 pasando — CRUD Usuarios/Clientes/Servidores).
-- Siguiente paso: Panel Administrativo Frontend.
+- Panel Administrativo `/admin` completamente operativo (KPIs financieros, semáforo de cobros, WhatsApp 1-clic, generador de acta *"Llave en Mano"* y sincronización con Excel CRM).
+- Pruebas E2E y unitarias exitosas (62/62 pasando — CRUD Usuarios/Clientes/Servidores, endpoints operativos y panel /admin).
 
