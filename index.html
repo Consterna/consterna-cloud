@@ -318,16 +318,18 @@
                 <span class="font-bold text-xl tracking-tight whitespace-nowrap">Consterna <span class="text-brand-cyan">Cloud</span></span>
             </a>
             <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center lg:space-x-4 xl:space-x-6">
+            <div class="hidden xl:flex items-center xl:space-x-3 2xl:space-x-5">
                 <a href="#beneficios" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Beneficios</a>
                 <a href="#planes" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Planes por RAM</a>
                 <a href="#addons" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Add-ons</a>
+                <a href="#cotizador" class="text-brand-cyan hover:text-white transition-colors text-sm font-semibold whitespace-nowrap">Cotizador RAM</a>
+                <a href="#optimizacion" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Optimización</a>
                 <a href="#pagos" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Métodos de Pago</a>
                 <a href="#faq" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">FAQ</a>
                 <a href="#comunidad" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium whitespace-nowrap">Comunidad</a>
             </div>
             <!-- CTAs -->
-            <div class="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <div class="hidden xl:flex items-center gap-2 flex-shrink-0">
                 <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-zinc-800 hover:bg-[#5865F2] text-zinc-400 hover:text-white border border-zinc-700 hover:border-[#5865F2] transition-all" title="Únete a nuestro Discord" aria-label="Únete a nuestro servidor de Discord">
                     <svg width="20" height="20" aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
                 </a>
@@ -337,7 +339,7 @@
                 </a>
             </div>
             <!-- Mobile menu button -->
-            <div class="lg:hidden flex items-center">
+            <div class="xl:hidden flex items-center">
                 <button id="mobile-menu-btn" aria-controls="mobile-menu" class="text-zinc-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 rounded-lg p-2 transition-all" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <svg width="24" height="24" aria-hidden="true" id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <svg width="24" height="24" aria-hidden="true" id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -346,21 +348,23 @@
         </div>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-zinc-800/50">
+    <div id="mobile-menu" class="hidden xl:hidden border-t border-zinc-800/50 bg-zinc-950/95 backdrop-blur-2xl max-h-[calc(100vh-5rem)] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
         <div class="px-4 pt-3 pb-5 space-y-2">
             <a href="#beneficios" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Beneficios</a>
             <a href="#planes" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Planes por RAM</a>
             <a href="#addons" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Add-ons</a>
+            <a href="#cotizador" class="block px-4 py-3 rounded-xl text-base font-semibold text-brand-cyan hover:text-white hover:bg-zinc-800/50 transition-colors">Cotizador Interactivo de RAM</a>
+            <a href="#optimizacion" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Vitrina de Optimización</a>
             <a href="#pagos" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Métodos de Pago</a>
             <a href="#faq" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">FAQ</a>
             <a href="#comunidad" class="block px-4 py-3 rounded-xl text-base font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">Comunidad</a>
             <div class="pt-3 border-t border-zinc-800/50 space-y-3">
                 <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-[#5865F2]/10 border border-[#5865F2]/30 hover:bg-[#5865F2]/20 transition-colors">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-[#5865F2]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
                     Únete a Discord
                 </a>
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Necesito%20asesor%C3%ADa%20o%20soporte%20t%C3%A9cnico%20para%20mi%20servidor." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-base font-semibold text-white bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 transition-colors">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Asesoría / Soporte
                 </a>
             </div>
@@ -400,13 +404,13 @@
             <div class="w-full sm:w-auto flex flex-col items-center">
                 <a href="#planes" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-zinc-950 bg-brand-cyan hover:bg-cyan-400 glow-cyan-btn shadow-lg shadow-brand-cyan/40 hover:scale-105 transition-transform">
                     Ver Planes y Precios
-                    <svg width="20" height="20" aria-hidden="true" class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="ml-2 w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                 </a>
                 <span class="text-xs text-zinc-400 mt-2 font-medium">Entrega llave en mano • Sin contratos</span>
             </div>
             <div class="w-full sm:w-auto flex flex-col items-center">
                 <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Quiero%20asesor%C3%ADa%20para%20montar%20un%20servidor." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 hover:border-[#25D366]/50 transition-all backdrop-blur-sm hover:scale-105">
-                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 mr-2 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
+                    <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 mr-2 flex-shrink-0 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
                     Asesoría en WhatsApp
                 </a>
                 <span class="text-xs text-zinc-400 mt-2 font-medium">10 AM a 10 PM (GMT-5) • También en <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="text-brand-cyan underline underline-offset-4 decoration-brand-cyan/60 hover:decoration-brand-cyan font-semibold">Discord</a></span>
@@ -416,15 +420,15 @@
         <!-- Trust Badges -->
         <div class="animate-slide-up-delay-3 mt-10 flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm font-semibold text-zinc-300">
             <span class="flex items-center gap-2">
-                <svg width="20" height="20" aria-hidden="true" class="text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                 Entregado 100% Configurado
             </span>
             <span class="flex items-center gap-2">
-                <svg width="20" height="20" aria-hidden="true" class="text-brand-violet" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-brand-violet" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                 Protección DDoS
             </span>
             <span class="flex items-center gap-2">
-                <svg width="20" height="20" aria-hidden="true" class="text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                <svg width="20" height="20" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
                 Infraestructura y Red 24/7
             </span>
         </div>
@@ -711,7 +715,7 @@
                 <h3 class="text-lg font-bold text-white mb-2 md:min-h-[3.5rem]">Creación de Modpacks / Eventos a Medida</h3>
                 <p class="text-sm text-zinc-400 mb-6 flex-1">Tu plan base ya incluye instalar cualquier modpack público existente. Contrata este Add-on si quieres que armemos, diseñemos, combinemos y testeemos desde cero un modpack personalizado o la configuración especial de un evento o serie a medida.</p>
                 <div class="pt-4 border-t border-zinc-800/80 mt-auto">
-                    <div class="flex items-baseline justify-between gap-2 mb-1">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                         <span class="text-2xl font-extrabold text-white whitespace-nowrap">$5.00 <span class="text-sm font-normal text-zinc-400">USD</span></span>
                         <span class="text-xs font-semibold uppercase tracking-wider text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0">Pago único</span>
                     </div>
@@ -731,7 +735,7 @@
                 <h3 class="text-lg font-bold text-white mb-2 md:min-h-[3.5rem]">Sysadmin Dedicado Mensual</h3>
                 <p class="text-sm text-zinc-400 mb-6 flex-1">Mientras tu plan base incluye la entrega configurada y soporte de estabilidad/arranque, este Add-on es para comunidades activas o series que quieren un administrador técnico de cabecera durante todo el mes para agregar/quitar mods o plugins constantemente, configurar permisos complejos, reparar crashes por ediciones manuales, gestionar wipes y mantenimiento continuo.</p>
                 <div class="pt-4 border-t border-zinc-800/80 mt-auto">
-                    <div class="flex items-baseline justify-between gap-2 mb-1">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                         <span class="text-2xl font-extrabold text-white whitespace-nowrap">$6.00 <span class="text-sm font-normal text-zinc-400">USD / mes</span></span>
                         <span class="text-xs font-semibold uppercase tracking-wider text-brand-violet bg-brand-violet/10 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0">Mensual</span>
                     </div>
@@ -751,7 +755,7 @@
                 <h3 class="text-lg font-bold text-white mb-2 lg:min-h-[3.5rem]">IP Dedicada Exclusiva</h3>
                 <p class="text-sm text-zinc-400 mb-6 flex-1">Obtén tu propia dirección IP exclusiva con puerto por defecto (ej. 25565) para conectarte directamente sin ingresar números de puerto adicionales.</p>
                 <div class="pt-4 border-t border-zinc-800/80 mt-auto">
-                    <div class="flex items-baseline justify-between gap-2 mb-1">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                         <span class="text-2xl font-extrabold text-white whitespace-nowrap">$4.00 <span class="text-sm font-normal text-zinc-400">USD / mes</span></span>
                         <span class="text-xs font-semibold uppercase tracking-wider text-zinc-300 bg-zinc-800 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0">Mensual</span>
                     </div>
@@ -766,26 +770,162 @@
     </div>
 </section>
 
-<!-- ==================== ADVISORY BANNER ==================== -->
-<section class="py-16 relative z-10 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/80 border border-brand-cyan/25 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden reveal">
+<!-- ==================== RAM RECOMMENDER & LIVE CONFIGURATOR (#cotizador) ==================== -->
+<section id="cotizador" class="py-20 relative z-10 overflow-hidden border-t border-zinc-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+            <p class="text-brand-cyan text-sm font-semibold uppercase tracking-widest mb-3">Asesoría Inteligente en Tiempo Real</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Recomendador de RAM + <span class="text-gradient">Arma tu Servidor</span></h2>
+            <p class="text-zinc-300 max-w-2xl mx-auto text-lg">Elige tu juego, el tamaño de tu grupo y los extras opcionales. Calculamos al instante el plan exacto, la plantilla pre-optimizada incluida y tu cotización en USD y COP.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800/90 border border-brand-cyan/30 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden reveal">
             <div class="absolute top-0 right-0 w-72 h-72 bg-brand-violet/15 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none" aria-hidden="true"></div>
             <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-cyan/15 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none" aria-hidden="true"></div>
 
-            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-                <div class="flex-1">
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">💬 ¿No estás seguro de cuánta RAM necesita tu servidor?</h2>
-                    <p class="text-zinc-300 text-base md:text-lg leading-relaxed">No malgastes dinero pagando memoria de más ni te arriesgues a que el servidor crashee en medio de una partida. Mándanos tu lista de mods o cuéntanos qué quieren jugar por <strong class="text-white">WhatsApp o Discord</strong> y te calculamos el plan justo.</p>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Controls Column -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <label for="calc-game" class="block text-sm font-bold text-white uppercase tracking-wider mb-2">1. Selecciona tu Videojuego (7 Oficiales)</label>
+                        <select id="calc-game" onchange="updateRamConfigurator()" class="w-full rounded-xl bg-zinc-950 border border-zinc-700 text-white px-4 py-3.5 text-base font-medium focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:border-brand-cyan transition-colors">
+                            <option value="Minecraft">Minecraft (Java: Paper / Purpur / Fabric / Forge / NeoForge)</option>
+                            <option value="Project Zomboid">Project Zomboid (Build 41 / 42 Coop &amp; Mods)</option>
+                            <option value="Palworld">Palworld (Dedicated Co-op &amp; Guilds)</option>
+                            <option value="Rust">Rust (Survival / Oxide / uMod)</option>
+                            <option value="Valheim">Valheim (Vanilla / BepInEx Plus)</option>
+                            <option value="Terraria">Terraria (Vanilla / TShock / Calamity)</option>
+                            <option value="Core Keeper">Core Keeper (Dedicated Underground Co-op)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="calc-scale" class="block text-sm font-bold text-white uppercase tracking-wider mb-2">2. Escala y Tipo de Servidor</label>
+                        <select id="calc-scale" onchange="updateRamConfigurator()" class="w-full rounded-xl bg-zinc-950 border border-zinc-700 text-white px-4 py-3.5 text-base font-medium focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:border-brand-cyan transition-colors">
+                            <option value="casual">Survival Casual / Vanilla (2–8 jugadores)</option>
+                            <option value="medium" selected>Comunidad Media / Mods Ligeros (8–15 jugadores)</option>
+                            <option value="heavy">Modpack Pesado / Serie de Streamers (15–30+ jugadores)</option>
+                        </select>
+                    </div>
+
+                    <fieldset class="border border-zinc-800 rounded-2xl p-4 sm:p-5 bg-zinc-950/60">
+                        <legend class="px-2 text-xs sm:text-sm font-bold text-brand-cyan uppercase tracking-wide">3. Add-ons Opcionales a Medida</legend>
+                        <div class="space-y-3 mt-2">
+                            <label for="calc-addon-modpack" class="flex items-start gap-3 cursor-pointer p-2 rounded-xl hover:bg-zinc-900/80 transition-colors">
+                                <input type="checkbox" id="calc-addon-modpack" onchange="updateRamConfigurator()" class="mt-1 w-4 h-4 rounded border-zinc-600 text-brand-cyan focus:ring-brand-cyan bg-zinc-900">
+                                <span class="text-sm text-zinc-200">
+                                    <strong class="text-white">Creación de Modpack / Evento a Medida</strong> (+$5.00 USD — Pago único)<br>
+                                    <span class="text-xs text-zinc-400">Diseñamos, combinamos y testeamos un modpack propio desde cero para tu serie.</span>
+                                </span>
+                            </label>
+                            <label for="calc-addon-sysadmin" class="flex items-start gap-3 cursor-pointer p-2 rounded-xl hover:bg-zinc-900/80 transition-colors">
+                                <input type="checkbox" id="calc-addon-sysadmin" onchange="updateRamConfigurator()" class="mt-1 w-4 h-4 rounded border-zinc-600 text-brand-cyan focus:ring-brand-cyan bg-zinc-900">
+                                <span class="text-sm text-zinc-200">
+                                    <strong class="text-white">Sysadmin Dedicado Mensual</strong> (+$6.00 USD / mes)<br>
+                                    <span class="text-xs text-zinc-400">Técnico de cabecera todo el mes para agregar/quitar mods, permisos y mantenimiento.</span>
+                                </span>
+                            </label>
+                            <label for="calc-addon-ip" class="flex items-start gap-3 cursor-pointer p-2 rounded-xl hover:bg-zinc-900/80 transition-colors">
+                                <input type="checkbox" id="calc-addon-ip" onchange="updateRamConfigurator()" class="mt-1 w-4 h-4 rounded border-zinc-600 text-brand-cyan focus:ring-brand-cyan bg-zinc-900">
+                                <span class="text-sm text-zinc-200">
+                                    <strong class="text-white">IP Dedicada Exclusiva</strong> (+$4.00 USD / mes)<br>
+                                    <span class="text-xs text-zinc-400">IP propia con puerto por defecto (ej. 25565) sin números adicionales.</span>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="flex-shrink-0 w-full md:w-auto flex flex-col sm:flex-row md:flex-col gap-3">
-                    <a href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20No%20s%C3%A9%20cu%C3%A1nta%20RAM%20necesito.%20Quiero%20jugar%20a:%20[juego]%20con%20[n%C3%BAmero]%20amigos%20y%20esta%20lista%20de%20mods:%20" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-zinc-900 bg-white hover:bg-zinc-100 shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all transform hover:scale-[1.03] gap-2 whitespace-nowrap">
-                        <svg width="24" height="24" aria-hidden="true" class="w-6 h-6 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
-                        Calcular mi plan exacto
-                    </a>
-                    <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-bold rounded-full text-white bg-[#5865F2] hover:bg-[#4752C4] shadow-[0_0_20px_rgba(88,101,242,0.35)] transition-all transform hover:scale-[1.03] gap-2 whitespace-nowrap">
-                        <svg width="22" height="22" aria-hidden="true" class="w-5 h-5 flex-shrink-0 text-white" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
-                        Consultar en Discord
+
+                <!-- Live Result Card -->
+                <div class="lg:col-span-5 bg-zinc-950/90 border-2 border-brand-cyan/60 rounded-2xl p-5 sm:p-7 shadow-xl" id="calc-live-region" aria-live="polite" aria-atomic="true">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full">Plan Recomendado</span>
+                        <span id="calc-rec-cores" class="text-xs font-semibold text-zinc-300">4 Cores Ryzen 9 9950X</span>
+                    </div>
+                    <h3 id="calc-rec-plan" class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Tier 8 GB</h3>
+                    <p id="calc-rec-reason" class="text-sm text-zinc-300 leading-relaxed mb-4">Ideal para Project Zomboid o Minecraft con 8–15 jugadores y mods de vehículos, mapas o calidad de vida sin caídas de TPS.</p>
+
+                    <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3.5 mb-5">
+                        <p class="text-xs font-bold uppercase tracking-wider text-brand-violet mb-1">📦 Plantilla "Llave en Mano" Incluida:</p>
+                        <p id="calc-rec-template" class="text-xs text-zinc-200 font-medium">Paper/Purpur 1.21 o Fabric + Lithium + FerriteCore + ModernFix + Simple Voice Chat + Mundo Pre-generado con Chunky.</p>
+                    </div>
+
+                    <div class="border-t border-zinc-800 pt-4 mb-6 space-y-2">
+                        <div class="flex flex-wrap justify-between items-baseline gap-1">
+                            <span class="text-sm text-zinc-300">Mensualidad Recurrente:</span>
+                            <div class="text-right ml-auto">
+                                <span id="calc-monthly-usd" class="text-2xl font-extrabold text-white">$16.00 USD</span>
+                                <span class="text-xs text-zinc-400">/mes</span>
+                                <p id="calc-monthly-cop" class="text-xs text-brand-cyan font-semibold">~$64.000 COP / mes</p>
+                            </div>
+                        </div>
+                        <div id="calc-onetime-row" class="hidden flex flex-wrap justify-between items-baseline gap-1 pt-2 border-t border-zinc-800/60">
+                            <span class="text-xs text-zinc-300">Pago Único (Modpack a Medida):</span>
+                            <div class="text-right ml-auto">
+                                <span id="calc-onetime-usd" class="text-sm font-bold text-brand-cyan">+$5.00 USD</span>
+                                <p id="calc-onetime-cop" class="text-xs text-zinc-400">~$20.000 COP (única vez)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <a id="calc-wa-cta" href="https://wa.me/573214118506?text=%C2%A1Hola%20Consterna%20Cloud!%20Arm%C3%A9%20mi%20servidor%20en%20el%20cotizador" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-5 rounded-xl font-bold text-center bg-brand-cyan hover:bg-cyan-400 text-zinc-950 transition-transform hover:scale-[1.02] shadow-lg shadow-brand-cyan/30 flex justify-center items-center gap-2 text-sm sm:text-base">
+                            <svg width="22" height="22" aria-hidden="true" class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-wa" xlink:href="#icon-wa"></use></svg>
+                            Pedir esta Configuración por WhatsApp
+                        </a>
+                        <a href="https://discord.gg/PhsZEfc4KE" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl font-semibold text-center text-sm text-white bg-[#5865F2]/20 hover:bg-[#5865F2]/35 border border-[#5865F2]/40 transition-colors flex justify-center items-center gap-2">
+                            <svg width="18" height="18" aria-hidden="true" class="w-4 h-4 flex-shrink-0 text-white" fill="currentColor" viewBox="0 0 24 24"><use href="#icon-discord" xlink:href="#icon-discord"></use></svg>
+                            Validar Lista de Mods en Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TECHNICAL OPTIMIZATION SHOWCASE (#optimizacion) ==================== -->
+<section id="optimizacion" class="py-20 relative z-10 border-t border-zinc-800/80 bg-zinc-950/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+            <p class="text-brand-violet text-sm font-semibold uppercase tracking-widest mb-3">Ingeniería Real Contra el Lag</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Vitrina de Optimización <span class="text-gradient">"Llave en Mano"</span></h2>
+            <p class="text-zinc-300 max-w-3xl mx-auto text-lg">No entregamos servidores vacíos por defecto. Conoce los ajustes exactos de nuestro Kit de 13 Plantillas Maestras que aplicamos antes de entregarte tu IP.</p>
+        </div>
+
+        <!-- Accessible Game Tabs -->
+        <div role="tablist" aria-label="Optimizaciones por videojuego" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 reveal">
+            <button type="button" role="tab" id="tab-btn-Minecraft" aria-selected="true" aria-controls="opt-panel" onclick="selectOptimizationTab('Minecraft')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-brand-cyan text-zinc-950 border-brand-cyan">⛏️ Minecraft</button>
+            <button type="button" role="tab" id="tab-btn-Project Zomboid" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Project Zomboid')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">🧟 Project Zomboid</button>
+            <button type="button" role="tab" id="tab-btn-Palworld" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Palworld')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">🐾 Palworld</button>
+            <button type="button" role="tab" id="tab-btn-Rust" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Rust')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">🛢️ Rust</button>
+            <button type="button" role="tab" id="tab-btn-Valheim" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Valheim')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">⚔️ Valheim</button>
+            <button type="button" role="tab" id="tab-btn-Terraria" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Terraria')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">🌳 Terraria</button>
+            <button type="button" role="tab" id="tab-btn-Core Keeper" aria-selected="false" aria-controls="opt-panel" onclick="selectOptimizationTab('Core Keeper')" class="opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50">💎 Core Keeper</button>
+        </div>
+
+        <!-- Showcase Panel -->
+        <div id="opt-panel" role="tabpanel" aria-labelledby="tab-btn-Minecraft" aria-live="polite" class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 border border-zinc-800 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2">
+                    <span id="opt-badge" class="inline-block text-xs font-bold uppercase tracking-wider text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-xl sm:rounded-full mb-3">7 Plantillas Especializadas (Paper 1.21 / 1.20.1 / Legacy, Purpur, Fabric, Forge/NeoForge y Velocity)</span>
+                    <h3 id="opt-title" class="text-2xl font-extrabold text-white mb-3">Minecraft Java: 20 TPS Estables y Mundo Pre-generado</h3>
+                    <p id="opt-desc" class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-5">Ajustamos profundamente bukkit.yml, spigot.yml, paper-world-defaults.yml y los mixins de Fabric/NeoForge para eliminar tirones al explorar, optimizar granjas técnicas y dejar Simple Voice Chat funcionando desde el minuto uno.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="opt-bullets">
+                        <div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200"><strong class="text-brand-cyan">✓ Stack Fabric/NeoForge:</strong> Lithium, FerriteCore, ModernFix, Krypton y C2ME pre-configurados.</div>
+                        <div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200"><strong class="text-brand-cyan">✓ Stack Paper/Purpur:</strong> Pre-generación con Chunky, diagnóstico Spark y Entity Activation Range afinado.</div>
+                        <div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200"><strong class="text-brand-cyan">✓ Audio Inmersivo:</strong> Puerto UDP dedicado y codec configurado para Simple Voice Chat.</div>
+                        <div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200"><strong class="text-brand-cyan">✓ Redes y Proxies:</strong> Soporte para Velocity Proxy con Modern Forwarding seguro.</div>
+                    </div>
+                </div>
+                <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-brand-violet mb-2">⚙️ Archivos de Plantilla Aplicados</p>
+                        <code id="opt-files" class="block text-xs text-cyan-300 bg-zinc-900 p-3 rounded-xl border border-zinc-800 leading-relaxed mb-4 break-all">server.properties, paper-world-defaults.yml, purpur.yml, lithium.properties, ferritecore.mixin.properties, voicechat-server.properties</code>
+                        <p class="text-xs text-zinc-400 leading-relaxed" id="opt-impact">Resultado en LATAM: Ping ~70–85ms vía Miami, reducción de hasta 45% en consumo de RAM por entidades y cero congelamientos al volar con Elytras.</p>
+                    </div>
+                    <a href="#cotizador" class="mt-5 w-full py-3 px-4 rounded-xl font-bold text-center text-sm bg-zinc-800 hover:bg-brand-cyan hover:text-zinc-950 text-white transition-colors block">
+                        Cotizar este Juego Arriba ↑
                     </a>
                 </div>
             </div>
@@ -1136,6 +1276,7 @@
 
         function updateAllPrices(trm) {
             var validTrm = (typeof trm === 'number' && isFinite(trm) && trm > 0) ? trm : null;
+            window.currentRate = validTrm ? Math.max(validTrm, 4000) : 4000;
             for (var i = 0; i < tiers.length; i++) {
                 var el = document.getElementById(tiers[i].id);
                 if (el) {
@@ -1155,6 +1296,9 @@
                         waBtn.href = waBtn.href.replace(/\$[\d\.]+(?:%20|\s)COP/, '$' + formatPrice(finalPrice) + '%20COP');
                     }
                 }
+            }
+            if (typeof window.updateRamConfigurator === 'function') {
+                window.updateRamConfigurator();
             }
         }
 
@@ -1215,6 +1359,312 @@
             loadPrice();
         }
     })();
+</script>
+<script>
+    // ========== ES5 Interactive RAM Recommender + Live Quote Calculator & 7-Game Optimization Showcase ==========
+    var currentRate = window.currentRate || 4000;
+
+    var PLAN_CATALOG = {
+        '4GB':  { name: 'Tier 4 GB', usd: 8.50, fallbackCop: 34000, cores: '2 Cores Ryzen 9 9950X (5.7 GHz)' },
+        '6GB':  { name: 'Tier 6 GB', usd: 12.50, fallbackCop: 50000, cores: '3 Cores Ryzen 9 9950X (5.7 GHz)' },
+        '8GB':  { name: 'Tier 8 GB', usd: 16.00, fallbackCop: 64000, cores: '4 Cores Ryzen 9 9950X (5.7 GHz)' },
+        '12GB': { name: 'Tier 12 GB', usd: 24.00, fallbackCop: 96000, cores: '5 Cores Ryzen 9 9950X (5.7 GHz)' },
+        '16GB': { name: 'Tier 16 GB Dedicado', usd: 32.00, fallbackCop: 128000, cores: '6 Cores DEDICADOS Ryzen 9 9950X (5.7 GHz)' }
+    };
+
+    var GAME_MATRIX = {
+        'Minecraft': {
+            template: 'Paper/Purpur 1.21 o Fabric/NeoForge + Lithium + FerriteCore + ModernFix + Simple Voice Chat + Chunky.',
+            casual: { plan: '4GB', reason: 'Perfecto para Survival Vanilla o Paper 1.21 con 2 a 8 amigos y mundo pre-generado sin tirones.' },
+            medium: { plan: '6GB', reason: 'El punto dulce para Minecraft con Simple Voice Chat y 25–50 mods de aventura o plugins.' },
+            heavy:  { plan: '12GB', reason: 'Ideal para modpacks pesados (All The Mods, Create, Cobblemon, 150+ mods) o series de 15–30 jugadores.' }
+        },
+        'Project Zomboid': {
+            template: 'Plantilla-Zomboid-Coop-LATAM.zip (servertest.ini + SandboxVars anti-lag vehicular + DoLuaChecksum).',
+            casual: { plan: '6GB', reason: 'Recomendado para supervivencia cooperativa en Kentucky (2–8 amigos) con carga fluida de mapa.' },
+            medium: { plan: '8GB', reason: 'Ideal para Zomboid con mods de vehículos, armas (Brita) y mapas adicionales sin desincronización.' },
+            heavy:  { plan: '12GB', reason: 'Potencia sobrada para comunidades de rol o supervivencia de 15–25 sobrevivientes y +100 mods de Workshop.' }
+        },
+        'Palworld': {
+            template: 'Plantilla-Palworld-Optimizado.zip (Engine.ini NetServerMaxTickRate=60 + PalWorldSettings.ini afinado).',
+            casual: { plan: '8GB', reason: 'Base mínima sólida para Palworld cooperativo (2–6 jugadores) evitando cierres por uso de memoria en bases.' },
+            medium: { plan: '12GB', reason: 'Recomendado para clanes activos con múltiples bases automatizadas de Pals y exploración simultánea.' },
+            heavy:  { plan: '16GB', reason: '6 Cores dedicados y 16 GB RAM para comunidades grandes de Palworld a 60 TickRate constantes.' }
+        },
+        'Rust': {
+            template: 'Plantilla-Rust-Optimizado.zip (server.cfg con GC Buffer 2048/4096 + soporte Oxide / uMod).',
+            casual: { plan: '8GB', reason: 'Adecuado para servidores privados o mapas pequeños (3000–3500 seed) de práctica y PvE.' },
+            medium: { plan: '12GB', reason: 'Ideal para servidores comunitarios con plugins Oxide/uMod y mapas medianos sin pausas de Garbage Collector.' },
+            heavy:  { plan: '16GB', reason: 'Máximo rendimiento con 6 Cores dedicados Ryzen 9 9950X para wipes intensos, PvP y alto conteo de entidades.' }
+        },
+        'Valheim': {
+            template: 'Plantilla-Valheim-Optimizado.zip (start_server_consterna.sh + BepInEx + ServerSync pre-listo).',
+            casual: { plan: '4GB', reason: 'Excelente para expediciones vikingas Vanilla de 2 a 8 amigos con guardado automático seguro.' },
+            medium: { plan: '6GB', reason: 'Ideal para Valheim con BepInEx, Valheim Plus y construcciones grandes sin lag de red.' },
+            heavy:  { plan: '8GB', reason: 'Para clanes de +10 vikingos con modpacks de biomas/criaturas y sincronización ServerSync.' }
+        },
+        'Terraria': {
+            template: 'Plantilla-Terraria-Optimizado.zip (serverconfig.txt NPCStream=60 + soporte TShock / tModLoader).',
+            casual: { plan: '4GB', reason: 'Sobra potencia para Terraria Vanilla o TShock de 2 a 10 jugadores con cero latencia en jefes.' },
+            medium: { plan: '6GB', reason: 'Ideal para tModLoader con Calamity Mod o Thorium en cooperativo fluido.' },
+            heavy:  { plan: '8GB', reason: 'Para mundos grandes con Calamity Infernum + múltiples mods de contenido y eventos simultáneos.' }
+        },
+        'Core Keeper': {
+            template: 'Plantilla-CoreKeeper-Optimizado.zip (ServerConfig.json dedicado + backups diarios).',
+            casual: { plan: '4GB', reason: 'Perfecto para explorar el subsuelo de 2 a 8 jugadores con conexión directa por Game ID.' },
+            medium: { plan: '6GB', reason: 'Para mundos extensos con granjas automatizadas, raíles e iluminación masiva.' },
+            heavy:  { plan: '8GB', reason: 'Máxima holgura para sesiones maratónicas con mods y múltiples jefes activos.' }
+        }
+    };
+
+    var OPTIMIZATION_SHOWCASE = {
+        'Minecraft': {
+            badge: '7 Plantillas Especializadas (Paper 1.21 / 1.20.1 / Legacy, Purpur, Fabric, Forge/NeoForge y Velocity)',
+            title: 'Minecraft Java: 20 TPS Estables y Mundo Pre-generado',
+            desc: 'Ajustamos profundamente bukkit.yml, spigot.yml, paper-world-defaults.yml y los mixins de Fabric/NeoForge para eliminar tirones al explorar, optimizar granjas técnicas y dejar Simple Voice Chat funcionando desde el minuto uno.',
+            bullets: [
+                'Stack Fabric/NeoForge: Lithium, FerriteCore, ModernFix, Krypton y C2ME pre-configurados.',
+                'Stack Paper/Purpur: Pre-generación con Chunky, diagnóstico Spark y Entity Activation Range afinado.',
+                'Audio Inmersivo: Puerto UDP dedicado y codec configurado para Simple Voice Chat.',
+                'Redes y Proxies: Soporte para Velocity Proxy con Modern Forwarding seguro.'
+            ],
+            files: 'server.properties, paper-world-defaults.yml, purpur.yml, lithium.properties, ferritecore.mixin.properties, voicechat-server.properties',
+            impact: 'Resultado en LATAM: Ping ~70–85ms vía Miami, reducción de hasta 45% en consumo de RAM por entidades y cero congelamientos al volar con Elytras.'
+        },
+        'Project Zomboid': {
+            badge: 'Plantilla-Zomboid-Coop-LATAM.zip (Build 41 / Build 42)',
+            title: 'Project Zomboid: Anti-Lag Vehicular y Sincronización de Hordas',
+            desc: 'Configuramos servertest.ini y servertest_SandboxVars.lua específicamente para conexiones desde Latinoamérica, evitando el temido rebote o teletransporte al conducir vehículos con amigos.',
+            bullets: [
+                'Red y Vehículos: Ajuste de PhysicsDelay y límites de velocidad para evitar desincronización en carretera.',
+                'Steam Workshop: Instalación y orden de carga validado para mapas (Raven Creek, Louisville) y packs de armas.',
+                'Anti-Corrupción: Guardado periódico seguro (SaveWorldEveryMinutes) + backups diarios.',
+                'Acceso Rápido: Ajuste opcional de DoLuaChecksum para facilitar entrada con mods actualizados.'
+            ],
+            files: 'servertest.ini, servertest_SandboxVars.lua, MODS_RECOMENDADOS_ZOMBOID.txt',
+            impact: 'Resultado en LATAM: Conducción cooperativa fluida sin cajas negras de carga de mapa ni caídas de servidor ante hordas masivas.'
+        },
+        'Palworld': {
+            badge: 'Plantilla-Palworld-Optimizado.zip (Unreal Engine 5 Dedicated)',
+            title: 'Palworld: NetServerMaxTickRate 60 y Estabilidad de Memoria',
+            desc: 'Por defecto Palworld corre a un tickrate bajo y sufre fugas de memoria. Desbloqueamos el rendimiento de red en Engine.ini para combates y trabajo de Pals fluidos.',
+            bullets: [
+                'Tickrate 60 Hz: NetServerMaxTickRate=60 y LanServerMaxTickRate=60 en Engine.ini.',
+                'Multihilo Activo: bUseMultiThreadForDS habilitado aprovechando los núcleos Ryzen 9 9950X.',
+                'Ancho de Banda: MaxInternetClientRate elevado a 104857600 para evitar rubberbanding.',
+                'Reinicio Preventivo: Tareas programadas en el panel para mantener la RAM limpia 24/7.'
+            ],
+            files: 'Engine.ini, PalWorldSettings.ini, MODS_RECOMENDADOS_PALWORLD.txt',
+            impact: 'Resultado en LATAM: IA de Pals reactiva en bases grandes, esquives precisos contra jefes y cero crasheos por saturación de RAM.'
+        },
+        'Rust': {
+            badge: 'Plantilla-Rust-Optimizado.zip (Vanilla / Oxide / uMod)',
+            title: 'Rust: Garbage Collector Buffer 2048+ y Cero Stutter en PvP',
+            desc: 'Afinamos las variables internas de Unity y red en server.cfg para eliminar los micro-congelamientos cuando el servidor limpia memoria durante enfrentamientos.',
+            bullets: [
+                'GC Buffer Extendido: gc.buffer 2048 / 4096 para espaciar recolecciones de basura sin tirones.',
+                'Tickrate y Entidades: server.tickrate 30 estable con límite de ciclos de plantas e IA optimizado.',
+                'Ecosistema Oxide/uMod: Listo para instalar plugins de clanes, kits, economía o tasas x2/x5.',
+                'Anti-DDoS Gaming: Filtrado de capa de aplicación para proteger tus wipes.'
+            ],
+            files: 'server/rust/cfg/server.cfg, PLUGINS_RECOMENDADOS_RUST.txt',
+            impact: 'Resultado en LATAM: Registro de disparos consistente (~70–85ms), guardados de mapa rápidos en NVMe PCIe y estabilidad todo el wipe.'
+        },
+        'Valheim': {
+            badge: 'Plantilla-Valheim-Optimizado.zip (Vanilla & BepInEx)',
+            title: 'Valheim: Desbloqueo de Tasa de Envío Cooperativo y BepInEx',
+            desc: 'Valheim limita por defecto el tráfico de red a 64 KB/s causando lag cuando se reúnen varios vikingos. Incluimos configuración lista para expandir el ancho de banda y sincronizar mods.',
+            bullets: [
+                'BepInEx + ServerSync: Sincronización automática de configuraciones entre servidor y clientes.',
+                'Red Mejorada: Soporte para BetterNetworking duplicando o triplicando la cola de envío.',
+                'Listas de Control: adminlist.txt, permittedlist.txt y bannedlist.txt pre-estructurados.',
+                'Crossplay Opcional: Configuración limpia con o sin PlayFab según prefiera tu grupo.'
+            ],
+            files: 'start_server_consterna.sh, adminlist.txt, permittedlist.txt, MODS_RECOMENDADOS_VALHEIM.txt',
+            impact: 'Resultado en LATAM: Navegación en barco y combates contra jefes sin desincronización de posición entre compañeros.'
+        },
+        'Terraria': {
+            badge: 'Plantilla-Terraria-Optimizado.zip (Vanilla / TShock / tModLoader)',
+            title: 'Terraria: NPCStream 60 y Fluidez en Jefes Bullet-Hell',
+            desc: 'Optimizamos la frecuencia de sincronización de proyectiles y NPCs en serverconfig.txt para que combates intensos como Calamity o Empress of Light corran sin teletransportes.',
+            bullets: [
+                'NPCStream Afinado: Balance exacto de paquetes para reducir lag de enemigos en pantalla.',
+                'Soporte TShock / tModLoader: Listo para comandos de protección, regiones anti-grief o Calamity Mod.',
+                'Mundo Persistente: Autoguardado y copias de seguridad diarias del archivo .wld.',
+                'Asignación Prioritaria: Hilos de alta frecuencia (5.7 GHz) ideales para el motor de Terraria.'
+            ],
+            files: 'serverconfig.txt, MODS_Y_PLUGINS_RECOMENDADOS_TERRARIA.txt',
+            impact: 'Resultado en LATAM: Esquives precisos en modo Maestro/Infernum y carga instantánea de sectores del mapa.'
+        },
+        'Core Keeper': {
+            badge: 'Plantilla-CoreKeeper-Optimizado.zip (Dedicated Server)',
+            title: 'Core Keeper: Conexión Directa por Game ID y Mundo 24/7',
+            desc: 'Configuramos ServerConfig.json para que cualquier miembro de tu grupo pueda entrar al bioma subterráneo a cualquier hora sin depender de que el anfitrión tenga su PC encendida.',
+            bullets: [
+                'Game ID Directo: Acceso inmediato desde el menú del juego sin configurar VPNs ni Hamachi.',
+                'Eventos Estacionales: Parametrización de temporada, dificultad y ranuras de jugadores.',
+                'Persistencia NVMe: Guardado ultrarrápido de circuitos, taladros y bases extensas.',
+                'Backups Diarios: Respaldo automático de tu mundo para proteger cientos de horas de progreso.'
+            ],
+            files: 'ServerConfig.json, MODS_RECOMENDADOS_CORE_KEEPER.txt',
+            impact: 'Resultado en LATAM: Cero desconexiones de host y latencia baja constante para hasta 8+ exploradores simultáneos.'
+        }
+    };
+
+    function formatCopNumber(num) {
+        return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function calcCopFromUsd(usdAmount, fallbackCop) {
+        var rate = (typeof window.currentRate === 'number' && isFinite(window.currentRate) && window.currentRate > 0) ? window.currentRate : 4000;
+        var raw = usdAmount * rate;
+        var rounded = Math.ceil(raw / 100) * 100;
+        return Math.max(rounded, fallbackCop);
+    }
+
+    function updateRamConfigurator() {
+        var gameEl = document.getElementById('calc-game');
+        var scaleEl = document.getElementById('calc-scale');
+        if (!gameEl || !scaleEl) return;
+
+        var game = gameEl.value || 'Minecraft';
+        var scale = scaleEl.value || 'medium';
+        var addonModpack = document.getElementById('calc-addon-modpack');
+        var addonSysadmin = document.getElementById('calc-addon-sysadmin');
+        var addonIp = document.getElementById('calc-addon-ip');
+
+        var hasModpack = addonModpack && addonModpack.checked;
+        var hasSysadmin = addonSysadmin && addonSysadmin.checked;
+        var hasIp = addonIp && addonIp.checked;
+
+        var gameData = GAME_MATRIX[game] || GAME_MATRIX['Minecraft'];
+        var scaleData = gameData[scale] || gameData.medium;
+        var planInfo = PLAN_CATALOG[scaleData.plan] || PLAN_CATALOG['8GB'];
+
+        var monthlyUsd = planInfo.usd;
+        var monthlyFallbackCop = planInfo.fallbackCop;
+        var selectedAddons = [];
+
+        if (hasSysadmin) {
+            monthlyUsd += 6.00;
+            monthlyFallbackCop += 24000;
+            selectedAddons.push('Sysadmin Dedicado Mensual (+$6 USD/mes)');
+        }
+        if (hasIp) {
+            monthlyUsd += 4.00;
+            monthlyFallbackCop += 16000;
+            selectedAddons.push('IP Dedicada Exclusiva (+$4 USD/mes)');
+        }
+
+        var oneTimeUsd = hasModpack ? 5.00 : 0.00;
+        var oneTimeCop = hasModpack ? calcCopFromUsd(5.00, 20000) : 0;
+        if (hasModpack) {
+            selectedAddons.push('Creación de Modpack/Evento a Medida (+$5 USD pago único)');
+        }
+
+        var monthlyCop = calcCopFromUsd(monthlyUsd, monthlyFallbackCop);
+
+        var elPlan = document.getElementById('calc-rec-plan');
+        var elCores = document.getElementById('calc-rec-cores');
+        var elReason = document.getElementById('calc-rec-reason');
+        var elTemplate = document.getElementById('calc-rec-template');
+        var elMonthlyUsd = document.getElementById('calc-monthly-usd');
+        var elMonthlyCop = document.getElementById('calc-monthly-cop');
+        var elOnetimeRow = document.getElementById('calc-onetime-row');
+        var elOnetimeUsd = document.getElementById('calc-onetime-usd');
+        var elOnetimeCop = document.getElementById('calc-onetime-cop');
+        var elWaCta = document.getElementById('calc-wa-cta');
+
+        if (elPlan) elPlan.textContent = planInfo.name;
+        if (elCores) elCores.textContent = planInfo.cores;
+        if (elReason) elReason.textContent = scaleData.reason;
+        if (elTemplate) elTemplate.textContent = gameData.template;
+        if (elMonthlyUsd) elMonthlyUsd.textContent = '$' + monthlyUsd.toFixed(2) + ' USD';
+        if (elMonthlyCop) elMonthlyCop.textContent = '~$' + formatCopNumber(monthlyCop) + ' COP / mes';
+
+        if (elOnetimeRow) {
+            if (hasModpack) {
+                elOnetimeRow.classList.remove('hidden');
+                if (elOnetimeUsd) elOnetimeUsd.textContent = '+$' + oneTimeUsd.toFixed(2) + ' USD';
+                if (elOnetimeCop) elOnetimeCop.textContent = '~$' + formatCopNumber(oneTimeCop) + ' COP (única vez)';
+            } else {
+                elOnetimeRow.classList.add('hidden');
+            }
+        }
+
+        var scaleLabel = scaleEl.options[scaleEl.selectedIndex] ? scaleEl.options[scaleEl.selectedIndex].text : scale;
+        var addonsText = selectedAddons.length > 0 ? selectedAddons.join(', ') : 'Ninguno (Solo Host Llave en Mano)';
+        var waMsg = '¡Hola Consterna Cloud! ☁️ Armé mi servidor en el cotizador web:\n' +
+            '• Juego: ' + game + '\n' +
+            '• Escala: ' + scaleLabel + '\n' +
+            '• Plan Recomendado: ' + planInfo.name + '\n' +
+            '• Add-ons: ' + addonsText + '\n' +
+            '• Mensualidad estimada: $' + monthlyUsd.toFixed(2) + ' USD (~$' + formatCopNumber(monthlyCop) + ' COP)' +
+            (hasModpack ? '\n• Pago único Modpack a Medida: +$5.00 USD (~$' + formatCopNumber(oneTimeCop) + ' COP)' : '') +
+            '\n¿Me ayudan a activarlo?';
+
+        if (elWaCta) {
+            elWaCta.href = 'https://wa.me/573214118506?text=' + encodeURIComponent(waMsg);
+        }
+    }
+
+    function selectOptimizationTab(gameName) {
+        var data = OPTIMIZATION_SHOWCASE[gameName];
+        if (!data) return;
+
+        var tabs = document.querySelectorAll('.opt-tab-btn');
+        for (var i = 0; i < tabs.length; i++) {
+            var btn = tabs[i];
+            var isTarget = (btn.id === 'tab-btn-' + gameName);
+            btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+            if (isTarget) {
+                btn.className = 'opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-brand-cyan text-zinc-950 border-brand-cyan';
+            } else {
+                btn.className = 'opt-tab-btn px-4 py-2.5 rounded-xl text-sm font-bold border transition-all bg-zinc-900 text-zinc-300 border-zinc-700 hover:border-brand-cyan/50';
+            }
+        }
+
+        var panel = document.getElementById('opt-panel');
+        if (panel) panel.setAttribute('aria-labelledby', 'tab-btn-' + gameName);
+
+        var elBadge = document.getElementById('opt-badge');
+        var elTitle = document.getElementById('opt-title');
+        var elDesc = document.getElementById('opt-desc');
+        var elBullets = document.getElementById('opt-bullets');
+        var elFiles = document.getElementById('opt-files');
+        var elImpact = document.getElementById('opt-impact');
+
+        if (elBadge) elBadge.textContent = data.badge;
+        if (elTitle) elTitle.textContent = data.title;
+        if (elDesc) elDesc.textContent = data.desc;
+        if (elFiles) elFiles.textContent = data.files;
+        if (elImpact) elImpact.textContent = data.impact;
+
+        if (elBullets && data.bullets) {
+            var htmlParts = [];
+            for (var b = 0; b < data.bullets.length; b++) {
+                var item = data.bullets[b];
+                var colonIdx = item.indexOf(':');
+                if (colonIdx !== -1) {
+                    var head = item.substring(0, colonIdx + 1);
+                    var rest = item.substring(colonIdx + 1);
+                    htmlParts.push('<div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200"><strong class="text-brand-cyan">✓ ' + head + '</strong>' + rest + '</div>');
+                } else {
+                    htmlParts.push('<div class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3.5 text-sm text-zinc-200">✓ ' + item + '</div>');
+                }
+            }
+            elBullets.innerHTML = htmlParts.join('');
+        }
+    }
+
+    window.updateRamConfigurator = updateRamConfigurator;
+    window.selectOptimizationTab = selectOptimizationTab;
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateRamConfigurator);
+    } else {
+        updateRamConfigurator();
+    }
 </script>
 </body>
 </html>
